@@ -1,5 +1,9 @@
-<span style="color:black;background-color:#eeeeee;padding:5px;margin:5px">HTML5</span><span style="color:black;background-color:#eeeeee;padding:5px;margin:5px">PHP</span><span style="color:black;background-color:#eeeeee;padding:5px;margin:5px">MySQL</span><span style="color:black;background-color:#eeeeee;padding:5px;margin:5px">Bootstrap</span><span style="color:black;background-color:#eeeeee;padding:5px;margin:5px">Responsive design</span><span style="color:black;background-color:#eeeeee;padding:5px;margin:5px">Flex</span><span style="color:black;background-color:#eeeeee;padding:5px;margin:5px">Git</span><span style="color:black;background-color:#eeeeee;padding:5px;margin:5px">JavaScript</span><span style="color:black;background-color:#eeeeee;padding:5px;margin:5px">JSON</span><span style="color:black;background-color:#eeeeee;padding:5px;margin:5px">UX</span><span style="color:black;background-color:#eeeeee;padding:5px;margin:5px">UI</span><span style="color:black;background-color:#eeeeee;padding:5px;margin:5px">CSS3</span><span style="color:black;background-color:#eeeeee;padding:5px;margin:5px">Pédagogie active</span><span style="color:black;background-color:#eeeeee;padding:5px;margin:5px">Brief</span><span style="color:black;background-color:#eeeeee;padding:5px;margin:5px">Project</span>
-<span style="color:black;background-color:#eeeeee;padding:5px">UML</span>
+```css
+   span{
+    color:red;
+   }
+```
+<span>HTML5</span><span>PHP</span><span>MySQL</span><span>Bootstrap</span><span>Responsive design</span><span>Flex</span><span>Git</span><span>JavaScript</span><span>JSON</span><span>UX</span><span>UI</span><span>CSS3</span><span>Pédagogie active</span><span>Brief</span><span>Project</span><span>UML</span>
 
 # Application-de-gestion-d-cole
 Une école privée souhaite informatiser son système de gestion. Elle vous a contacté  pour réaliser une application répondant à ses besoins.
