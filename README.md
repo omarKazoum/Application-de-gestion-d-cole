@@ -1,3 +1,6 @@
+<span style="color:black;background-color:#eeeeee;padding:5px;margin:5px">HTML5</span><span style="color:black;background-color:#eeeeee;padding:5px;margin:5px">PHP</span><span style="color:black;background-color:#eeeeee;padding:5px;margin:5px">MySQL</span><span style="color:black;background-color:#eeeeee;padding:5px;margin:5px">Bootstrap</span><span style="color:black;background-color:#eeeeee;padding:5px;margin:5px">Responsive design</span><span style="color:black;background-color:#eeeeee;padding:5px;margin:5px">Flex</span><span style="color:black;background-color:#eeeeee;padding:5px;margin:5px">Git</span><span style="color:black;background-color:#eeeeee;padding:5px;margin:5px">JavaScript</span><span style="color:black;background-color:#eeeeee;padding:5px;margin:5px">JSON</span><span style="color:black;background-color:#eeeeee;padding:5px;margin:5px">UX</span><span style="color:black;background-color:#eeeeee;padding:5px;margin:5px">UI</span><span style="color:black;background-color:#eeeeee;padding:5px;margin:5px">CSS3</span><span style="color:black;background-color:#eeeeee;padding:5px;margin:5px">Pédagogie active</span><span style="color:black;background-color:#eeeeee;padding:5px;margin:5px">Brief</span><span style="color:black;background-color:#eeeeee;padding:5px;margin:5px">Project</span>
+<span style="color:black;background-color:#eeeeee;padding:5px">UML</span>
+
 # Application-de-gestion-d-cole
 Une école privée souhaite informatiser son système de gestion. Elle vous a contacté  pour réaliser une application répondant à ses besoins.
 Contexte du projet
@@ -33,5 +36,4 @@ class d’étudiant.
 le nombre de class.
 le nombre de professeurs.
 ## Partie de recherche
-
 Un Administrateur peut : faire des recherches spécifiques sur tous les apprenants, les professeurs et les parents enregistrés dans le système, via Dashboard.
