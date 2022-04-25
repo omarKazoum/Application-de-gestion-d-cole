@@ -1,10 +1,3 @@
-```css
-   span{
-    color:red;
-   }
-```
-<span>HTML5</span><span>PHP</span><span>MySQL</span><span>Bootstrap</span><span>Responsive design</span><span>Flex</span><span>Git</span><span>JavaScript</span><span>JSON</span><span>UX</span><span>UI</span><span>CSS3</span><span>Pédagogie active</span><span>Brief</span><span>Project</span><span>UML</span>
-
 # Application-de-gestion-d-cole
 Une école privée souhaite informatiser son système de gestion. Elle vous a contacté  pour réaliser une application répondant à ses besoins.
 Contexte du projet
