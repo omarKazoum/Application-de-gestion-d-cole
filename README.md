@@ -1,4 +1,4 @@
-# Application-de-gestion-d-cole
+# Application de gestion d'école
 Une école privée souhaite informatiser son système de gestion. Elle vous a contacté  pour réaliser une application répondant à ses besoins.
 Contexte du projet
 Une école privée souhaite informatiser son système de gestion. Elle contacter moi pour réaliser une application répondant à ses besoins. Voici les fonctionnalitées du système de point de vue utilisateur :
