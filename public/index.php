@@ -1,6 +1,6 @@
 <?php
 require_once "../autoloader.php";
-use router\Router;
+use core\Router;
 require_once '../router/routes.php';
 Router::processIncomingRequest();
 ?>

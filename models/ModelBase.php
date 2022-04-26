@@ -32,19 +32,30 @@ abstract class ModelBase
         $this->id = $id;
     }
     /**
-     * updates the current object to the database adds it if it does not already exist
+     * must override this method
+     * updates the current object in the database
      * @return void
      */
     public abstract function update();
     public function delete(){
         return self::$db_manager->getConnection()->query("DELETE FROM ".static::$tableName." WHERE ".ModelBase::ID_KEY."='$this->id';");
     }
+
+    /**
+     * adds this model to the corresponding table in the database if it does not have an id or update it if it already exist
+     * @return void
+     */
     public function save(){
         if($this->id==-1){
             $this->add();
         }
         else $this->update();
     }
+
+    /**
+     * each model that extends this class must define this method to store this object to the corresponding table in the database
+     * @return mixed
+     */
     protected abstract function add();
     public static function getAll(){
         $array=self::queryAll(static::$tableName);

@@ -1,7 +1,9 @@
 <?php
-require_once '../autoloader.php';
+namespace models;
+use utils\Constants;
 
-class User extends models\ModelBase {
+require_once '../autoloader.php';
+class User extends ModelBase {
     protected  static string $tableName= 'users';
     private string $userName;
     private string $passwordHash;

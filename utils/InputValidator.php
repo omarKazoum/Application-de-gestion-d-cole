@@ -1,16 +1,13 @@
 <?php
+namespace utils;
 require_once $_SERVER['DOCUMENT_ROOT']."/autoloader.php";
 class InputValidator
 {
     public  const INPUT_VALIDATOR_ERRORS='errors';
-    public  const PASSWORD_ERROR_KEY='password';
-    public  const EMAIL_ERROR_KEY='email';
     public  const PASSWORD_PATTERN='/^.{6,100}$/';
     public  const EMAIL_PATTERN='/^\w+@\w+(\.\w+)+$/';
     public  const PHONE_PATTERN='/^\+{0,1}(212)|0[658]\d{8}$/';
     public  const NAME_PATTERN='/^([a-zA-Z0-9]{3,}\s?)+$/';
-    public  const PHONE_ERROR_KEY ='phone' ;
-
 
     public static function flushErrors(){
             unset($_SESSION[self::INPUT_VALIDATOR_ERRORS]);
@@ -89,6 +86,18 @@ class InputValidator
             $_SESSION[self::INPUT_VALIDATOR_ERRORS][$key]="$message";
         else
             $_SESSION[self::INPUT_VALIDATOR_ERRORS][$key].="\<br\>$message";
+    }
+
+    /**
+     * checks if there is an error corresponding to the given key and returns it or false otherwise
+     * @param $key
+     * @return false|mixed
+     */
+    static function error($key){
+        if(isset($_SESSION[self::INPUT_VALIDATOR_ERRORS][$key])){
+            return $_SESSION[self::INPUT_VALIDATOR_ERRORS][$key];
+        }else
+            return false;
     }
 
 
