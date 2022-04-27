@@ -1,16 +1,17 @@
 <?php
 namespace utils;
-require_once $_SERVER['DOCUMENT_ROOT']."/autoloader.php";
+require_once $_SERVER['DOCUMENT_ROOT']."/../autoloader.php";
 class InputValidator
 {
-    public  const INPUT_VALIDATOR_ERRORS='errors';
+    public static $errorsArray = [];
+    //public  const INPUT_VALIDATOR_ERRORS='errors';
     public  const PASSWORD_PATTERN='/^.{6,100}$/';
     public  const EMAIL_PATTERN='/^\w+@\w+(\.\w+)+$/';
     public  const PHONE_PATTERN='/^\+{0,1}(212)|0[658]\d{8}$/';
     public  const NAME_PATTERN='/^([a-zA-Z0-9]{3,}\s?)+$/';
 
     public static function flushErrors(){
-            unset($_SESSION[self::INPUT_VALIDATOR_ERRORS]);
+            self::$errorsArray=[];
     }
     /**
      * validates the password against this criteria:
@@ -78,14 +79,14 @@ class InputValidator
     {
         $valid=preg_match(self::NAME_PATTERN,$userName);
         if(!$valid)
-            $_SESSION[InputValidator::INPUT_VALIDATOR_ERRORS][$key]="User name must be 3 letters long and contain only alphanumeric characters";
+            self::$errorsArray[$key]="User name must be 3 letters long and contain only alphanumeric characters";
         return $valid;
     }
      static function appendError($key,$message){
-        if(!isset($_SESSION[self::INPUT_VALIDATOR_ERRORS][$key]))
-            $_SESSION[self::INPUT_VALIDATOR_ERRORS][$key]="$message";
+        if(!isset(self::$errorsArray[$key]))
+            self::$errorsArray[$key]="$message";
         else
-            $_SESSION[self::INPUT_VALIDATOR_ERRORS][$key].="\<br\>$message";
+            self::$errorsArray[$key].="\<br\>$message";
     }
 
     /**
@@ -94,8 +95,8 @@ class InputValidator
      * @return false|mixed
      */
     static function error($key){
-        if(isset($_SESSION[self::INPUT_VALIDATOR_ERRORS][$key])){
-            return $_SESSION[self::INPUT_VALIDATOR_ERRORS][$key];
+        if(isset(self::$errorsArray[$key])){
+            return self::$errorsArray[$key];
         }else
             return false;
     }

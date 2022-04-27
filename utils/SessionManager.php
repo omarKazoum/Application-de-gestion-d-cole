@@ -57,23 +57,6 @@ class SessionManager
             SessionManager::$instance=new SessionManager();
         return SessionManager::$instance;
     }
-    public function getLoggedInUser():User{
-        return  User::getById($this->connectedUserId);
-    }
-    public function redirectToContactsListIfLoggedIn()
-    {
-        if ($this->isLoggedIn()){
-            header('location:'.getUrlFor("contacts.php"));
-            exit();
-        }
-    }
-    public function redirectToIndexIfNotLoggedIn(){
-        if (!$this->isLoggedIn()){
-            header('location:'.getUrlFor('index.php'));
-            exit();
-        }
-    }
-
     public function getLastLogin()
     {
         return $_SESSION[self::LAST_LOGGED_IN_TIME_TIME];
