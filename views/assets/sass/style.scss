@@ -8,13 +8,39 @@ $color-white:#FFFFFF;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif,Poppins;
+    font-family: Poppins,Arial, Helvetica, sans-serif;
+}
+@mixin diplay_flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 *{
-    
+    @include null();
 }
 body{
     background-color: $color-background;
-    
+
+}
+#LOGO_WEBSITE{
+    width: 110px;
+    height: 43px;
+}
+#INPUT_SEARCH{
+    border-radius: 30px 0px 0px 30px;
+    border: none;
+}
+#INPUT_SEARCH::placeholder{
+    padding-left: 20px;
+    color: $color-primary;
+}
+#BUTTON_SEARCH{
+    border: none;
+    box-shadow: 5px 5px 30px $color-secondary;
+    padding: 5px 15px;
+    border-radius: 0px 30px 30px 0px;
+}
+#ICON_SEARCH{
+    color: $color-primary;
 }

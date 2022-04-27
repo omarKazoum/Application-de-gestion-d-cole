@@ -15,35 +15,8 @@
 </head>
 <body>
     <!---Create navbar--->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light" id="NAVBAR_HOME_PAGE">
-        <div class="container">
-            <!---Logo navbar-->
-            <a class="navbar-brand animate__animated animate__slideInUp" id="logo_animate" href="index.php">
-                <img src="assets/img/Contact_logo_copy-removebg-preview.png" id="Logo_page" alt="image logo">
-            </a>
-            <!----Button menu--->
-            <button 
-                    class="navbar-toggler" 
-                    type="button" 
-                    data-bs-toggle="collapse" 
-                    data-bs-target="#navmenu"
-                    aria-controls="navmenu" 
-                    aria-expanded="false" 
-                    aria-label="Toggle navigation" 
-                    style="background-color: #FF8303;">
-                    <!-------icon menu--->
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <!----List navbar--->
-            <div class="collapse navbar-collapse" id="navmenu">
-                <ul class="navbar-nav ms-auto">
-                    <!----navb Button Login-->
-                    <li class="nav-item animate__animated animate__slideInUp" id="btn_login_animate">
-                        <a href="Login.php" class="nav-link col-3" id="login_text">Login</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
+    <nav>
+        
     </nav>
     <!------Header------>
     <header>
