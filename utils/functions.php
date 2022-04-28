@@ -4,10 +4,18 @@
  * @param $viewName
  * @param ...$args the params to pas to the view in form of ['key'=>'value']
  * @return void
- */function view($viewName,...$args){
+ */function view($viewName,bool $wrapInTemplate=true,...$args){
     foreach ($args as $arg){
         foreach ($arg as $key =>$value)
             $$key=$value;
    }
-    require_once '..'.DIRECTORY_SEPARATOR."views".DIRECTORY_SEPARATOR.$viewName.'.php';
-}
+    if($wrapInTemplate) {
+        ob_start();
+        require_once '..' . DIRECTORY_SEPARATOR . "views" . DIRECTORY_SEPARATOR . $viewName . '.php';
+        $page_content = ob_get_clean();
+        require_once '..' . DIRECTORY_SEPARATOR . "views" . DIRECTORY_SEPARATOR . 'template.php';
+
+    }else{
+        require_once '..' . DIRECTORY_SEPARATOR . "views" . DIRECTORY_SEPARATOR . $viewName . '.php';
+    }
+ }
