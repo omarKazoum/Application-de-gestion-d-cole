@@ -1,0 +1,38 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Poppins, Arial, Helvetica, sans-serif;
+}
+
+body {
+  background-color: #F3F2EF;
+}
+
+#LOGO_WEBSITE {
+  width: 110px;
+  height: 43px;
+}
+
+#INPUT_SEARCH {
+  border-radius: 30px 0px 0px 30px;
+  border: none;
+}
+
+#INPUT_SEARCH::placeholder {
+  padding-left: 20px;
+  color: #FF8303;
+}
+
+#BUTTON_SEARCH {
+  border: none;
+  box-shadow: 5px 5px 30px #C0C0C0;
+  padding: 5px 15px;
+  border-radius: 0px 30px 30px 0px;
+}
+
+#ICON_SEARCH {
+  color: #FF8303;
+}
+
+/*# sourceMappingURL=style.css.map */
