@@ -15,12 +15,11 @@
     <!-- <link rel="stylesheet" href="assets/css/animate.min.css"> -->
     <title>Contact List</title>
 </head>
-
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light shadow" id="NAVBAR_PAGE_NAVBAR">
         <div class="container">
             <a class="navbar-brand" id="LOGO" href="index.php">
-                <img src="assets//img//logo1.png" alt="logo website" id="LOGO_WEBSITE">
+                <img src="assets/img/logo1.png" alt="logo website" id="LOGO_WEBSITE">
             </a>
             <!----Button menu--->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navmenu"
