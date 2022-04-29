@@ -17,7 +17,7 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow" id="NAVBAR_PAGE_NAVBAR">
+    <nav class="navbar navbar-expand-md navbar-light bg-light shadow" id="NAVBAR_PAGE_NAVBAR">
         <div class="container">
             <a class="navbar-brand" id="LOGO" href="index.php">
                 <img src="assets//img//logo1.png" alt="logo website" id="LOGO_WEBSITE">
@@ -32,11 +32,12 @@
             <!----Content navbar--->
             <div class="collapse navbar-collapse" id="navmenu">
                 <!--Input search group -->
-                <div class="input-group d-flex justify-content-end border-none">
-                    <input type="text" class="form-md shadow" placeholder="Search"
-                        aria-label="Search" aria-describedby="basic-addon2" id="INPUT_SEARCH">
+                <div class="w- input-group d-flex justify-content-start justify-content-md-end">
+                    <input type="text" class="form-md shadow" placeholder="Search" aria-label="Search"
+                        aria-describedby="basic-addon2" id="INPUT_SEARCH">
                     <div class="input-group-append">
-                        <button class="btn " type="button" id="BUTTON_SEARCH"><i id="ICON_SEARCH" class="bi bi-search"></i></button>
+                        <button class="btn " type="button" id="BUTTON_SEARCH"><i id="ICON_SEARCH"
+                                class="bi bi-search"></i></button>
                     </div>
                 </div>
             </div>

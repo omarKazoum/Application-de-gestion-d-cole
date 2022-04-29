@@ -15,9 +15,7 @@
 </head>
 <body>
     <!---Create navbar--->
-    <nav>
-        
-    </nav>
+    <?php include("navbar.php");?>
     <!------Header------>
     <header>
         <!--Sidebar of all page-->
