@@ -62,11 +62,26 @@ body {
 
 #SIDE_BAR ul li a i {
   font-size: 1.75rem;
-  color: #000000;
 }
 
 #SIDE_BAR ul li a i span.material-symbols-outlined {
   font-size: 2rem !important;
+}
+
+#SIDE_BAR ul li a.btn i {
+  border-radius: 10px;
+  padding-left: 5px;
+  color: #000000 !important;
+}
+
+#SIDE_BAR ul li.active a.btn i {
+  color: #FF8303 !important;
+  border-left: 3px #FF8303 solid !important;
+}
+
+.ICON_POSITION {
+  position: relative;
+  top: 5px;
 }
 
 /*# sourceMappingURL=style.css.map */

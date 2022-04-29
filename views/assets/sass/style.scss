@@ -16,6 +16,7 @@ $color-white:#FFFFFF;
     align-items: center;
 }
 
+
 *{
     @include null();
 }
@@ -66,8 +67,20 @@ body{
 
 #SIDE_BAR ul li a i{
    font-size: 1.75rem;
-   color: $color-black;
 }
 #SIDE_BAR ul li a i span.material-symbols-outlined{
     font-size: 2rem !important;
+}
+#SIDE_BAR ul li a.btn i{
+    border-radius: 10px;
+    padding-left:5px;
+    color: $color-black !important;
+}
+#SIDE_BAR ul li.active a.btn i{
+    color: $color-primary !important;
+    border-left: 3px $color-primary solid !important;
+}
+.ICON_POSITION{
+    position: relative;
+    top: 5px;
 }

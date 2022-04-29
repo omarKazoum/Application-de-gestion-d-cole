@@ -61,14 +61,14 @@
                     <li>
                         <a href="#" class="btn" data-bs-toggle="tooltip" data-bs-placement="right"
                             title="Administrateur">
-                            <i><span class="material-symbols-outlined">
+                            <i><span class="material-symbols-outlined ICON_POSITION">
                                     admin_panel_settings
                                 </span></i>
                         </a>
                     </li>
                     <li>
                         <a href="#" class="btn" data-bs-toggle="tooltip" data-bs-placement="right" title="Parents">
-                            <i><span class="material-symbols-outlined">
+                            <i><span class="material-symbols-outlined ICON_POSITION">
                                     family_restroom
                                 </span></i>
                         </a>
@@ -88,10 +88,10 @@
     <script src="assets/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/sweetalert2.js"></script>
     <script src="assets/js/script.js"></script>
-    <script>
-    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-    var tooltipList = tooltipTriggerList.map(function(tooltipTriggerEl) {
-        return new bootstrap.Tooltip(tooltipTriggerEl)
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script >
+        $(document).on('click','ul li',function(){
+        $(this).addClass('active').siblings().removeClass('active')
     })
     </script>
 </body>
