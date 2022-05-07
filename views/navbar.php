@@ -1,20 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="<?= css('Normalize.css')?>">
-    <link rel="stylesheet" href="<?= css('bootstrap.min.css')?>">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="<?= css('style.css')?>">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Mitr&display=swap" rel="stylesheet">
-    <title>Contact List</title>
-</head>
-<body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light shadow" id="NAVBAR_PAGE_NAVBAR">
         <div class="container">
             <a class="navbar-brand" id="LOGO" href="index.php">
@@ -40,13 +24,3 @@
             </div>
         </div>
     </nav>
-
-
-
-
-    <script src="<?= js('bootstrap.bundle.min.js')?>"></script>
-    <script src="<?= js('script.js')?>"></script>
-    <script src="<?= js('sweetalert2.js')?>"></script>
-</body>
-
-</html>

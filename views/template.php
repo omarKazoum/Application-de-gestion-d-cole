@@ -15,7 +15,7 @@
     <title>Gestion d'école</title>
 </head>
 <body>
-    <div class="containner-fluid">
+    <div class="container-fluid">
         <header class="row">
             <!---Create navbar--->
             <?php require_once "navbar.php" ?>
