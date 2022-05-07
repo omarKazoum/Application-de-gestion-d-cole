@@ -16,7 +16,10 @@ class Constants
     const Users_Password='pass';
     //not stored
     const Users_Password2='pass2';
-
+    // for classes table
+    const Classes_Col_Id='id';
+    const Classes_Col_Name='name';
+    const Classes_Col_Description='description';
     /**
      * for remember me option
      */

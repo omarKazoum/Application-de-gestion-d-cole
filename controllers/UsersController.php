@@ -9,8 +9,8 @@ use models;
 class UsersController
 {
     public function listUsers(){
-
-        view('listUsersView');
+        echo css('test');
+        //view('listUsersView');
     }
     public function test(){
         header("ContentType:appication/json");

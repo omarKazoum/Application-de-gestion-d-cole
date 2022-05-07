@@ -19,3 +19,22 @@
         require_once '..' . DIRECTORY_SEPARATOR . "views" . DIRECTORY_SEPARATOR . $viewName . '.php';
     }
  }
+ function redirect($endpoint){
+    header('location:'.getUrlFor($endpoint));
+    exit();
+ }
+function getUrlFor($url_relative_to_root):string{
+    return "http://" . $_SERVER['SERVER_NAME'].':'.$_SERVER['SERVER_PORT'].'/'.$url_relative_to_root;
+}
+function css($filename){
+     $path=getUrlFor('assets/css/'.$filename);
+     return getUrlFor('assets/css/'.$filename);
+}
+function js($fileName){
+     $a=     getUrlFor('assets/js/'.$fileName);
+    return getUrlFor('assets/js/'.$fileName);
+}
+function img($imgName){
+     $b=     getUrlFor('assets/img/'.$imgName);
+    return getUrlFor('assets/img/'.$imgName);
+}
