@@ -12,6 +12,11 @@ class UsersController
 
         view('listUsersView');
     }
+    public function test(){
+        header("ContentType:appication/json");
+        $a=array("name"=>"omar"/*,"lastName"=>"kazoum"*/);
+        echo json_encode($a);
+    }
 
 
 

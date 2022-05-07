@@ -9,6 +9,7 @@
 </head>
 <body>
     <h1 color="red"> the requested url could not be found</h1>
+    <img src="assets/img/logo.png" alt="">
 
 </body>
 </html>
