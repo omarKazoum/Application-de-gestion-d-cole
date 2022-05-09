@@ -30,6 +30,8 @@ class ClassesController
             $c->setDescription($_POST[Constants::Classes_Col_Description]??'');
             $c->save();
             redirect('classes?success=class updated successfully !');
+        }else{
+            view('classes/classForm',true,['edit'=>true]);
         }
     }
     function addForm(){
@@ -43,7 +45,8 @@ class ClassesController
             $c->setDescription($_POST[Constants::Classes_Col_Description]??'');
             $c->save();
             redirect('classes?success=class added successfully !');
-        }
+        }else
+            view('classes/classForm',true);
     }
     function delete($id){
         $sc=SchoolClass::getById($id);
