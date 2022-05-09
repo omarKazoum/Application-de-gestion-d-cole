@@ -16,7 +16,7 @@
     <!-- <link rel="stylesheet" href="assets/css/animate.min.css"> -->
     <title>Contact List</title>
 </head>
-
+    
 <body>
     <nav class="navbar navbar-expand-md navbar-light bg-light shadow" id="NAVBAR_PAGE_NAVBAR">
         <div class="container">
@@ -82,8 +82,7 @@
             </div>
         </div>
     </div>
-
-
+    
     <script src="assets/js/popper.min.js"></script>
     <script src="assets/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/sweetalert2.js"></script>
