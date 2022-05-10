@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
     <nav class="navbar navbar-expand-md navbar-light bg-light shadow" id="NAVBAR_PAGE_NAVBAR">
         <div class="container">

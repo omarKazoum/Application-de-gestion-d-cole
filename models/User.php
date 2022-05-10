@@ -3,15 +3,13 @@ namespace models;
 use utils\Constants;
 
 require_once '../autoloader.php';
-class User extends ModelBase {
-    protected  static string $tableName= 'users';
+class User extends BaseModel {
+    //it's necessary to set the table name
+    protected static string $tableName= 'users';
     private string $userName;
     private string $passwordHash;
     private string $registerDate;
-    public function __construct()
-    {
-        parent::__construct();
-    }
+
     /**
      * @return string
      */
