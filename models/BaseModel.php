@@ -6,10 +6,10 @@ use core\DBManager;
  * this class is used to perform crud operation for any model
  *
  */
-abstract class ModelBase
+abstract class BaseModel
 {
     const ID_KEY='id';
-    protected int $id=-1;
+    protected int $id=0;
     protected  static string $tableName='';
     protected static $db_manager;
     public function __construct()
@@ -38,7 +38,7 @@ abstract class ModelBase
      */
     public abstract function update();
     public function delete(){
-        return self::$db_manager->getConnection()->query("DELETE FROM ".static::$tableName." WHERE ".ModelBase::ID_KEY."='$this->id';");
+        return self::$db_manager->getConnection()->query("DELETE FROM ".static::$tableName." WHERE ".BaseModel::ID_KEY."='$this->id';");
     }
 
     /**
@@ -46,12 +46,11 @@ abstract class ModelBase
      * @return void
      */
     public function save(){
-        if($this->id==-1){
+        if($this->id==0){
             $this->add();
         }
         else $this->update();
     }
-
     /**
      * each model that extends this class must define this method to store this object to the corresponding table in the database
      * @return mixed
@@ -59,10 +58,11 @@ abstract class ModelBase
     protected abstract function add();
     public static function getAll(){
         $array=self::queryAll(static::$tableName);
+        $objectArray=[];
         foreach ($array as $key=>$value){
-            $array[$key]=static::parseEntity($value);
+           $objectArray[]=static::parseEntity($value);
         }
-        return $array;
+        return $objectArray;
     }
     public static function getById($id){
         $res=self::queryBy(self::ID_KEY,$id,self::$tableName);
