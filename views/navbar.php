@@ -1,5 +1,4 @@
-
-    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow" id="NAVBAR_PAGE_NAVBAR">
+<nav class="navbar navbar-expand-lg navbar-light bg-light shadow" id="NAVBAR_PAGE_NAVBAR">
         <div class="container">
             <a class="navbar-brand" id="LOGO" href="index.php">
                 <img src="<?= \img('logo1.png')?>" alt="logo website" id="LOGO_WEBSITE">

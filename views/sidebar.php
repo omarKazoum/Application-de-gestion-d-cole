@@ -1,5 +1,4 @@
-
-<div class="col-1 bg-white" id="SIDE_BAR">
+<div class="bg-white" id="SIDE_BAR">
     <ul>
         <li>
             <a href="#" class="btn" data-bs-toggle="tooltip" data-bs-placement="right" title="Apprenant">
@@ -13,17 +12,17 @@
         </li>
         <li>
             <a href="#" class="btn" data-bs-toggle="tooltip" data-bs-placement="right"
-                title="Administrateur">
+               title="Administrateur">
                 <i><span class="material-symbols-outlined ICON_POSITION">
-                        admin_panel_settings
-                    </span></i>
+                                    admin_panel_settings
+                                </span></i>
             </a>
         </li>
         <li>
             <a href="#" class="btn" data-bs-toggle="tooltip" data-bs-placement="right" title="Parents">
                 <i><span class="material-symbols-outlined ICON_POSITION">
-                        family_restroom
-                    </span></i>
+                                    family_restroom
+                                </span></i>
             </a>
         </li>
         <li>
@@ -33,4 +32,3 @@
         </li>
     </ul>
 </div>
-
