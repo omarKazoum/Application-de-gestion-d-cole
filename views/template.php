@@ -15,7 +15,6 @@
     <title>Gestion d'école</title>
 </head>
 <body>
-<<<<<<< HEAD
 <div class="container-fluid">
     <header class="row">
         <!---Create navbar--->
