@@ -18,9 +18,9 @@ Router::post('classes/edit',[new \controllers\ClassesController(),'editSubmit'])
 Router::get('classes/add',[new \controllers\ClassesController(),'addForm']);
 Router::post('classes/add',[new \controllers\ClassesController(),'addSubmit']);
 //admin
+//admin
 Router::get('admin/login',[new \controllers\AdminController(),'initLogin']);
 Router::post('admin/login',[new \controllers\AdminController(),'verifyLogin']);
-
 
 
 
