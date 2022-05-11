@@ -19,6 +19,10 @@ Router::get('classes/edit/{id}', [new \controllers\ClassesController(), 'editFor
 Router::post('classes/edit', [new \controllers\ClassesController(), 'editSubmit']);
 Router::get('classes/add', [new \controllers\ClassesController(), 'addForm']);
 Router::post('classes/add', [new \controllers\ClassesController(), 'addSubmit']);
+//admin
+Router::get('admin/login', [new \controllers\AdminController(), 'initLogin']);
+Router::post('admin/login', [new \controllers\AdminController(), 'verifyLogin']);
+//professeurs
 Router::get('Professeurs', [new ProfesseursController(), 'ListProfesseur']);
 Router::get('Professeurs/delete/{id}', [new ProfesseursController(), 'DeleteProfesseur']);
 Router::get('Professeurs/edit/{id}', [new ProfesseursController(), 'EditProfesseur']);
