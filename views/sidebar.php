@@ -24,6 +24,12 @@
           </span></i>
       </a>
     </li>
+    <li class="<?= requestUrlMatches('classes', 'classes/add/{d}') ? 'active' : '' ?>">
+      <a href="<?= getUrlFor('classes') ?>" class="btn" data-bs-toggle="tooltip" data-bs-placement="right"
+        title="Classes">
+        <i class="bi bi-house"></i>
+      </a>
+    </li>
     <li>
       <a href="#" class="btn" data-bs-toggle="tooltip" data-bs-placement="right" title="Logout">
         <i class="bi bi-box-arrow-left"></i>
