@@ -14,27 +14,14 @@ abstract class EasyBaseModel
     protected  static string $tableName='';
     protected static array $columns=[];
     protected static string $idColumnName='id';
-    protected int $id=0;
     protected static $db_manager;
     public function __construct()
     {
         self::$db_manager=DBManager::getInstance();
-    }
-    /**
-     * @return int
-     */
-    public function getId(): int
-    {
-        return $this->id;
+        $idName=static::$idColumnName;
+        $this->$idName=0;
     }
 
-    /**
-     * @param int $id
-     */
-    public function setId($id): void
-    {
-        $this->id = $id;
-    }
     /**
      * must override this method
      * updates the current object in the database
@@ -46,7 +33,7 @@ abstract class EasyBaseModel
             $sql.=static::$columns[$i].'=?,';
         }
         $sql.=static::$columns[count(static::$columns)-1].'=? ';
-        $sql="WHERE ".static::$idColumnName.'=?;';
+        $sql.="WHERE ".static::$idColumnName.'=?;';
         $placeIndicators='';
         $values=[];
         for ($i=0;$i<count(static::$columns);$i++){
@@ -76,7 +63,8 @@ abstract class EasyBaseModel
      * @return void
      */
     public function save(){
-        if($this->id==0){
+        $idName=static::$idColumnName;
+        if($this->$idName==0){
             $this->add();
         }
         else $this->update();
@@ -105,13 +93,11 @@ abstract class EasyBaseModel
                 throw new \Exception('property with name '.$v.' is required');
             $values[]=&$this->$v;
         }
-        echo 'sqlis :'.$sql.'<br>';
         $stmt =self::$db_manager->getConnection()->prepare($sql);
-
-        //$stmt->bind_param( $placeIndicators,$values);
         call_user_func_array([$stmt,'bind_param'],array_merge([$placeIndicators],$values));
         $stmt->execute();
-        $this->id=$stmt->insert_id;
+        $idName=static::$idColumnName;
+        $this->$idName=$stmt->insert_id;
         return $stmt->get_result();
     }
 
@@ -120,36 +106,72 @@ abstract class EasyBaseModel
      * @return array
      */
     public static function getAll(){
-        $array=self::queryAll(static::$tableName);
-        $objectArray=[];
-        foreach ($array as $key=>$value){
-           $objectArray[]=static::parseEntity($value);
-        }
-        return $objectArray;
+        return self::queryAll();
     }
+
+    /**
+     * @param $id
+     * @return mixed|false
+     */
     public static function getById($id){
-        $res=self::queryBy(static::$idColumnName,$id,self::$tableName);
-        if($res) {
-            return static::parseEntity($res[0]);
-        }else
-            false;
+        return self::queryBy(static::$idColumnName,$id);
     }
-    protected static function queryAll($tableName){
+    public static function getBy($columnName,$value){
+        return   self::queryBy($columnName,$value);
+    }
+    /**
+     * @param $tableName
+     * @return mixed
+     */
+    private static function queryAll(){
         self::$db_manager=DBManager::getInstance();
-        $sql="SELECT * FROM ".$tableName;;
+        $sql="SELECT * FROM ".static::$tableName;;
         $res=self::$db_manager->getConnection()->query($sql);
-        return $res->fetch_all(MYSQLI_ASSOC);
+        return array_map('static::parseEntity',$res->fetch_all(MYSQLI_ASSOC));
     }
-    protected static function queryBy($proprety,$value)
+
+    /**
+     * @param $columnName
+     * @param $value
+     * @return mixed
+     */
+    public static function queryBy($columnName, $value)
     {
         self::$db_manager = DBManager::getInstance();
-        $sql = "SELECT * FROM ".static::$tableName." WHERE $proprety=?;";
+        $sql = "SELECT * FROM ".static::$tableName." WHERE $columnName=?;";
         $statement = self::$db_manager->getConnection()->prepare($sql);
         $statement->bind_param('s', $value);
         $statement->execute();
-        return $statement->get_result()->fetch_all(MYSQLI_ASSOC);
+        $entries= array_map('static::parseEntity',$statement->get_result()->fetch_all(MYSQLI_ASSOC));
+        if(!$entries)
+            return false;
+        return $entries;
     }
-    protected static function parseEntity(array $data){
 
+    protected static function parseEntity(array $data){
+        $className=get_called_class();
+        $entity=new $className();
+        foreach ($data as $colName => $colValue){
+            $entity->$colName=$colValue;
+        }
+        return $entity;
     }
+    public function __set($name, $value)
+    {
+        if(!$this->hasColumn($name)){
+            throw new \Exception('Error: column with the name "'.$name.'" not found in table '.static::$tableName.'!');
+        }else
+            $this->$name=$value;
+    }
+    public function __get($name)
+    {
+        if(!$this->hasColumn($name)){
+            throw new \Exception('Error: column with the name "'.$name.'" not found in table '.static::$tableName.'!');
+        }else
+            return $this->$name;
+    }
+    private function hasColumn($columnName):bool{
+        return in_array($columnName,static::$columns) OR $columnName==static::$idColumnName;
+    }
+
 }
