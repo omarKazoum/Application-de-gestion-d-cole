@@ -25,7 +25,7 @@
                                 </span></i>
             </a>
         </li>
-        <li class="<?= requestUrlMatches('classes','classes/add/{d}')?'active':'' ?>">
+        <li class="<?= core\Router::isRequestFor('classes')?'active':'' ?>">
             <a href="<?= getUrlFor('classes')?>" class="btn" data-bs-toggle="tooltip" data-bs-placement="right" title="Classes">
                 <i class="bi bi-house"></i>
             </a>
