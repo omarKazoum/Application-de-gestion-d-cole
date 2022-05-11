@@ -3,6 +3,7 @@ namespace utils;
 require_once $_SERVER['DOCUMENT_ROOT']."/../autoloader.php";
 class InputValidator
 {
+    const CLASS_NAME_PATTERN = '^([a-zA-Z0-9]{3,}\s?)([a-zA-Z0-9]{1,}\s?)*$/';
     public static $errorsArray = [];
     //public  const INPUT_VALIDATOR_ERRORS='errors';
     public  const PASSWORD_PATTERN='/^.{6,100}$/';
@@ -80,6 +81,13 @@ class InputValidator
         $valid=preg_match(self::NAME_PATTERN,$userName);
         if(!$valid)
             self::$errorsArray[$key]="User name must be 3 letters long and contain only alphanumeric characters";
+        return $valid;
+    }
+    public static function validateClassName($className, $key)
+    {
+        $valid=preg_match(self::CLASS_NAME_PATTERN,$className);
+        if(!$valid)
+            self::$errorsArray[$key]="Class name must be 3 letters long and contain only alphanumeric characters";
         return $valid;
     }
      static function appendError($key,$message){

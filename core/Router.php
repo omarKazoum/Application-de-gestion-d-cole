@@ -37,7 +37,7 @@ class Router{
         if(preg_match($uriRegex,$requestPath,$matches)){
             self::$args=[];
             for($i =1;$i<count($matches);$i++){
-                $GLOBALS[$uriIndicationNames[1][$i-1]]=$matches[$i];
+                //$GLOBALS[$uriIndicationNames[1][$i-1]]=$matches[$i];
                 self::$args[]=$matches[$i];
             }
             return true;
@@ -65,7 +65,14 @@ class Router{
         }
         if(!$foundRout){
             //should redirect to 404 page
-            require_once '../views/404.php';
+            view('404',false);
         }
+    }
+
+    public static function createRegexFromUriIndecation($uriIndecation):string{
+        $uriRegex=preg_replace("#\{([^/]+)\}#",'([^/]+)',$uriIndecation);
+        $uriRegex='#^'.$uriRegex.'$#';
+        return $uriRegex;
+
     }
 }
