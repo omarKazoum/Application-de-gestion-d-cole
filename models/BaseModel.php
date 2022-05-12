@@ -8,9 +8,10 @@ use core\DBManager;
  */
 abstract class BaseModel
 {
+    //must override
+    protected  static string $tableName='';
     const ID_KEY='id';
     protected int $id=0;
-    protected  static string $tableName='';
     protected static $db_manager;
     public function __construct()
     {
@@ -56,6 +57,11 @@ abstract class BaseModel
      * @return mixed
      */
     protected abstract function add();
+
+    /**
+     * this method should be overriden by all model classes and is intended to be used only by
+     * @return array
+     */
     public static function getAll(){
         $array=self::queryAll(static::$tableName);
         $objectArray=[];
