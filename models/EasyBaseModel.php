@@ -46,7 +46,6 @@ abstract class EasyBaseModel
         $placeIndicators.="s";
         $idName=static::$idColumnName;
         $values[]=&$this->$idName;
-        echo 'sqlis :'.$sql.'<br>';
             'WHERE '.static::$idColumnName.'=?';
         $stmt =self::$db_manager->getConnection()->prepare($sql);
         call_user_func_array([$stmt,'bind_param'],array_merge([$placeIndicators],$values));
@@ -114,7 +113,10 @@ abstract class EasyBaseModel
      * @return mixed|false
      */
     public static function getById($id){
-        return self::queryBy(static::$idColumnName,$id);
+        $data=self::queryBy(static::$idColumnName,$id);
+        if($data)
+        return self::queryBy(static::$idColumnName,$id)[0];
+        return false;
     }
     public static function getBy($columnName,$value){
         return   self::queryBy($columnName,$value);
