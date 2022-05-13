@@ -2,7 +2,9 @@
 
 namespace models;
 
-class Professeur
+require('../autoloader.php');
+
+class Professeur extends BaseModel
 {
   public $matricule;
   public $nom_complet;
@@ -10,4 +12,9 @@ class Professeur
   public $class_id;
   public $matière;
   public $phone;
+  public $table_name = "	professeurs	";
+
+  function AddProfesseurs()
+  {
+  }
 }
