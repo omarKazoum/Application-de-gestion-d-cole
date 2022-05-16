@@ -1,12 +1,17 @@
 <?php
 require_once '../autoloader.php';
-
+require_once '../autoloader.php';
 use controllers\ProfesseursController;
 use core\Router;
 
+
+
+
+
 //declare here your endpoints and their corresponding controller method
-Router::get('error',function (){
-    view('404',false);
+Router::get('error',function () {
+    view('404', false);
+});
 Router::get('/',function(){
     redirect('admin/login');
 });

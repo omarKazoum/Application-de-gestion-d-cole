@@ -72,7 +72,7 @@ abstract class EasyBaseModel
      * each model that extends this class must define this method to store this object to the corresponding table in the database
      * @return mixed
      */
-    protected function add(){
+    public function add(){
         $sql="INSERT INTO ".static::$tableName."(";
         for ($i=0;$i<count(static::$columns)-1;$i++){
             $sql.=static::$columns[$i].',';
