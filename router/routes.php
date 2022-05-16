@@ -6,7 +6,7 @@ use core\Router;
 
 //declare here your endpoints and their corresponding controller method
 Router::get('error',function (){
-    view('404',false);
+    view('404',false);});
 Router::get('/',function(){
     redirect('admin/login');
 });
@@ -29,3 +29,8 @@ Router::get('Professeurs/edit/{id}', [new ProfesseursController(), 'EditProfesse
 Router::post('Professeurs/edit', [new ProfesseursController(), 'EditProfesseurSubmit']);
 Router::get('Professeurs/add', [new ProfesseursController(), 'AddProfesseur']);
 Router::post('Professeurs/add', [new ProfesseursController(), 'AddProfesseurSubmit']);
+//Etudiant
+Router::get('etudiant',[new \controllers\Controllerstudent(),'studentDisplayer']);
+
+
+
