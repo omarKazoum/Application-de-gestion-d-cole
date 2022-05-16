@@ -28,7 +28,7 @@ CREATE TABLE `professeurs` (
   `Nom_complet` varchar(255) DEFAULT NULL,
   `Genre` varchar(255) DEFAULT NULL,
   `Class_id` int(11) DEFAULT NULL,
-  `Matière` varchar(255) DEFAULT NULL,
+  `Matiere` varchar(255) DEFAULT NULL,
   `Phone` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `Class_id` (`Class_id`),

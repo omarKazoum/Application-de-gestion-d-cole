@@ -2,10 +2,14 @@
 
 namespace controllers;
 
+use models\Professeur;
+
 class ProfesseursController
 {
   public function ListProfesseur()
   {
-    echo "Hello";
+    $list_professeurs = Professeur::getAll();
+    view('ListProfesseurs', true, ['ListProf' => $list_professeurs]);
+    echo "dsdsd";
   }
 }
