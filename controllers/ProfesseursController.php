@@ -10,6 +10,9 @@ class ProfesseursController
   {
     $list_professeurs = Professeur::getAll();
     view('ListProfesseurs', true, ['ListProf' => $list_professeurs]);
-    echo "dsdsd";
+  }
+  public function AddProfesseur()
+  {
+    view('AddProfesseur', true);
   }
 }

@@ -37,10 +37,10 @@ Router::get('parentupdate', [new ParentsController, 'update']);
 
 //professeurs
 Router::get('Professeurs', [new ProfesseursController(), 'ListProfesseur']);
+Router::get('AddProfesseur', [new ProfesseursController(), 'AddProfesseur']);
+Router::post('Professeurs/add', [new ProfesseursController(), 'AddProfesseurSubmit']);
 Router::get('Professeurs/delete/{id}', [new ProfesseursController(), 'DeleteProfesseur']);
 Router::get('Professeurs/edit/{id}', [new ProfesseursController(), 'EditProfesseur']);
 Router::post('Professeurs/edit', [new ProfesseursController(), 'EditProfesseurSubmit']);
-Router::get('Professeurs/add', [new ProfesseursController(), 'AddProfesseur']);
-Router::post('Professeurs/add', [new ProfesseursController(), 'AddProfesseurSubmit']);
 //Etudiant
 Router::get('etudiant', [new \controllers\Controllerstudent(), 'studentDisplayer']);

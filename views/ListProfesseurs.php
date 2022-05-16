@@ -1,4 +1,5 @@
 <h3 class="mt-2">Classes list</h3>
+<a href=""></a>
 <table class="table">
   <thead>
     <tr>
@@ -13,15 +14,15 @@
   </thead>
   <tbody>
     <?php foreach ($ListProf as $Prof) { ?>
-    <tr>
-      <th scope="row"><?= $Prof->id ?></th>
-      <td><?= $Prof->Matricule ?></td>
-      <td><?= $Prof->Nom_complet ?></td>
-      <td><?= $Prof->Genre ?></td>
-      <td><?= $Prof->Class_id ?></td>
-      <td><?= $Prof->Matiere ?></td>
-      <td><?= $Prof->Phone ?></td>
-    </tr>
+      <tr>
+        <th scope="row"><?= $Prof->id ?></th>
+        <td><?= $Prof->Matricule ?></td>
+        <td><?= $Prof->Nom_complet ?></td>
+        <td><?= $Prof->Genre ?></td>
+        <td><?= $Prof->Class_id ?></td>
+        <td><?= $Prof->Matiere ?></td>
+        <td><?= $Prof->Phone ?></td>
+      </tr>
     <?php } ?>
   </tbody>
 </table>
