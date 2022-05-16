@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,35 +17,37 @@
           href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <title>Gestion d'école</title>
 </head>
+
 <body>
-<div class="container-fluid">
+  <div class="container-fluid">
     <header class="row ">
 
-        <!---Create navbar--->
-        <?php require_once "navbar.php" ?>
-        <!------Header------>
+      <!---Create navbar--->
+      <?php require_once "navbar.php" ?>
+      <!------Header------>
     </header>
     <main class="row pt-2">
-            <!--Sidebar of all page-->
-        <div class="col-2 col-lg-1">
-            <?php require_once "sidebar.php" ?>
-        </div>
-        <div class="content col-10 col-lg-11">
-            <!--Content of laoding page--->
-            <?= $page_content ?>
-        </div>
+      <!--Sidebar of all page-->
+      <div class="col-2 col-lg-1">
+        <?php require_once "sidebar.php" ?>
+      </div>
+      <div class="content col-10 col-lg-11">
+        <!--Content of laoding page--->
+        <?= $page_content ?>
+      </div>
     </main>
-</div>
-<script src="<?= js('bootstrap.bundle.min.js')?>"></script>
-<script src="<?= js('script.js')?>"></script>
-<script src="<?= js('sweetalert2.js')?>"></script>
-<script src="<?= js('popper.min.js')?>"></script>
-<script src="<?= js('assets/js/script.js')?>"></script>
-<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-<script >
-    $(document).on('click','ul li',function(){
-        $(this).addClass('active').siblings().removeClass('active')
-    })
-</script>
+  </div>
+  <script src="<?= js('bootstrap.bundle.min.js') ?>"></script>
+  <script src="<?= js('script.js') ?>"></script>
+  <script src="<?= js('sweetalert2.js') ?>"></script>
+  <script src="<?= js('popper.min.js') ?>"></script>
+  <script src="<?= js('assets/js/script.js') ?>"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script>
+  $(document).on('click', 'ul li', function() {
+    $(this).addClass('active').siblings().removeClass('active')
+  })
+  </script>
 </body>
+
 </html>

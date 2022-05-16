@@ -1,14 +1,17 @@
 <?php
 require_once '../autoloader.php';
 
+<<<<<<< HEAD
 use controllers\ParentsController;
+=======
+use controllers\ProfesseursController;
+>>>>>>> main
 use core\Router;
 
 
 //declare here your endpoints and their corresponding controller method
 Router::get('error',function (){
     view('404',false);
-});
 Router::get('/',function(){
     redirect('admin/login');
 });
@@ -24,6 +27,7 @@ Router::post('classes/add',[new \controllers\ClassesController(),'addSubmit'],'c
 //admin
 Router::get('admin/login',[new \controllers\AdminController(),'initLogin']);
 Router::post('admin/login',[new \controllers\AdminController(),'verifyLogin']);
+<<<<<<< HEAD
 
 // parente
 Router::get('formaddparente',[new ParentsController,'addForm']);
@@ -34,3 +38,12 @@ Router::get('parentupdate',[new ParentsController,'update']);
 
 
 
+=======
+//professeurs
+Router::get('Professeurs', [new ProfesseursController(), 'ListProfesseur']);
+Router::get('Professeurs/delete/{id}', [new ProfesseursController(), 'DeleteProfesseur']);
+Router::get('Professeurs/edit/{id}', [new ProfesseursController(), 'EditProfesseur']);
+Router::post('Professeurs/edit', [new ProfesseursController(), 'EditProfesseurSubmit']);
+Router::get('Professeurs/add', [new ProfesseursController(), 'AddProfesseur']);
+Router::post('Professeurs/add', [new ProfesseursController(), 'AddProfesseurSubmit']);
+>>>>>>> main
