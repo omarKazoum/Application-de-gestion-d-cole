@@ -8,36 +8,42 @@ class Router{
     private static $getPaths=[];
     private static $postPaths=[];
     private static $args=[];
+    private static $currentRuquestLabel='';
 
     /**
      * @param $pathIndication a string expression like /users/{d}
      * @param $callback callback or [Object,'methodName']
+     * @param string $label optional lablel for this endpoint
      * @return void
      */
-    public static function get($pathIndication,$callback){
-        self::$getPaths[$pathIndication]=$callback;
+    public static function get($pathIndication,$callback,string $label=''){
+        self::$getPaths[$pathIndication]['callback']=$callback;
+        self::$getPaths[$pathIndication]['label']=$label;
     }
     /**
      * @param $pathIndication a string expression like /users/{d}
      * @param $callback callback or [Object,'methodName']
      * @return void
      */
-    public static function post($pathIndication,$callback){
-        self::$postPaths[$pathIndication]=$callback;
+    public static function post($pathIndication,$callback,string $label=''){
+        self::$postPaths[$pathIndication]['callback']=$callback;
+        self::$postPaths[$pathIndication]['label']=$label;
     }
+
+    /**
+     * @param $uriIndication
+     * @param $requestPath
+     * @return bool
+     */
     private static function match($uriIndication,$requestPath){
-        $uriIndication=preg_replace('#^/#','',$uriIndication);
-        $uriIndication=preg_replace('#/$#','',$uriIndication);
-        $requestPath=preg_replace('#^/#','',$requestPath);
-        $requestPath=preg_replace('#/$#','',$requestPath);
-
+        $uriIndication=self::strRemoveEndAndStartSlashes($uriIndication);
+        $requestPath=self::strRemoveEndAndStartSlashes($requestPath);
         preg_match_all("#\{([^/]+)\}#",$uriIndication,$uriIndicationNames);
         $uriRegex=preg_replace("#\{([^/]+)\}#",'([^/]+)',$uriIndication);
         $uriRegex='#^'.$uriRegex.'$#';
         if(preg_match($uriRegex,$requestPath,$matches)){
             self::$args=[];
             for($i =1;$i<count($matches);$i++){
-                //$GLOBALS[$uriIndicationNames[1][$i-1]]=$matches[$i];
                 self::$args[]=$matches[$i];
             }
             return true;
@@ -52,15 +58,16 @@ class Router{
      */
     public static function processIncomingRequest(){
         $foundRout=false;
-        $requestUri=parse_url($_SERVER['REQUEST_URI'],PHP_URL_PATH);
+        $requestUri=self::getRequestCleanUri();
         $paths=$_SERVER['REQUEST_METHOD']==='GET'?self::$getPaths:($_SERVER['REQUEST_METHOD']==='POST'?self::$postPaths:null);
         if($paths===null){
             throw new Exception('method not supported');
         }
-        foreach ($paths as $uriIndication => $callback){
+        foreach ($paths as $uriIndication => $uriConfig){
             if(self::match($uriIndication,$requestUri)){
-                call_user_func_array($callback,self::$args);
+                self::$currentRuquestLabel=$uriConfig['label'];
                 $foundRout=true;
+                call_user_func_array($uriConfig['callback'],self::$args);
             }
         }
         if(!$foundRout){
@@ -69,10 +76,35 @@ class Router{
         }
     }
 
+    /**
+     * @param $uriIndecation
+     * @return string
+     */
     public static function createRegexFromUriIndecation($uriIndecation):string{
         $uriRegex=preg_replace("#\{([^/]+)\}#",'([^/]+)',$uriIndecation);
         $uriRegex='#^'.$uriRegex.'$#';
         return $uriRegex;
+
+    }
+
+    /**
+     * @param $endpointLabel
+     * @return bool
+     */
+    public static function isRequestFor($endpointLabel):bool{
+        return self::$currentRuquestLabel===$endpointLabel;
+    }
+
+    /**
+     * @param $str
+     * @return string|string[]|null
+     */
+    private static function strRemoveEndAndStartSlashes($str){
+        $str=preg_replace('#^/#','',$str);
+        return preg_replace('#/$#','',$str);
+    }
+    private static function getRequestCleanUri(){
+        return parse_url($_SERVER['REQUEST_URI'],PHP_URL_PATH);
 
     }
 }

@@ -13,12 +13,27 @@
         ob_start();
         require_once '..' . DIRECTORY_SEPARATOR . "views" . DIRECTORY_SEPARATOR . $viewName . '.php';
         $page_content = ob_get_clean();
-        require_once '..' . DIRECTORY_SEPARATOR . "views" . DIRECTORY_SEPARATOR . 'template.php';
+        require_once '..' . DIRECTORY_SEPARATOR . "views" . DIRECTORY_SEPARATOR . 'templates/template.php';
 
     }else{
         require_once '..' . DIRECTORY_SEPARATOR . "views" . DIRECTORY_SEPARATOR . $viewName . '.php';
     }
  }
+
+/**
+ * @param $viewName
+ * @param ...$args
+ */
+function viewNoSidebar($viewName,...$args){
+    foreach ($args as $arg){
+        foreach ($arg as $key =>$value)
+            $$key=$value;
+    }
+        ob_start();
+        require_once '..' . DIRECTORY_SEPARATOR . "views" . DIRECTORY_SEPARATOR . $viewName . '.php';
+        $page_content = ob_get_clean();
+        require_once '..' . DIRECTORY_SEPARATOR . "views" . DIRECTORY_SEPARATOR . 'templates/template_navbar_only.php';
+}
  function redirect($endpoint){
     header('location:'.getUrlFor($endpoint));
     exit();

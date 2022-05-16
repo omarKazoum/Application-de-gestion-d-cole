@@ -13,9 +13,11 @@ class UsersController
         //view('listUsersView');
     }
     public function test(){
-        header("ContentType:appication/json");
-        $a=array("name"=>"omar"/*,"lastName"=>"kazoum"*/);
-        echo json_encode($a);
+        $t=new models\TestModel();
+        $t->name='omarrrr';
+        $t->email='sqd';
+        $t->setId(1);
+        $t->save();
     }
 
 
