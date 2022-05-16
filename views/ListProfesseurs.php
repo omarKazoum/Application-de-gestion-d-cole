@@ -13,7 +13,6 @@
   </thead>
   <tbody>
     <?php foreach ($ListProf as $Prof) { ?>
-
     <tr>
       <th scope="row"><?= $Prof->id ?></th>
       <td><?= $Prof->Matricule ?></td>
