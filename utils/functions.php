@@ -2,9 +2,10 @@
 /**
  * requires a view by its name <b color="red">please do not use the file extension e</b>
  * @param $viewName
+ * @param $wrapInTemplate bool
  * @param ...$args the params to pas to the view in form of ['key'=>'value']
- * @return void
- */function view($viewName,bool $wrapInTemplate=true,...$args){
+ */
+    function view($viewName,bool $wrapInTemplate=true,...$args){
     foreach ($args as $arg){
         foreach ($arg as $key =>$value)
             $$key=$value;
@@ -21,6 +22,8 @@
  }
 
 /**
+ * requires a view by its name <b color="red">please do not use the file extension e</b>
+ * adds the navbar to the included view
  * @param $viewName
  * @param ...$args
  */
@@ -34,6 +37,10 @@ function viewNoSidebar($viewName,...$args){
         $page_content = ob_get_clean();
         require_once '..' . DIRECTORY_SEPARATOR . "views" . DIRECTORY_SEPARATOR . 'templates/template_navbar_only.php';
 }
+/**
+ * 
+ * @param $enpoint
+ */
  function redirect($endpoint){
     header('location:'.getUrlFor($endpoint));
     exit();
