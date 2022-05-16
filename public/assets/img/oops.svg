@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="350" viewBox="0 0 417.31 123">
+  <g id="Groupe_65" data-name="Groupe 65" transform="translate(-282.69 -366.5)">
+    <text id="Oooops_" data-name="Oooops !" transform="translate(320 466.5)" fill="#160b38" font-size="80" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">Oooops !</tspan></text>
+    <g id="Lines" transform="translate(291.877 369.003) rotate(8)">
+      <path id="line3" d="M0,0,3.1,22.174" transform="matrix(0.225, -0.974, 0.974, 0.225, 0, 34.584)" fill="none" stroke="#ff735f" stroke-linecap="round" stroke-width="4"/>
+      <path id="line2" d="M0,0V21.711" transform="translate(9.372 16.939) rotate(-60)" fill="none" stroke="#ff735f" stroke-linecap="round" stroke-width="4"/>
+      <path id="line1" d="M3.1,0,0,22.174" transform="translate(17.702 2.111) rotate(-43)" fill="none" stroke="#ff735f" stroke-linecap="round" stroke-width="4"/>
+    </g>
+  </g>
+</svg>
