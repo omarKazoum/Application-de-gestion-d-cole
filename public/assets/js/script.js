@@ -1,3 +1,7 @@
+var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+var tooltipList = tooltipTriggerList.map(function(tooltipTriggerEl) {
+    return new bootstrap.Tooltip(tooltipTriggerEl)
+})
 const username_user= document.getElementById("Username");
 const password_user= document.getElementById("Password");
 const password_verify_user= document.getElementById("Password_verify");

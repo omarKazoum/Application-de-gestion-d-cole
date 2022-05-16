@@ -14,7 +14,7 @@ class AdminController
         $email = $_POST['email'];
         $password = $_POST['password'];
         $bar = Admin::getByEmail($email);
-        if ($bar && password_verify($password,$bar->getPasswordHash())){
+        if ($bar && password_verify($password,$bar->PasswordHash())){
             $_SESSION['admin_obs'] = $bar;
             redirect("admin/crud");
         }
@@ -23,5 +23,32 @@ class AdminController
     public function initCrud(){
         $foo = Admin::getAll();
         view('adminCrud',false, array("admins" => $foo));
+    }
+    public function add(){
+        $foo = new Admin();
+        $foo->nom = $_POST['nom'];
+        $foo->prenom = $_POST['prenom'];
+        $foo->email = $_POST['email'];
+        $foo->setPassword($_POST['password']);
+        $foo->role = $_POST['role'];
+        $foo->add();
+        redirect("admin/crud");
+    }
+    public function delete(){
+        $foo = new Admin();
+        $foo->setId($_POST['admin-id']);
+        $foo->delete();
+        redirect("admin/crud");
+    }
+    public function update(){
+        $foo = new Admin();
+        $foo->id = $_POST['id'];
+        $foo->nom = $_POST['nom'];
+        $foo->prenom = $_POST['prenom'];
+        $foo->email = $_POST['email'];
+        $foo->setPassword($_POST['password']);
+        $foo->role = $_POST['role'];
+        $foo->update();
+        redirect("admin/crud");
     }
 }

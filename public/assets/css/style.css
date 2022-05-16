@@ -35,4 +35,53 @@ body {
   color: #FF8303;
 }
 
+#SIDE_BAR {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 90%;
+  border-radius: 10px !important;
+  margin-bottom: 10px;
+}
+
+#SIDE_BAR ul li {
+  margin-top: 10px;
+  margin-bottom: 25px;
+  list-style-type: none;
+}
+
+#SIDE_BAR ul li:last-child {
+  margin-bottom: 0px;
+  margin-top: 100px;
+}
+
+#SIDE_BAR ul {
+  padding-left: 0px !important;
+  margin-bottom: 0px !important;
+}
+
+#SIDE_BAR ul li a i {
+  font-size: 1.75rem;
+}
+
+#SIDE_BAR ul li a i span.material-symbols-outlined {
+  font-size: 2rem !important;
+}
+
+#SIDE_BAR ul li a.btn i {
+  border-radius: 10px;
+  padding-left: 5px;
+  color: #000000 !important;
+}
+
+#SIDE_BAR ul li.active a.btn i {
+  color: #FF8303 !important;
+  border-left: 3px #FF8303 solid !important;
+}
+
+.ICON_POSITION {
+  position: relative;
+  top: 5px;
+}
+
 /*# sourceMappingURL=style.css.map */

@@ -248,7 +248,7 @@ table.table .avatar {
 						<h2>CRUD <b>admin</b></h2>
 					</div>
 					<div class="col-sm-6">
-						<a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add New Employee</span></a>
+						<a href="#addEmployeeModal" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Add New Admin</span></a>
 					</div>
 				</div>
 			</div>
@@ -256,7 +256,8 @@ table.table .avatar {
 				<thead>
 					<tr>
 						<th>Id</th>
-						<th>Full name</th>
+						<th>Nom</th>
+						<th>Prenom</th>
 						<th>Email</th>
 						<th>Role</th>
 						<th>Actions</th>
@@ -267,13 +268,14 @@ table.table .avatar {
                 foreach($admins as $admn){
                     echo"
                     <tr>    
-                    <td>".$admn->id."</td>
-                    <td>".$admn->nom." ".$admn->prenom."</td>
-                    <td>".$admn->email."</td>
-                    <td>".$admn->role."</td>
+                    <td id='id".$admn->id."'>".$admn->id."</td>
+                    <td id='nom".$admn->id."'>".$admn->nom."</td>
+					<td id='prenom".$admn->id."'>".$admn->prenom."</td>
+                    <td id='email".$admn->id."'>".$admn->email."</td>
+                    <td id='role".$admn->id."'>".$admn->role."</td>
                     <td>
-                        <a href='#editEmployeeModal' class='edit' data-toggle='modal'><i class='material-icons' data-toggle='tooltip' title='Edit'>&#xE254;</i></a>
-                        <a href='#deleteEmployeeModal' class='delete' data-toggle='modal'><i class='material-icons' data-toggle='tooltip' title='Delete'>&#xE872;</i></a>
+                        <a href='#editEmployeeModal' class='edit' data-toggle='modal' data-id=".$admn->id."><i class='material-icons' data-toggle='tooltip' title='Edit'>&#xE254;</i></a>
+                        <a href='#deleteEmployeeModal' class='delete' data-toggle='modal' data-id=".$admn->id."><i class='material-icons' data-toggle='tooltip' title='Delete'>&#xE872;</i></a>
                     </td>
                     </tr>
                     ";
@@ -285,32 +287,36 @@ table.table .avatar {
 		</div>
 	</div>        
 </div>
-<!-- Edit Modal HTML -->
+<!-- Add Modal HTML -->
 <div id="addEmployeeModal" class="modal fade">
 	<div class="modal-dialog">
 		<div class="modal-content">
-			<form>
+			<form method="POST" action="crud/add">
 				<div class="modal-header">						
-					<h4 class="modal-title">Add Employee</h4>
+					<h4 class="modal-title">Add Admin</h4>
 					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 				</div>
 				<div class="modal-body">					
 					<div class="form-group">
-						<label>Name</label>
-						<input type="text" class="form-control" required>
+						<label>Nom</label>
+						<input type="text" name="nom" class="form-control" required>
+					</div>
+					<div class="form-group">
+						<label>Prenom</label>
+						<input type="text" name="prenom" class="form-control" required>
+					</div>
+					<div class="form-group">
+						<label>Role</label>
+						<input type="number" name="role" min=0 max=5 class="form-control" required>
 					</div>
 					<div class="form-group">
 						<label>Email</label>
-						<input type="email" class="form-control" required>
+						<input type="email" name="email" class="form-control" required>
 					</div>
 					<div class="form-group">
-						<label>Address</label>
-						<textarea class="form-control" required></textarea>
-					</div>
-					<div class="form-group">
-						<label>Phone</label>
-						<input type="text" class="form-control" required>
-					</div>					
+						<label>Password</label>
+						<input type="password" name="password" class="form-control" required>
+					</div>				
 				</div>
 				<div class="modal-footer">
 					<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
@@ -324,32 +330,37 @@ table.table .avatar {
 <div id="editEmployeeModal" class="modal fade">
 	<div class="modal-dialog">
 		<div class="modal-content">
-			<form>
+		<form method="POST" action="crud/update">
 				<div class="modal-header">						
-					<h4 class="modal-title">Edit Employee</h4>
+					<h4 class="modal-title">Update Admin</h4>
 					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 				</div>
 				<div class="modal-body">					
 					<div class="form-group">
-						<label>Name</label>
-						<input type="text" class="form-control" required>
+						<label>Nom</label>
+						<input type="text" id="e-nom" name="nom" class="form-control" required>
+					</div>
+					<div class="form-group">
+						<label>Prenom</label>
+						<input type="text" id="e-prenom" name="prenom" class="form-control" required>
+					</div>
+					<div class="form-group">
+						<label>Role</label>
+						<input type="number" id="e-role" name="role" min=0 max=5 class="form-control" required>
 					</div>
 					<div class="form-group">
 						<label>Email</label>
-						<input type="email" class="form-control" required>
+						<input type="email" id="e-email" name="email" class="form-control" required>
 					</div>
 					<div class="form-group">
-						<label>Address</label>
-						<textarea class="form-control" required></textarea>
-					</div>
-					<div class="form-group">
-						<label>Phone</label>
-						<input type="text" class="form-control" required>
-					</div>					
+						<label>Password</label>
+						<input type="password" id="e-password" name="password" class="form-control" required>
+					</div>				
 				</div>
 				<div class="modal-footer">
+					<input type="hidden" name="id" id="e-id" value="">
 					<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
-					<input type="submit" class="btn btn-info" value="Save">
+					<input type="submit" class="btn btn-success" value="Edit">
 				</div>
 			</form>
 		</div>
@@ -359,22 +370,41 @@ table.table .avatar {
 <div id="deleteEmployeeModal" class="modal fade">
 	<div class="modal-dialog">
 		<div class="modal-content">
-			<form>
+			<form method="POST" action="crud/delete">
 				<div class="modal-header">						
-					<h4 class="modal-title">Delete Employee</h4>
+					<h4 class="modal-title">Delete Admin</h4>
 					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 				</div>
 				<div class="modal-body">					
-					<p>Are you sure you want to delete these Records?</p>
+					<p>Are you sure you want to delete admin?</p>
 					<p class="text-warning"><small>This action cannot be undone.</small></p>
 				</div>
 				<div class="modal-footer">
 					<input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+					<input type="hidden" id="admin-id" name="admin-id" value="">
 					<input type="submit" class="btn btn-danger" value="Delete">
 				</div>
 			</form>
 		</div>
 	</div>
 </div>
+<script>
+$('#deleteEmployeeModal').on('show.bs.modal', (e) => {
+    let id = e.relatedTarget.getAttribute('data-id');
+    $(`#admin-id`).val(id);
+});
+</script>
+<script>
+$('#editEmployeeModal').on('show.bs.modal', (e) => {
+	alert("asdas");
+	let id = e.relatedTarget.getAttribute('data-id');
+	alert(id)
+	$(`#e-id`).val(id);
+	$(`#e-nom`).val($(`#nom${id}`).text());
+	$(`#e-prenom`).val($(`#prenom${id}`).text());
+	$(`#e-email`).val($(`#email${id}`).text());
+	$(`#e-role`).val($(`#role${id}`).text());
+});
+</script>
 </body>
 </html>

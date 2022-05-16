@@ -6,24 +6,11 @@ require_once '../autoloader.php';
 class Admin extends BaseModel {
     //it's necessary to set the table name
     protected static string $tableName= 'admins';
-    private string $email;
+    public $nom;
+    public $prenom;
+    public $role;
+    public string $email;
     private string $passwordHash;
-
-    /**
-     * @return string
-     */
-    public function getUserName(): string
-    {
-        return $this->email;
-    }
-
-    /**
-     * @param string $userName
-     */
-    public function setEmail(string $userName): void
-    {
-        $this->email = $userName;
-    }
 
     /**
      * @param string $passwordHash
@@ -36,7 +23,7 @@ class Admin extends BaseModel {
     /**
      * @return string
      */
-    public function getPasswordHash(): string
+    public function     PasswordHash(): string
     {
         return $this->passwordHash;
     }
@@ -53,12 +40,15 @@ class Admin extends BaseModel {
     public function update()
     {
         $sql="UPDATE ".self::$tableName." SET "
+            ."nom".'=?,'
+            ."prenom".'=?,'
             ."email".'=?,'
+            ."role".'=?,'
             ."password"."=? ".
             'WHERE '.self::ID_KEY.'=?';
         $stmt =self::$db_manager->getConnection()->prepare($sql);
 
-        $stmt->bind_param( "sss",$this->email,$this->passwordHash,$this->id);
+        $stmt->bind_param( "ssssss",$this->nom,$this->prenom,$this->email,$this->role,$this->passwordHash,$this->id);
         $stmt->execute();
         return $stmt->affected_rows;
     }
@@ -66,11 +56,14 @@ class Admin extends BaseModel {
     public function add()
     {
         $sql="INSERT INTO ".self::$tableName."("
+            ."nom".','
+            ."prenom".','
+            ."role".','
             ."email".','
             ."password".")"
-            ."values(?,?)";
+            ."values(?,?,?,?,?)";
         $stmt =self::$db_manager->getConnection()->prepare($sql);
-        $stmt->bind_param( "ss",$this->email,$this->passwordHash);
+        $stmt->bind_param( "sssss",$this->nom,$this->prenom,$this->role,$this->email,$this->passwordHash);
         $stmt->execute();
         $this->id=$stmt->insert_id;
         return $stmt->get_result();
@@ -80,8 +73,11 @@ class Admin extends BaseModel {
     {
         $user=new Admin();
         $user->setId($data["id"]);
-        $user->setEmail($data["email"]);
+        $user->email =$data["email"];
         $user->setPasswordHash($data["password"]);
+        $user->nom = $data["nom"];
+        $user->prenom = $data["prenom"];
+        $user->role = $data["role"];
         return $user;
     }
     public static function getByEmail($name){

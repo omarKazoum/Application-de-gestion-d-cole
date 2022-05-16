@@ -77,7 +77,7 @@ const validateInput=(input)=>{
     enableErrorOn(input, !isInputValide,input.dataset.validateMessage);
     return isInputValide;
 }
-bindFormValidator();
+//bindFormValidator();
 const resetValidation=(b)=> {
     document.querySelectorAll('form.activate-validation').forEach((form) => {
         form.querySelectorAll('input').forEach((input) => {
