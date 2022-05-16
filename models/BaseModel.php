@@ -9,7 +9,7 @@ use core\DBManager;
 abstract class BaseModel
 {
     const ID_KEY='id';
-    protected int $id=0;
+    public int $id=0; // why tf was this protected x) needs public or getter access.
     protected  static string $tableName='';
     protected static $db_manager;
     public function __construct()
