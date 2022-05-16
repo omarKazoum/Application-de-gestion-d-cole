@@ -26,11 +26,10 @@ Router::get('admin/login',[new \controllers\AdminController(),'initLogin']);
 Router::post('admin/login',[new \controllers\AdminController(),'verifyLogin']);
 
 // parente
-Router::get('formaddparente',[new ParentsController,'addForm']);
-Router::post('formaddparente',[new ParentsController,'addSave']);
-
-Router::get('parentdelete/{id}',[new ParentsController,'delete']);
-Router::get('parentupdate',[new ParentsController,'update']);
+Router::get('formaddparente',[new ParentsController,'addFormParent']);
+Router::post('formaddparente',[new ParentsController,'addParentSave']);
+Router::get('parentdelete/{id}',[new ParentsController,'deleteParent']);
+Router::get('parentupdate',[new ParentsController,'updateParent']);
 
 
 

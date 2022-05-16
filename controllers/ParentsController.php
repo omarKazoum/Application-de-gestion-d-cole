@@ -6,18 +6,18 @@ use models\Parente;
 class ParentsController{
     function getParents(){
     }
-    function delete($id){
+    function deleteParent($id){
         $d=Parente::getById($id);
         if($d)
         $d->delete();
         else echo 'parente not existe';
     }
-    public function addForm()
+    public function addFormParent()
     {
        view('formaddparente',true);
     }
 
-    public function addSave(){
+    public function addParentSave(){
         $p1 = new Parente();
         $p1->matricule=5000;
         $p1->nom_complet='omar';
@@ -26,9 +26,9 @@ class ParentsController{
         $p1->adresse='qu el qods';
         $p1->phone="0620107920";
         $p1->save();
-        print_r($_POST);
+        
     }
-    public function update(){
+    public function updateParent(){
         $p=Parente::getById(3);
         $p->matricule=900;
         $p->save();
