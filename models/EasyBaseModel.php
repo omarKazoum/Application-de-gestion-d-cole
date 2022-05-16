@@ -14,6 +14,8 @@ abstract class EasyBaseModel
     protected  static string $tableName='';
     protected static array $columns=[];
     protected static string $idColumnName='id';
+
+
     protected static $db_manager;
     public function __construct()
     {
