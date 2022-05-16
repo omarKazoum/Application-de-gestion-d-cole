@@ -67,7 +67,7 @@ class SchoolClass extends BaseModel {
 
     protected static function parseEntity(array $data)
     {  $schoolClass=new SchoolClass();
-        $schoolClass->setId($data[Constants::Classes_Col_Id]);
+        $schoolClass->setId($data["id"]);
         $schoolClass->setName($data[Constants::Classes_Col_Name]);
         $schoolClass->setDescription($data[Constants::Classes_Col_Description]);
         return $schoolClass;
