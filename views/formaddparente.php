@@ -1,18 +1,32 @@
-<div>
-    <form method="POST" action="">
-    <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label">Email address</label>
-        <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-    </div>
-    <div class="mb-3">
-        <label for="exampleInputPassword1" class="form-label">Password</label>
-        <input type="password" name="password" class="form-control" id="exampleInputPassword1">
-    </div>
-    <div class="mb-3 form-check">
-        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-        <label class="form-check-label" for="exampleCheck1">Check me out</label>
-    </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+<div class="col-8 mx-auto">
+    <form method="POST" action="<?= getUrlFor('formsaveparente')?>">
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Matricule</label>
+            <input type="text" name="matricule" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Nom Complet</label>
+            <input type="text" name="nom_complet" class="form-control" id="exampleInputPassword1">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Genre</label>
+            <input type="text" name="genre" class="form-control" id="exampleInputPassword1">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Job</label>
+            <input type="text" name="job" class="form-control" id="exampleInputPassword1">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">adresse</label>
+            <input type="text" name="adresse" class="form-control" id="exampleInputPassword1">
+        </div>
+        <div class="mb-3">
+            <label class="form-check-label" for="exampleCheck1">Phone</label>
+            <input type="number" name="phone" class="form-control" id="exampleCheck1">
+        </div>
+        <div class="d-grid">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+            
     </form>
 </div>
