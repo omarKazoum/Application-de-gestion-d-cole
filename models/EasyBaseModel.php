@@ -175,5 +175,20 @@ abstract class EasyBaseModel
     private function hasColumn($columnName):bool{
         return in_array($columnName,static::$columns) OR $columnName==static::$idColumnName;
     }
+    public static function search($word){
+        self::$db_manager = DBManager::getInstance();
+        //TODO:: integrate this function as it's required by the search bar page
+        $sql="SELECT * FROM ".static::$tableName.' WHERE ';
+        foreach (static::$columns as $column){
+            $sql.=$column." LIKE '%".$word."%' OR ";
+        }
+        $sql.=static::$idColumnName." LIKE '%".$word."%'";
+        $statement = self::$db_manager->getConnection()->prepare($sql);
+        $statement->execute();
+        $entries= array_map('static::parseEntity',$statement->get_result()->fetch_all(MYSQLI_ASSOC));
+        if(!$entries)
+            return false;
+        return $entries;
+     }
 
 }
