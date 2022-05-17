@@ -15,7 +15,17 @@ Router::get('/', function () {
 });
 //for statistiques page
 Router::get('statistiques/', [new \controllers\StatistquesController(), 'view'], 'stats');
-//for classes crud
+
+//admin auth
+Router::get('admin/login',[new \controllers\AdminController(),'initLogin']);
+Router::post('admin/login',[new \controllers\AdminController(),'verifyLogin']);
+//admin crud
+Router::get('admin/crud',[new \controllers\AdminController(),'initCrud']);
+Router::post('admin/crud/add',[new \controllers\AdminController(),'add']);
+Router::post('admin/crud/delete',[new \controllers\AdminController(),'delete']);
+Router::post('admin/crud/update',[new \controllers\AdminController(),'update']);
+//Router::post('admin/crud/delete',[new \controllers\AdminController(),'delete']);
+//Router::post('admin/crud/patch',[new \controllers\AdminController(),'patch']);
 Router::get('classes', [new \controllers\ClassesController(), 'getAll'], 'classes');
 Router::get('classes/delete/{id}', [new \controllers\ClassesController(), 'delete'], 'classes');
 Router::get('classes/edit/{id}', [new \controllers\ClassesController(), 'editForm'], 'classes');
