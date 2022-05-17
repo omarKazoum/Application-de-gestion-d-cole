@@ -2,19 +2,9 @@
 
 namespace models;
 
-require('../autoloader.php');
-
-class Professeur extends BaseModel
+class Professeur extends EasyBaseModel
 {
-  public $matricule;
-  public $nom_complet;
-  public $genre;
-  public $class_id;
-  public $matière;
-  public $phone;
-  public $table_name = "	professeurs	";
-
-  function AddProfesseurs()
-  {
-  }
+  protected  static string $tableName = 'professeurs';
+  protected static array $columns = ['Matricule', 'Nom_complet', 'Genre', 'Class_id', 'Matiere', 'Phone'];
+  protected static string $idColumnName = 'id';
 }

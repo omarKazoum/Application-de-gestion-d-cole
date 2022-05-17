@@ -84,4 +84,12 @@ body {
   top: 5px;
 }
 
+#btn_submit_AddProf {
+  background-color: #FF8303;
+  color: #000000;
+  border: none;
+  box-shadow: inset -5px -5px 20px #FF8303, 5px 5px 20px #FF8303;
+  font-size: 16px;
+}
+
 /*# sourceMappingURL=style.css.map */
