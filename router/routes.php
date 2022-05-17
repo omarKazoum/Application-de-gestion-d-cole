@@ -40,11 +40,11 @@ Router::get('endpoint',function(){
 
 
 //professeurs
-Router::get('Professeurs', [new ProfesseursController(), 'ListProfesseur']);
-Router::get('AddProfesseur', [new ProfesseursController(), 'AddProfesseur']);
-Router::post('Professeurs/add', [new ProfesseursController(), 'AddProfesseurSubmit']);
-Router::get('Professeurs/delete/{id}', [new ProfesseursController(), 'DeleteProfesseur']);
-Router::get('Professeurs/edit/{id}', [new ProfesseursController(), 'EditProfesseur']);
-Router::post('Professeurs/edit', [new ProfesseursController(), 'EditProfesseurSubmit']);
+Router::get('Professeurs', [new ProfesseursController(), 'ListProfesseur'], 'professeur');
+Router::get('AddProfesseur', [new ProfesseursController(), 'AddProfesseur'], 'professeur');
+Router::post('Professeurs/add', [new ProfesseursController(), 'AddProfesseurSave'], 'professeur');
+Router::get('Professeurs/delete/{id}', [new ProfesseursController(), 'DeleteProfesseur'], 'professeur');
+Router::get('Professeurs/edit/{id}', [new ProfesseursController(), 'EditProfesseur'], 'professeur');
+Router::post('Professeurs/edit', [new ProfesseursController(), 'EditProfesseurSubmit'], 'professeur');
 //Etudiant
 Router::get('etudiant', [new \controllers\Controllerstudent(), 'studentDisplayer']);
