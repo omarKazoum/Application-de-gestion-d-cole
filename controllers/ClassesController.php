@@ -10,7 +10,11 @@ class ClassesController
 {
     function getAll()
     {
-        view('classes/list', true, ['classes' => SchoolClass::getAll()]);
+        if (isset($_GET['word'])) {
+            view('classes/list', true, ['classes' => SchoolClass::search($_GET['word']), 'isSearching' => true]);
+        } else {
+            view('classes/list', true, ['classes' => SchoolClass::getAll()]);
+        }
     }
     function editForm($id)
     {

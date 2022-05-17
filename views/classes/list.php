@@ -1,7 +1,8 @@
 <div class="d-flex justify-content-between">
-    <h3 class="mt-2">Classes list</h3>
+    <h3 class="mt-2">Classes list <?= isset($isSearching)?'results of '.$_GET['word']:'' ?></h3>
     <a href="<?= getUrlFor('classes/add')?>" class="btn btn-primary"> add class</a>
 </div>
+
 <table class="table">
     <thead>
     <tr>
@@ -12,7 +13,15 @@
     </tr>
     </thead>
     <tbody>
-    <?php if(count($classes)>0)foreach($classes as $class){ ?>
+    <?php if(!$classes){?>
+        <div class="alert alert-danger">
+            no classes found!
+        </div>
+
+    <?php }else
+    foreach($classes as $class){
+        //TODO:: [] array problem
+        ?>
     <tr>
         <th scope="row"><?= $class->id?></th>
         <td><?= $class->name?></td>

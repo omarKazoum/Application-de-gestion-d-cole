@@ -31,6 +31,12 @@
         <i class="bi bi-house"></i>
       </a>
     </li>
+    <li class="<?= core\Router::isRequestFor('stats') ? 'active' : '' ?>">
+      <a href="<?= getUrlFor('statistiques/') ?>" class="btn" data-bs-toggle="tooltip" data-bs-placement="right"
+        title="statistiques">
+          <i><span class="material-symbols-outlined">bar_chart</span></i>
+      </a>
+    </li>
     <li>
       <a href="#" class="btn" data-bs-toggle="tooltip" data-bs-placement="right" title="Logout">
         <i class="bi bi-box-arrow-left"></i>
