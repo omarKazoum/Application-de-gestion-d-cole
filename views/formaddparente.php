@@ -9,8 +9,12 @@
             <input type="text" name="nom_complet" class="form-control" id="exampleInputPassword1">
         </div>
         <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Genre</label>
-            <input type="text" name="genre" class="form-control" id="exampleInputPassword1">
+            <select name="" id="">
+                <option value="">Homme</option>
+                <option value="">Femme</option>
+            </select>
+            <!-- <label for="exampleInputPassword1" class="form-label">Genre</label>
+            <input type="text" name="genre" class="form-control" id="exampleInputPassword1"> -->
         </div>
         <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">Job</label>

@@ -31,7 +31,7 @@ Router::get('formaddparente',[new ParentsController,'addFormParent']);
 Router::post('formsaveparente',[new ParentsController,'addParentSave']);
 Router::get('parentdelete',[new ParentsController,'delete']);
 Router::get('parentupdate',[new ParentsController,'formEdit']);
-// Router::get('parentupdate',[new ParentsController,'update']);
+Router::post('parentsubmitupdate',[new ParentsController,'update']);
 
 
 

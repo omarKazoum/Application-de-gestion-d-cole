@@ -42,11 +42,20 @@ class ParentsController{
         view('formupdateparent',true,['par'=>$obj]);
     }
 
-    // public function update(){
-    //     $p=Parente::getById($_POST['id']);
-      
-    //     $p->save();
-    // }
+    public function update(){
+        $p=Parente::getById($_POST['id']);
+
+        $p->matricule=$_POST['matricule'];
+        $p->nom_complet=$_POST['nom_complet'];
+        $p->genre=$_POST['genre'];
+        $p->job=$_POST['job'];
+        $p->phone=$_POST['phone'];
+        $p->adresse=$_POST['adresse'];
+
+        $p->save();
+
+        redirect('parents');
+    }
     
 
 
