@@ -6,6 +6,7 @@ use utils\SessionManager;
 require_once '../autoloader.php';
 class AdminController
 {
+
     public function initLogin(){
         view('login',false, array());
     }
@@ -13,8 +14,9 @@ class AdminController
         session_start();
         $email = $_POST['email'];
         $password = $_POST['password'];
-        $bar = Admin::getByEmail($email);
-        if ($bar && password_verify($password,$bar->PasswordHash())){
+        $bar = Admin::getBy('email', $email);
+        var_dump($bar);
+        if ($bar && password_verify($password, password_hash($bar[0]->passwordHash, PASSWORD_DEFAULT))){
             $_SESSION['admin_obs'] = $bar;
             redirect("admin/crud");
         }
@@ -29,14 +31,14 @@ class AdminController
         $foo->nom = $_POST['nom'];
         $foo->prenom = $_POST['prenom'];
         $foo->email = $_POST['email'];
-        $foo->setPassword($_POST['password']);
+        $foo->password = $_POST['password'];
         $foo->role = $_POST['role'];
         $foo->add();
         redirect("admin/crud");
     }
     public function delete(){
         $foo = new Admin();
-        $foo->setId($_POST['admin-id']);
+        $foo->id = $_POST['admin-id'];
         $foo->delete();
         redirect("admin/crud");
     }
@@ -46,7 +48,7 @@ class AdminController
         $foo->nom = $_POST['nom'];
         $foo->prenom = $_POST['prenom'];
         $foo->email = $_POST['email'];
-        $foo->setPassword($_POST['password']);
+        $foo->password = password_hash($_POST['password'], PASSWORD_DEFAULT);
         $foo->role = $_POST['role'];
         $foo->update();
         redirect("admin/crud");
