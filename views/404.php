@@ -18,7 +18,7 @@
                 <div class="col-lg-6 col-md-5 col-sm-10 col-10 mt-5">
                     <img src="<?php echo img('oops.svg'); ?>" class="mt-lg-5" alt="">
                     <p class="fs-3 mt-2">We can’t seem to find a page you are looking for </p>
-                    <a href="<?php echo getUrlFor('admin/login')?>" class="btn mt-2 text-white p-2" style="border-radius: 14px 14px 0px; background-color: #FF735F;">Back to home</a>
+                    <a href="<?php echo getUrlFor('admin/login')?>" class="btn mt-2 text-white px-3" style="border-radius: 14px 14px 0px; background-color: #FF735F;">Back to home</a>
                 </div>
                 <div class="col-lg-6 col-md-7 col-sm-10 mx-auto mt-5 justify-content-center">
                     <img src="<?php echo img('404.svg'); ?>" alt="">

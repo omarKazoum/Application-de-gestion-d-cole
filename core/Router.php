@@ -72,7 +72,7 @@ class Router{
         }
         if(!$foundRout){
             //should redirect to 404 page
-            view('404',false);
+            viewNoSidebar('404');
         }
     }
 
