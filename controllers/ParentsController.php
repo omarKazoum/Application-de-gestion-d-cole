@@ -16,6 +16,7 @@ class ParentsController{
     }
 
     public function addParentSave(){
+       
         $p1 = new Parente();
         $p1->matricule=$_POST['matricule'];
         $p1->nom_complet=$_POST['nom_complet'];
@@ -23,9 +24,11 @@ class ParentsController{
         $p1->job=$_POST['job'];
         $p1->adresse=$_POST['adresse'];
         $p1->phone=$_POST['phone'];
-        $p1->save();
-        redirect('parents');
-        
+        if(true){
+            $p1->save();
+            redirect('parents');
+        }else
+        view('formaddparente',true,['errors'=>$errors]);
     }
 
     public function delete(){
