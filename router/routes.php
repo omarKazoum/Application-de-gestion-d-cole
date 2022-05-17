@@ -7,7 +7,7 @@ use core\Router;
 
 
 //declare here your endpoints and their corresponding controller method
-Router::get('error', function () {
+Router::get('error',function () {
     view('404', false);
 });
 Router::get('/', function () {
@@ -23,8 +23,8 @@ Router::post('classes/edit', [new \controllers\ClassesController(), 'editSubmit'
 Router::get('classes/add', [new \controllers\ClassesController(), 'addForm'], 'classes');
 Router::post('classes/add', [new \controllers\ClassesController(), 'addSubmit'], 'classes');
 //admin
-Router::get('admin/login', [new \controllers\AdminController(), 'initLogin']);
-Router::post('admin/login', [new \controllers\AdminController(), 'verifyLogin']);
+Router::get('admin/login', [new \controllers\AdminController(), 'initLogin'],'auth');
+Router::post('admin/login', [new \controllers\AdminController(), 'verifyLogin'],'auth');
 
 // parente
 Router::get('parents', [new ParentsController, 'listParents']);
@@ -32,6 +32,9 @@ Router::get('formaddparente', [new ParentsController, 'addFormParent']);
 Router::post('formsaveparente', [new ParentsController, 'addParentSave']);
 Router::get('parentdelete', [new ParentsController, 'delete']);
 Router::get('parentupdate', [new ParentsController, 'formEdit']);
+Router::get('endpoint',function(){
+
+});
 // Router::get('parentupdate',[new ParentsController,'update']);
 
 
