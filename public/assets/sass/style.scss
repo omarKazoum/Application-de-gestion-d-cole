@@ -15,14 +15,11 @@ $color-white:#FFFFFF;
     justify-content: center;
     align-items: center;
 }
-
-
 *{
     @include null();
 }
 body{
     background-color: $color-background;
-
 }
 #LOGO_WEBSITE{
     width: 110px;
@@ -64,7 +61,6 @@ body{
     padding-left: 0px !important;
     margin-bottom: 0px !important;
 }
-
 #SIDE_BAR ul li a i{
    font-size: 1.75rem;
 }
@@ -90,4 +86,16 @@ body{
     border: none;
     box-shadow: inset -5px -5px 20px $color-primary,5px 5px 20px $color-primary;
     font-size: 16px;
+}
+#btn_addProf{
+    // text-decoration: none;
+    // background-color: $color-primary;
+    // color: $color-white;
+    // border: 2px solid $color-primary;
+    // font-size: 14px;
+    // border-radius: 5px;
+    // &:hover{
+        
+    //     color: $color-black;
+    // }
 }

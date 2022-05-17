@@ -1,18 +1,21 @@
 <?php
+
 namespace controllers;
 
 use models\Parente;
 
-class ParentsController{
+class ParentsController
+{
 
-    public function listParents(){
-        $data=Parente::getAll();
-        view('parents_list',true,['data'=>$data]);
+    public function listParents()
+    {
+        $data = Parente::getAll();
+        view('parents_list', true, ['data' => $data]);
     }
-  
+
     public function addFormParent()
     {
-       view('formaddparente',true);
+        view('formaddparente', true);
     }
 
     public function addParentSave(){
@@ -31,18 +34,20 @@ class ParentsController{
         view('formaddparente',true,['errors'=>$errors]);
     }
 
-    public function delete(){
-        $d=Parente::getById($_GET['id']);
-        if($d){
+    public function delete()
+    {
+        $d = Parente::getById($_GET['id']);
+        if ($d) {
             $d->delete();
             redirect('parents');
-        }else 
+        } else
             echo 'parente not existe';
     }
 
-    public function formEdit(){
-        $obj=Parente::getById($_GET['id']);
-        view('formupdateparent',true,['par'=>$obj]);
+    public function formEdit()
+    {
+        $obj = Parente::getById($_GET['id']);
+        view('formupdateparent', true, ['par' => $obj]);
     }
 
     public function update(){
@@ -60,6 +65,5 @@ class ParentsController{
         redirect('parents');
     }
     
-
 
 }

@@ -1,4 +1,4 @@
-<form method="POST" action="<?= getUrlFor('personAddSubmit')?>">
+<form method="POST" action="<?= getUrlFor('savestudents')?>">
     <div class="form-group">
         <label for="matricule">matricule</label>
         <input type="text" name="matricule" class="form-control" id="matricule" aria-describedby="emailHelp" >
@@ -17,7 +17,7 @@
     </div>
     <div class="form-group">
         <label for="parent">parent</label>
-        <input type="text" name="id_parent" class="form-control" id="parent" aria-describedby="emailHelp" >
+        <input type="text" name="id_parents" class="form-control" id="parent" aria-describedby="emailHelp" >
     </div>
     <div class="form-group">
         <label for="adresse">adresse</label>
@@ -25,7 +25,7 @@
     </div>
     <div class="form-group">
         <label for="birthday">birthday</label>
-        <input type="text" name="birthday" class="form-control" id="birthday" aria-describedby="emailHelp" >
+        <input type="date" name="birthday" class="form-control" id="birthday" aria-describedby="emailHelp" >
     </div>
     <div class="form-group">
         <label for="email">email</label>
