@@ -23,5 +23,5 @@
     <label for="Phone">Phone</label>
     <input type="email" name="Phone" class="form-control" id="Phone" aria-describedby="emailHelp">
   </div>
-  <button type="submit" id="btn_submit_AddProf" class="btn btn-primary">Add Professeur</button>
+  <button type="submit" id="btn_submit_AddProf" class="btn btn-primary"> Add Professeur </button>
 </form>
