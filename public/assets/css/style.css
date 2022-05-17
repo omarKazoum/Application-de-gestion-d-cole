@@ -92,4 +92,16 @@ body {
   font-size: 16px;
 }
 
+#btn_addProf {
+  border: none;
+  background-color: #FF8303 !important;
+  color: #FFFFFF !important;
+  box-shadow: inset -5px -5px 20px #FF8303, 5px 5px 20px #FF8303 !important;
+}
+#btn_addProf:hover {
+  background-color: #FF8303 !important;
+  color: #FFFFFF !important;
+  box-shadow: none !important;
+}
+
 /*# sourceMappingURL=style.css.map */

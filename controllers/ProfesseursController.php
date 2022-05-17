@@ -51,4 +51,15 @@ class ProfesseursController
   {
     view('AddProfesseur');
   }
+  public function DeleteProfesseur($id)
+  {
+    echo "OK";
+    $Dp = Professeur::getById($id);
+    '<br';
+    echo $Dp;
+    if ($Dp) {
+      $Dp->delete();
+      redirect('Professeurs');
+    }
+  }
 }
