@@ -1,9 +1,11 @@
 <?php
+
 namespace models;
+
 use utils\Constants;
 
-require_once '../autoloader.php';
-class Admin extends BaseModel {
+class Admin extends BaseModel
+{
     //it's necessary to set the table name
     protected static string $tableName= 'admins';
     public $nom;
@@ -34,7 +36,7 @@ class Admin extends BaseModel {
      */
     public function setPassword(string $password): void
     {
-        $this->passwordHash = password_hash($password,PASSWORD_DEFAULT);
+        $this->passwordHash = password_hash($password, PASSWORD_DEFAULT);
     }
 
     public function update()
@@ -65,13 +67,13 @@ class Admin extends BaseModel {
         $stmt =self::$db_manager->getConnection()->prepare($sql);
         $stmt->bind_param( "sssss",$this->nom,$this->prenom,$this->role,$this->email,$this->passwordHash);
         $stmt->execute();
-        $this->id=$stmt->insert_id;
+        $this->id = $stmt->insert_id;
         return $stmt->get_result();
     }
 
     protected static function parseEntity(array $data)
     {
-        $user=new Admin();
+        $user = new Admin();
         $user->setId($data["id"]);
         $user->email =$data["email"];
         $user->setPasswordHash($data["password"]);
@@ -80,9 +82,10 @@ class Admin extends BaseModel {
         $user->role = $data["role"];
         return $user;
     }
-    public static function getByEmail($name){
-        $res=self::queryBy("email",$name,self::$tableName);
-        if($res)
+    public static function getByEmail($name)
+    {
+        $res = self::queryBy("email", $name, self::$tableName);
+        if ($res)
             return static::parseEntity($res[0]);
         return false;
     }

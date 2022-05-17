@@ -19,10 +19,11 @@ class DBManager
             DBManager::$instance=new DBManager();
          }
         try{
+
             //DBManager::$instance->install();
             DBManager::$instance->connectToDb();
         }catch (Exception $e){
-            echo $e->getMessage();
+            echo var_dump($e);
         }
         return DBManager::$instance;
     }

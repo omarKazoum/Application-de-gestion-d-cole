@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : lun. 16 mai 2022 à 12:42
+-- Généré le : mar. 17 mai 2022 à 10:20
 -- Version du serveur : 10.4.22-MariaDB
 -- Version de PHP : 8.0.14
 
@@ -102,15 +102,15 @@ CREATE TABLE `professeurs` (
 
 CREATE TABLE `student` (
   `id` int(11) NOT NULL,
-  `Matricule` int(11) NOT NULL,
-  `name` int(11) NOT NULL,
-  `gender` int(11) NOT NULL,
-  `id_class` int(11) NOT NULL,
-  `id_parents` int(11) NOT NULL,
-  `adresse` int(11) NOT NULL,
-  `birthday` int(11) NOT NULL,
-  `email` int(11) NOT NULL,
-  `parent_name` int(11) NOT NULL
+  `matricule` text NOT NULL,
+  `name` text NOT NULL,
+  `gender` text NOT NULL,
+  `id_class` int(255) NOT NULL,
+  `id_parents` int(255) NOT NULL,
+  `adresse` text NOT NULL,
+  `birthday` date NOT NULL,
+  `email` text NOT NULL,
+  `parent_name` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --

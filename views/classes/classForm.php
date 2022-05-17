@@ -10,11 +10,11 @@ use \utils\InputValidator;
 <form action="<?= isset($edit)?getUrlFor('classes/edit'):getUrlFor('classes/add') ?>" method="post"
       class="activate-validation"
 >
-    <input type="hidden"  name='<?= Constants::Classes_Col_Id?>' value="<?= isset($edit)? $editClass->getId():''?>">
+    <input type="hidden"  name='<?= Constants::Classes_Col_Id?>' value="<?= isset($edit)? $editClass->id:''?>">
     <div class="form-group">
         <label for="<?=Constants::Classes_Col_Name?>" class="form-label">Class name*</label>
         <input
-                value="<?= isset($edit)? $editClass->getName():$_POST[Constants::Classes_Col_Name]??'' ?>"
+                value="<?= isset($edit)? $editClass->name:$_POST[Constants::Classes_Col_Name]??'' ?>"
                 id="<?=Constants::Classes_Col_Name?>"
                 type="text"
                 class="form-control"
@@ -27,7 +27,7 @@ use \utils\InputValidator;
     <div class="form-group">
         <label for="<?=Constants::Classes_Col_Description?>" class="form-label">Class description(optional)</label>
         <input
-                value="<?= isset($edit)?$editClass->getDescription():$_POST[Constants::Classes_Col_Description]??'' ?>"
+                value="<?= isset($edit)?$editClass->description:$_POST[Constants::Classes_Col_Description]??'' ?>"
                 id="<?=Constants::Classes_Col_Description?>"
                 type="text"
                 class="form-control"

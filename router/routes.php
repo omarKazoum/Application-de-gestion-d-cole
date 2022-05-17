@@ -7,20 +7,14 @@ use core\Router;
 
 
 //declare here your endpoints and their corresponding controller method
-Router::get('error',function (){
-    view('404',false);});
-Router::get('/',function(){
+Router::get('error',function () {
+    view('404', false);
+});
+Router::get('/', function () {
     redirect('admin/login');
 });
 //for statistiques page
-Router::get('statistiques/',[new \controllers\StatistquesController(),'view'],'stats');
-//for classes crud
-Router::get('classes',[new \controllers\ClassesController(),'getAll']);
-Router::get('classes/delete/{id}',[new \controllers\ClassesController(),'delete']);
-Router::get('classes/edit/{id}',[new \controllers\ClassesController(),'editForm']);
-Router::post('classes/edit',[new \controllers\ClassesController(),'editSubmit']);
-Router::get('classes/add',[new \controllers\ClassesController(),'addForm']);
-Router::post('classes/add',[new \controllers\ClassesController(),'addSubmit']);
+Router::get('statistiques/', [new \controllers\StatistquesController(), 'view'], 'stats');
 
 //admin auth
 Router::get('admin/login',[new \controllers\AdminController(),'initLogin']);
@@ -32,3 +26,35 @@ Router::post('admin/crud/delete',[new \controllers\AdminController(),'delete']);
 Router::post('admin/crud/update',[new \controllers\AdminController(),'update']);
 //Router::post('admin/crud/delete',[new \controllers\AdminController(),'delete']);
 //Router::post('admin/crud/patch',[new \controllers\AdminController(),'patch']);
+Router::get('classes', [new \controllers\ClassesController(), 'getAll'], 'classes');
+Router::get('classes/delete/{id}', [new \controllers\ClassesController(), 'delete'], 'classes');
+Router::get('classes/edit/{id}', [new \controllers\ClassesController(), 'editForm'], 'classes');
+Router::post('classes/edit', [new \controllers\ClassesController(), 'editSubmit'], 'classes');
+Router::get('classes/add', [new \controllers\ClassesController(), 'addForm'], 'classes');
+Router::post('classes/add', [new \controllers\ClassesController(), 'addSubmit'], 'classes');
+//admin
+Router::get('admin/login', [new \controllers\AdminController(), 'initLogin'],'auth');
+Router::post('admin/login', [new \controllers\AdminController(), 'verifyLogin'],'auth');
+
+// parente
+Router::get('parents', [new ParentsController, 'listParents']);
+Router::get('formaddparente', [new ParentsController, 'addFormParent']);
+Router::post('formsaveparente', [new ParentsController, 'addParentSave']);
+Router::get('parentdelete', [new ParentsController, 'delete']);
+Router::get('parentupdate', [new ParentsController, 'formEdit']);
+Router::get('endpoint',function(){
+
+});
+// Router::get('parentupdate',[new ParentsController,'update']);
+
+
+
+//professeurs
+Router::get('Professeurs', [new ProfesseursController(), 'ListProfesseur']);
+Router::get('AddProfesseur', [new ProfesseursController(), 'AddProfesseur']);
+Router::post('Professeurs/add', [new ProfesseursController(), 'AddProfesseurSubmit']);
+Router::get('Professeurs/delete/{id}', [new ProfesseursController(), 'DeleteProfesseur']);
+Router::get('Professeurs/edit/{id}', [new ProfesseursController(), 'EditProfesseur']);
+Router::post('Professeurs/edit', [new ProfesseursController(), 'EditProfesseurSubmit']);
+//Etudiant
+Router::get('etudiant', [new \controllers\Controllerstudent(), 'studentDisplayer']);
