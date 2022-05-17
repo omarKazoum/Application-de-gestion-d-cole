@@ -11,7 +11,7 @@ abstract class BaseModel
     //must override
     protected  static string $tableName='';
     const ID_KEY='id';
-    protected int $id=0;
+    public int $id = 0;
     protected static $db_manager;
     public function __construct()
     {
