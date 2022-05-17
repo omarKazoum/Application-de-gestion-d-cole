@@ -27,15 +27,12 @@ Router::get('admin/login', [new \controllers\AdminController(), 'initLogin'],'au
 Router::post('admin/login', [new \controllers\AdminController(), 'verifyLogin'],'auth');
 
 // parente
-Router::get('parents', [new ParentsController, 'listParents']);
-Router::get('formaddparente', [new ParentsController, 'addFormParent']);
-Router::post('formsaveparente', [new ParentsController, 'addParentSave']);
-Router::get('parentdelete', [new ParentsController, 'delete']);
-Router::get('parentupdate', [new ParentsController, 'formEdit']);
-Router::get('endpoint',function(){
-
-});
-// Router::get('parentupdate',[new ParentsController,'update']);
+Router::get('parents',[new ParentsController,'listParents']);
+Router::get('formaddparente',[new ParentsController,'addFormParent']);
+Router::post('formsaveparente',[new ParentsController,'addParentSave']);
+Router::get('parentdelete',[new ParentsController,'delete']);
+Router::get('parentupdate',[new ParentsController,'formEdit']);
+Router::post('parentsubmitupdate',[new ParentsController,'update']);
 
 
 

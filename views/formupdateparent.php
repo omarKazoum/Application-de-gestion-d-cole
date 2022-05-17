@@ -6,7 +6,7 @@
     </div>
 <?php } ?>
 <div class="col-8 mx-auto">
-    <form method="POST" action="<?= getUrlFor('parentupdate')?>">
+    <form method="POST" action="<?= getUrlFor('parentsubmitupdate')?>">
         <input type="hidden" name="id" value="<?= $par->id?>">
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Matricule</label>
@@ -17,6 +17,10 @@
             <input type="text" name="nom_complet" value="<?= $par->nom_complet?>" class="form-control" id="exampleInputPassword1">
         </div>
         <div class="mb-3">
+            <select name="" id="">
+                <option value=""></option>
+                <option value=""></option>
+            </select>
             <label for="exampleInputPassword1" class="form-label">Genre</label>
             <input type="text" name="genre" value="<?= $par->genre?>" class="form-control" id="exampleInputPassword1">
         </div>

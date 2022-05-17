@@ -70,12 +70,12 @@ INSERT INTO `class` (`id`, `name`, `description`) VALUES
 
 CREATE TABLE `parents` (
   `id` int(11) NOT NULL,
-  `matricule` int(11) NOT NULL,
-  `nom_complet` int(11) NOT NULL,
-  `genre` int(11) NOT NULL,
-  `job` int(11) NOT NULL,
-  `adresse` int(11) NOT NULL,
-  `phone` int(11) NOT NULL
+  `matricule` varchar(20) NOT NULL,
+  `nom_complet` varchar(20) NOT NULL,
+  `genre` varchar(15) NOT NULL,
+  `job` varchar(20) NOT NULL,
+  `adresse` varchar(30) NOT NULL,
+  `phone` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
