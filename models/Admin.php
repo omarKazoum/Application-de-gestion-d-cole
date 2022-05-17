@@ -1,11 +1,13 @@
 <?php
+
 namespace models;
+
 use utils\Constants;
 
-require_once '../autoloader.php';
-class Admin extends BaseModel {
+class Admin extends BaseModel
+{
     //it's necessary to set the table name
-    protected static string $tableName= 'admins';
+    protected static string $tableName = 'admins';
     private string $email;
     private string $passwordHash;
 
@@ -47,46 +49,47 @@ class Admin extends BaseModel {
      */
     public function setPassword(string $password): void
     {
-        $this->passwordHash = password_hash($password,PASSWORD_DEFAULT);
+        $this->passwordHash = password_hash($password, PASSWORD_DEFAULT);
     }
 
     public function update()
     {
-        $sql="UPDATE ".self::$tableName." SET "
-            ."email".'=?,'
-            ."password"."=? ".
-            'WHERE '.self::ID_KEY.'=?';
-        $stmt =self::$db_manager->getConnection()->prepare($sql);
+        $sql = "UPDATE " . self::$tableName . " SET "
+            . "email" . '=?,'
+            . "password" . "=? " .
+            'WHERE ' . self::ID_KEY . '=?';
+        $stmt = self::$db_manager->getConnection()->prepare($sql);
 
-        $stmt->bind_param( "sss",$this->email,$this->passwordHash,$this->id);
+        $stmt->bind_param("sss", $this->email, $this->passwordHash, $this->id);
         $stmt->execute();
         return $stmt->affected_rows;
     }
 
     public function add()
     {
-        $sql="INSERT INTO ".self::$tableName."("
-            ."email".','
-            ."password".")"
-            ."values(?,?)";
-        $stmt =self::$db_manager->getConnection()->prepare($sql);
-        $stmt->bind_param( "ss",$this->email,$this->passwordHash);
+        $sql = "INSERT INTO " . self::$tableName . "("
+            . "email" . ','
+            . "password" . ")"
+            . "values(?,?)";
+        $stmt = self::$db_manager->getConnection()->prepare($sql);
+        $stmt->bind_param("ss", $this->email, $this->passwordHash);
         $stmt->execute();
-        $this->id=$stmt->insert_id;
+        $this->id = $stmt->insert_id;
         return $stmt->get_result();
     }
 
     protected static function parseEntity(array $data)
     {
-        $user=new Admin();
+        $user = new Admin();
         $user->setId($data["id"]);
         $user->setEmail($data["email"]);
         $user->setPasswordHash($data["password"]);
         return $user;
     }
-    public static function getByEmail($name){
-        $res=self::queryBy("email",$name,self::$tableName);
-        if($res)
+    public static function getByEmail($name)
+    {
+        $res = self::queryBy("email", $name, self::$tableName);
+        if ($res)
             return static::parseEntity($res[0]);
         return false;
     }

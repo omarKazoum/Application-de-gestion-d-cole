@@ -31,8 +31,8 @@ class ClassesController
                 redirect('error');
                 return;
             }
-            $c->setName($_POST[Constants::Classes_Col_Name]);
-            $c->setDescription($_POST[Constants::Classes_Col_Description] ?? '');
+            $c->name=$_POST[Constants::Classes_Col_Name];
+            $c->description=$_POST[Constants::Classes_Col_Description] ?? '';
             $c->save();
             redirect('classes?success=class updated successfully !');
         } else {
@@ -50,8 +50,8 @@ class ClassesController
             and InputValidator::validateUserName($_POST[Constants::Classes_Col_Name], Constants::Classes_Col_Name)
         ) {
             $c = new SchoolClass();
-            $c->setName($_POST[Constants::Classes_Col_Name]);
-            $c->setDescription($_POST[Constants::Classes_Col_Description] ?? '');
+            $c->name=$_POST[Constants::Classes_Col_Name];
+            $c->description=$_POST[Constants::Classes_Col_Description] ?? '';
             $c->save();
             redirect('classes?success=class added successfully !');
         } else

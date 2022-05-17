@@ -1,6 +1,6 @@
 <div class="bg-white" id="SIDE_BAR">
     <ul>
-        <li>
+        <li class="<?= \core\Router::isRequestFor('auth')?'active':''?>">
             <a href="#" class="btn" data-bs-toggle="tooltip" data-bs-placement="right" title="Apprenant">
                 <i class="bi bi-person-fill"></i>
             </a>
