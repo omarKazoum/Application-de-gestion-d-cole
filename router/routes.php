@@ -44,4 +44,9 @@ Router::get('Professeurs/delete/{id}', [new ProfesseursController(), 'DeleteProf
 Router::get('Professeurs/edit/{id}', [new ProfesseursController(), 'EditProfesseur']);
 Router::post('Professeurs/edit', [new ProfesseursController(), 'EditProfesseurSubmit']);
 //Etudiant
-Router::get('etudiant', [new \controllers\Controllerstudent(), 'studentDisplayer']);
+Router::get('student', [new  \controllers\StudentController, 'studentList']);
+Router::get('formaddstudent', [new \controllers\StudentController, 'addStudentForm']);
+Router::post('savestudents', [new \controllers\StudentController, 'SaveStudent']);
+Router::get('studentdelete', [new \controllers\StudentController, 'delete']);
+Router::get('studentupdate', [new \controllers\StudentController, 'formEdit']);
+Router::post('studentupdatesubmit', [new \controllers\StudentController, 'update']);
