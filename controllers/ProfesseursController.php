@@ -59,4 +59,25 @@ class ProfesseursController
       redirect('Professeurs');
     }
   }
+  public function UpdateProfesseur($id)
+  {
+    $Prof = Professeur::getById($id);
+    if ($Prof) {
+      view('FormUpdateProfesseur', true, ['prof' => $Prof]);
+    } else {
+      view('404');
+    }
+  }
+  public function UpdateProfSave($id)
+  {
+    $prof = Professeur::getById($id);
+    $prof->Matricule;
+    $prof->Nom_complet;
+    $prof->Genre;
+    $prof->Class_id;
+    $prof->Matiere;
+    $prof->Phone;
+    $prof->save();
+    redirect('Professeurs');
+  }
 }

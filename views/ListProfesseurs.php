@@ -34,7 +34,7 @@
       <td><?= $Prof->Matiere ?></td>
       <td><?= $Prof->Phone ?></td>
       <td>
-        <a href="<?= getUrlFor('Professeurs/edit' . $Prof->id) ?>" class="btn btn-success">Edit</a>
+        <a href="<?= getUrlFor('Professeurs/edit/' . $Prof->id) ?>" class="btn btn-success">Edit</a>
         <a href="<?= getUrlFor('Professeurs/delete/' . $Prof->id) ?>" class="btn btn-danger">Delete</a>
       </td>
     </tr>
