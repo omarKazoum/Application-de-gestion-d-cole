@@ -48,6 +48,8 @@
     $(this).addClass('active').siblings().removeClass('active')
   })
   </script>
+<script src="<?= js('confirm.js')?>"></script>
+
 </body>
 
 </html>

@@ -18,8 +18,8 @@
           </span></i>
       </a>
     </li>
-    <li>
-      <a href="#" class="btn" data-bs-toggle="tooltip" data-bs-placement="right" title="Parents">
+    <li class="<?= core\Router::isRequestFor('parents') ? 'active' : '' ?>">
+      <a href="<?= getUrlFor('parents') ?>" class="btn" data-bs-toggle="tooltip" data-bs-placement="right" title="Parents">
         <i><span class="material-symbols-outlined ICON_POSITION">
             family_restroom
           </span></i>
