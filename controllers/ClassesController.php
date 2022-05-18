@@ -11,24 +11,24 @@ class ClassesController
 {
     function getAll()
     {
-        if(SessionManager::getInstance()->isLoggedIn()) {
+        //if(SessionManager::getInstance()->isLoggedIn()) {
             if (isset($_GET['word'])) {
                 view('classes/list', true, ['classes' => SchoolClass::search($_GET['word']), 'isSearching' => true]);
             } else {
                 view('classes/list', true, ['classes' => SchoolClass::getAll()]);
             }
-        }else
-            redirect('/');
+        //}else
+          //  redirect('/');
     }
     function editForm($id)
-    {        if(SessionManager::getInstance()->isLoggedIn()) {
+    {        //if(SessionManager::getInstance()->isLoggedIn()) {
                  $schollClass = SchoolClass::getById($id);
                 if (!$schollClass) {
                     die('no such a class with id ' . $id);
                 }
                 view('classes/classForm', true, ['edit' => true, 'editClass' => $schollClass]);
-            }else
-                redirect('/');
+            //}else
+              //  redirect('/');
     }
     function editSubmit()
     {

@@ -13,15 +13,15 @@
     </tr>
   </thead>
   <tbody>
-    <?php if (!$classes) { ?>
+    <?php //if (!$classes) { ?>
     <div class="alert alert-danger">
       no classes found!
     </div>
 
-    <?php } else
-      foreach ($classes as $class) {
+    <?php //} else
+      //foreach ($classes as $class) {
         //TODO:: [] array problem
     ?>
-    <?php endif ?>
+    <?php //endif ?>
   </tbody>
 </table>
