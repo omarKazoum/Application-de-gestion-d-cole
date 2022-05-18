@@ -37,12 +37,12 @@ Router::get('admin/login', [new \controllers\AdminController(), 'initLogin'], 'a
 Router::post('admin/login', [new \controllers\AdminController(), 'verifyLogin'], 'auth');
 // parente
 
-Router::get('parents', [new ParentsController, 'listParents']);
-Router::get('formaddparente', [new ParentsController, 'addFormParent']);
-Router::post('formsaveparente', [new ParentsController, 'addParentSave']);
-Router::get('parentdelete', [new ParentsController, 'delete']);
-Router::get('parentupdate', [new ParentsController, 'formEdit']);
-Router::post('parentsubmitupdate', [new ParentsController, 'update']);
+Router::get('parents',[new ParentsController,'listParents'],'parents');
+Router::get('formaddparente',[new ParentsController,'addFormParent'],'parents');
+Router::post('formsaveparente',[new ParentsController,'addParentSave'],'parents');
+Router::get('parentdelete',[new ParentsController,'delete'],'parents');
+Router::get('parentupdate',[new ParentsController,'formEdit'],'parents');
+Router::post('parentsubmitupdate',[new ParentsController,'update'],'parents');
 Router::get('admin/login', [new \controllers\AdminController(), 'initLogin'], 'auth');
 Router::post('admin/login', [new \controllers\AdminController(), 'verifyLogin'], 'auth');
 //professeurs

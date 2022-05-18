@@ -1,7 +1,8 @@
 <div class="d-flex justify-content-between mt-2">
     <h3 class="">Parents list</h3>
-    <a href="<?= getUrlFor('formaddparente')?> " class="btn btn-primary">Add New Parent</a>
+    <a href="<?= getUrlFor('formaddparente')?> " id="btn_addProf" class="btn">Add New Parent</a>
 </div>
+<hr>
 
 <?php if (isset($_GET['msg'])) { ?>
   <div class="alert alert-success mt-2">
