@@ -1,5 +1,5 @@
-<div class="d-flex justify-content-between">
-    <h3 class="mt-2">Classes list</h3>
+<div class="d-flex justify-content-between mt-2">
+    <h3 class="">Classes list</h3>
     <a href="<?= getUrlFor('classes/add')?>" class="btn btn-primary"> add class</a>
 </div>
 <table class="table">
