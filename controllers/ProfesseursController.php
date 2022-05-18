@@ -50,19 +50,14 @@ class ProfesseursController
   public function AddProfesseurForm()
   {
     view('AddProfesseur');
-<<<<<<< Updated upstream
   }
   public function DeleteProfesseur($id)
   {
-    echo "OK";
     $Dp = Professeur::getById($id);
     '<br';
     echo $Dp;
     if ($Dp) {
       $Dp->delete();
       redirect('Professeurs');
-    }
-=======
->>>>>>> Stashed changes
   }
 }
