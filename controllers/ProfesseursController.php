@@ -59,5 +59,6 @@ class ProfesseursController
     if ($Dp) {
       $Dp->delete();
       redirect('Professeurs');
+    }
   }
 }
