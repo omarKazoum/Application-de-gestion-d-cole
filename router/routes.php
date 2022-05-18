@@ -53,7 +53,7 @@ Router::post('Professeurs/add', [new ProfesseursController(), 'AddProfesseurSave
 Router::get('Professeurs/add', [new ProfesseursController(), 'AddProfesseurForm'], 'professeur');
 Router::get('Professeurs/edit/{id}', [new ProfesseursController(), 'EditProfesseur'], 'professeur');
 Router::post('ProfesseursEdit', [new ProfesseursController(), 'EditProfesseurSubmit'], 'professeur');
-Router::post('Professeurs/delete/{id}', [new ProfesseursController(), 'DeleteProfesseur'], 'professeur');
+Router::get('Professeurs/delete/{id}', [new ProfesseursController(), 'DeleteProfesseur'], 'professeur');
 Router::post('Professeurs/edit', [new ProfesseursController(), 'EditProfesseurSubmit'], 'professeur');
 //Etudiant
 Router::get('student', [new  \controllers\StudentController, 'studentList']);
