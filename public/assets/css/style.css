@@ -39,7 +39,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 90%;
+  min-height: 90vh;
   border-radius: 10px !important;
   margin-bottom: 10px;
 }
@@ -91,5 +91,3 @@ body {
   box-shadow: inset -5px -5px 20px #FF8303, 5px 5px 20px #FF8303;
   font-size: 16px;
 }
-
-/*# sourceMappingURL=style.css.map */
