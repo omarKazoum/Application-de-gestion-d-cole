@@ -1,12 +1,17 @@
+<?php if () {
+    
+}?>
 <div class="col-8 mx-auto">
     <form method="POST" action="<?= getUrlFor('formsaveparente')?>">
-        <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Matricule</label>
-            <input type="text" name="matricule" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-        </div>
-        <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Nom Complet</label>
-            <input type="text" name="nom_complet" class="form-control" id="exampleInputPassword1">
+        <div class="row">
+            <div class="mb-3 col">
+                <label for="exampleInputEmail1" class="form-label">Matricule</label>
+                <input type="text" name="matricule" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            </div>
+            <div class="mb-3 col">
+                <label for="exampleInputPassword1" class="form-label">Nom Complet</label>
+                <input type="text" name="nom_complet" class="form-control" id="exampleInputPassword1">
+            </div>
         </div>
         <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">Genre</label>

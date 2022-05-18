@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mar. 17 mai 2022 à 10:20
+-- Généré le : mar. 17 mai 2022 à 16:28
 -- Version du serveur : 10.4.22-MariaDB
--- Version de PHP : 8.0.14
+-- Version de PHP : 7.4.26
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
