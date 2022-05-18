@@ -18,17 +18,20 @@ class ParentsController
         view('formaddparente', true);
     }
 
-    public function addParentSave()
-    {
+    public function addParentSave(){
+       
         $p1 = new Parente();
-        $p1->matricule = $_POST['matricule'];
-        $p1->nom_complet = $_POST['nom_complet'];
-        $p1->genre = $_POST['genre'];
-        $p1->job = $_POST['job'];
-        $p1->adresse = $_POST['adresse'];
-        $p1->phone = $_POST['phone'];
-        $p1->save();
-        redirect('parents');
+        $p1->matricule=$_POST['matricule'];
+        $p1->nom_complet=$_POST['nom_complet'];
+        $p1->genre=$_POST['genre'];
+        $p1->job=$_POST['job'];
+        $p1->adresse=$_POST['adresse'];
+        $p1->phone=$_POST['phone'];
+        if(true){
+            $p1->save();
+            redirect('parents');
+        }else
+        view('formaddparente',true,['errors'=>$errors]);
     }
 
     public function delete()

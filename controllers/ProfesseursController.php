@@ -41,10 +41,14 @@ class ProfesseursController
     }
     if (!$errors) {
       $Prof->save();
-      //redirect('Professeur');  
+      redirect('Professeurs?msg=proffessur added!');
     } else {
 
       view('AddProfesseur', true, ['error' => $errors]);
     }
+  }
+  public function AddProfesseurForm()
+  {
+    view('AddProfesseur');
   }
 }

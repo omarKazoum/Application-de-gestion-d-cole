@@ -49,8 +49,13 @@ Router::post('parentsubmitupdate',[new ParentsController,'update']);
 Router::get('Professeurs', [new ProfesseursController(), 'ListProfesseur'], 'professeur');
 Router::get('AddProfesseur', [new ProfesseursController(), 'AddProfesseur'], 'professeur');
 Router::post('Professeurs/add', [new ProfesseursController(), 'AddProfesseurSave'], 'professeur');
-Router::get('Professeurs/delete/{id}', [new ProfesseursController(), 'DeleteProfesseur'], 'professeur');
+Router::get('Professeurs/add', [new ProfesseursController(), 'AddProfesseurForm'], 'professeur');
 Router::get('Professeurs/edit/{id}', [new ProfesseursController(), 'EditProfesseur'], 'professeur');
 Router::post('Professeurs/edit', [new ProfesseursController(), 'EditProfesseurSubmit'], 'professeur');
 //Etudiant
-Router::get('etudiant', [new \controllers\Controllerstudent(), 'studentDisplayer']);
+Router::get('student', [new  \controllers\StudentController, 'studentList']);
+Router::get('formaddstudent', [new \controllers\StudentController, 'addStudentForm']);
+Router::post('savestudents', [new \controllers\StudentController, 'SaveStudent']);
+Router::get('studentdelete', [new \controllers\StudentController, 'delete']);
+Router::get('studentupdate', [new \controllers\StudentController, 'formEdit']);
+Router::post('studentupdatesubmit', [new \controllers\StudentController, 'update']);
