@@ -54,8 +54,6 @@ class ProfesseursController
   public function DeleteProfesseur($id)
   {
     $Dp = Professeur::getById($id);
-    '<br';
-    echo $Dp;
     if ($Dp) {
       $Dp->delete();
       redirect('Professeurs');
