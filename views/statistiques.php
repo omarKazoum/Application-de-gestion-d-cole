@@ -86,7 +86,7 @@
                 labels:xValues,
                 datasets:[{
                     backgroundColor:colors,
-                    data:yValues
+                        data:yValues
                 }]
             },
             options: {

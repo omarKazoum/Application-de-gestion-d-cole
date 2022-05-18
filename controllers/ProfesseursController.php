@@ -50,6 +50,7 @@ class ProfesseursController
   public function AddProfesseurForm()
   {
     view('AddProfesseur');
+<<<<<<< Updated upstream
   }
   public function DeleteProfesseur($id)
   {
@@ -61,5 +62,7 @@ class ProfesseursController
       $Dp->delete();
       redirect('Professeurs');
     }
+=======
+>>>>>>> Stashed changes
   }
 }

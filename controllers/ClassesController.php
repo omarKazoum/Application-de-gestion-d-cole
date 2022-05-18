@@ -10,7 +10,11 @@ class ClassesController
 {
     function getAll()
     {
-        view('classes/list', true, ['classes' => SchoolClass::getAll()]);
+        if (isset($_GET['word'])) {
+            view('classes/list', true, ['classes' => SchoolClass::search($_GET['word']), 'isSearching' => true]);
+        } else {
+            view('classes/list', true, ['classes' => SchoolClass::getAll()]);
+        }
     }
     function editForm($id)
     {
@@ -31,8 +35,13 @@ class ClassesController
                 redirect('error');
                 return;
             }
+<<<<<<< Updated upstream
             $c->name = $_POST[Constants::Classes_Col_Name];
             $c->description = $_POST[Constants::Classes_Col_Description] ?? '';
+=======
+            $c->name=$_POST[Constants::Classes_Col_Name];
+            $c->description=$_POST[Constants::Classes_Col_Description] ?? '';
+>>>>>>> Stashed changes
             $c->save();
             redirect('classes?success=class updated successfully !');
         } else {
@@ -50,8 +59,13 @@ class ClassesController
             and InputValidator::validateUserName($_POST[Constants::Classes_Col_Name], Constants::Classes_Col_Name)
         ) {
             $c = new SchoolClass();
+<<<<<<< Updated upstream
             $c->name = $_POST[Constants::Classes_Col_Name];
             $c->description = $_POST[Constants::Classes_Col_Description] ?? '';
+=======
+            $c->name=$_POST[Constants::Classes_Col_Name];
+            $c->description=$_POST[Constants::Classes_Col_Description] ?? '';
+>>>>>>> Stashed changes
             $c->save();
             redirect('classes?success=class added successfully !');
         } else

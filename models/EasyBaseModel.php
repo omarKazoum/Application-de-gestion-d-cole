@@ -187,7 +187,11 @@ abstract class EasyBaseModel
         $statement->execute();
         $entries= array_map('static::parseEntity',$statement->get_result()->fetch_all(MYSQLI_ASSOC));
         if(!$entries)
+<<<<<<< Updated upstream
             return false;
+=======
+            return [];
+>>>>>>> Stashed changes
         return $entries;
      }
 

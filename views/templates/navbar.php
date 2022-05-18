@@ -13,14 +13,15 @@
             <!----Content navbar--->
             <div class="collapse navbar-collapse" id="navmenu">
                 <!--Input search group -->
-                <div class="w- input-group d-flex justify-content-start justify-content-md-end">
-                    <input type="text" class="form-md shadow" placeholder="Search" aria-label="Search"
+                <form class="w- input-group d-flex justify-content-start justify-content-md-end"
+                      action="<?= \core\Router::isRequestFor('classes')?getUrlFor('classes'):'#' ?>">
+                        <input name="word" type="text" class="form-md shadow" placeholder="Search" aria-label="Search"
                         aria-describedby="basic-addon2" id="INPUT_SEARCH">
                     <div class="input-group-append">
-                        <button class="btn " type="button" id="BUTTON_SEARCH"><i id="ICON_SEARCH"
+                        <button class="btn " type="submit" id="BUTTON_SEARCH"><i id="ICON_SEARCH"
                                 class="bi bi-search"></i></button>
                     </div>
-                </div>
+                </form>
             </div>
         </div>
     </nav>
