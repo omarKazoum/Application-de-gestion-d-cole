@@ -36,6 +36,7 @@ Router::post('classes/add', [new \controllers\ClassesController(), 'addSubmit'],
 Router::get('admin/login', [new \controllers\AdminController(), 'initLogin'], 'auth');
 Router::post('admin/login', [new \controllers\AdminController(), 'verifyLogin'], 'auth');
 // parente
+
 Router::get('parents', [new ParentsController, 'listParents']);
 Router::get('formaddparente', [new ParentsController, 'addFormParent']);
 Router::post('formsaveparente', [new ParentsController, 'addParentSave']);
