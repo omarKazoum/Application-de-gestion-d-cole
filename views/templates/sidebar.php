@@ -6,8 +6,7 @@
       </a>
     </li>
     <li class="<?= core\Router::isRequestFor('professeur') ? 'active' : '' ?>">
-      <a href="<?= getUrlFor('Professeurs') ?>" class="btn" data-bs-toggle="tooltip" data-bs-placement="right"
-        title="Professeur">
+      <a href="<?= getUrlFor('Professeurs') ?>" class="btn" data-bs-toggle="tooltip" data-bs-placement="right" title="Professeur">
         <i class="bi bi-briefcase-fill"></i>
       </a>
     </li>
@@ -26,15 +25,19 @@
       </a>
     </li>
     <li class="<?= core\Router::isRequestFor('classes') ? 'active' : '' ?>">
-      <a href="<?= getUrlFor('classes') ?>" class="btn" data-bs-toggle="tooltip" data-bs-placement="right"
-        title="Classes">
+      <a href="<?= getUrlFor('classes') ?>" class="btn" data-bs-toggle="tooltip" data-bs-placement="right" title="Classes">
         <i class="bi bi-house"></i>
       </a>
     </li>
     <li class="<?= core\Router::isRequestFor('stats') ? 'active' : '' ?>">
+<<<<<<< HEAD
+      <a href="<?= getUrlFor('statistiques/') ?>" class="btn" data-bs-toggle="tooltip" data-bs-placement="right" title="statistiques">
+        <i><span class="material-symbols-outlined">bar_chart</span></i>
+=======
       <a href="<?= getUrlFor('statistiques/') ?>" class="btn" data-bs-toggle="tooltip" data-bs-placement="right"
         title="statistiques">
           <i><span class="material-symbols-outlined">bar_chart</span></i>
+>>>>>>> dedf5c9c5ee174e2e78c0e820ed9af5a766e5401
       </a>
     </li>
     <li>
