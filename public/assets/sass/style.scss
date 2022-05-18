@@ -44,7 +44,7 @@ body{
 }
 #SIDE_BAR{
     @include diplay_flex();
-    min-height: 90%;
+    height: 90vh;
     border-radius: 10px !important;
     margin-bottom: 10px;
 }
