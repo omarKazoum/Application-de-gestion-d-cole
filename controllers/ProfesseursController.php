@@ -71,13 +71,32 @@ class ProfesseursController
   public function UpdateProfSave($id)
   {
     $prof = Professeur::getById($id);
-    $prof->Matricule;
-    $prof->Nom_complet;
-    $prof->Genre;
-    $prof->Class_id;
-    $prof->Matiere;
-    $prof->Phone;
-    $prof->save();
-    redirect('Professeurs');
+    $prof->Matricule = $_POST['Matricule'];
+    $prof->Nom_complet = $_POST['Nom_complet'];
+    $prof->Genre = $_POST['Genre'];
+    $prof->Class_id  = $_POST['Class_id'];
+    $prof->Matiere = $_POST['Matiere'];
+    $prof->Phone = $_POST['Phone'];
+    $errors = false;
+    if ($prof->Matricule == "" || $prof->Matricule == NULL) {
+      $errors .= '<li>Check Matricule </li>';
+    } else if ($prof->Nom_complet == "" || $prof->Nom_complet == NULL) {
+      $errors .= '<li>Check Nom complet </li>';
+    } else if ($prof->Genre == "" || $prof->Genre == NULL) {
+      $errors .= '<li>Check Genre </li>';
+    } else if ($prof->Class_id == "" || $prof->Class_id == NULL) {
+      $errors .= '<li>Check Class id </li>';
+    } else if ($prof->Matiere == "" || $prof->Matiere == NULL) {
+      $errors .= '<li>Check Matriere </li>';
+    } else if ($prof->Phone == "" || $prof->Phone == NULL) {
+      $errors .= '<li>Check Phone </li>';
+    }
+    if (!$errors) {
+      $prof->save();
+      redirect('Professeurs?msg=proffessur Updated!');
+    } else {
+
+      view('FormUpdateProfesseur', true, ['error' => $errors]);
+    }
   }
 }
