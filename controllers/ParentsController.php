@@ -27,11 +27,25 @@ class ParentsController
         $p1->job=$_POST['job'];
         $p1->adresse=$_POST['adresse'];
         $p1->phone=$_POST['phone'];
-        if(true){
+        $errors = false;
+        if ($p1->matricule == "" || $p1->matricule == NULL) {
+            $errors .= '<span>Check Matricule </span>';
+        } else if ($p1->nom_complet == "" || $p1->nom_complet == NULL) {
+            $errors .= '<span>Check Nom complet </span>';
+        } else if ($p1->genre == "" || $p1->genre == NULL) {
+            $errors .= '<span>Check Genre </span>';
+        } else if ($p1->job == "" || $p1->job == NULL) {
+            $errors .= '<span>Check Job </span>';
+        } else if ($p1->adresse == "" || $p1->adresse == NULL) {
+            $errors .= '<span>Check Adresse </span>';
+        } else if ($p1->phone == "" || $p1->phone == NULL) {
+            $errors .= '<span>Check Phone </span>';
+        }
+        if(!$errors){
             $p1->save();
-            redirect('parents');
+            redirect('parents?msg=parent added successfully !');
         }else
-        view('formaddparente',true,['errors'=>$errors]);
+            view('formaddparente',true,['errors'=>$errors]);
     }
 
     public function delete()
