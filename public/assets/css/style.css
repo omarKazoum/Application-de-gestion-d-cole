@@ -39,7 +39,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 90%;
+  min-height: 90vh;
   border-radius: 10px !important;
   margin-bottom: 10px;
 }
