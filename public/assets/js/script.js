@@ -2,57 +2,32 @@ var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggl
 var tooltipList = tooltipTriggerList.map(function(tooltipTriggerEl) {
     return new bootstrap.Tooltip(tooltipTriggerEl)
 })
-const username_user= document.getElementById("Username");
-const password_user= document.getElementById("Password");
-const password_verify_user= document.getElementById("Password_verify");
+const Matricule= document.getElementById("Matricule");
+const Nom_complet= document.getElementById("Nom_complet");
+const Genre= document.getElementById("Genre");
+const Class_id= document.getElementById("Class_id");
+const Matiere= document.getElementById("Matiere");
+const Phone= document.getElementById("Phone");
 /*--Function validation signup page---*/
 function validation(){
-    if (username_user.value == "" || username_user.value == null) {
+    if (Matricule.value ==== " " || Matricule.value ===  NULL) {
         
-        alert("Please fill in Username");
+        alert("Check Matricule");
         return false;
-    }else if (password_user.value == "" || password_user.value == null) {
-        alert("Please fill in Password");
+    }else if (Nom_complet.value === " " || Nom_complet.value ===  NULL) {
+        alert("Check Nom Complet");
         return false;
-    }else if (password_verify_user.value == "" || password_verify_user.value == null) {
-        alert("Please fill in Password verify");
+    }else if (Genre.value === " " || Genre.value ===  NULL) {
+        alert("Check Genre");
         return false;
-    }else if (password_user.value == password_verify_user) {
-        alert("Password or Password verify incorrect");
+    }else if (Class_id.value === " " || Class_id.value ===  NULL) {
+        alert("Check Class id");
+        return false;
+    }else if (Matiere.value === " " || Matiere.value ===  NULL) {
+        alert("Check Matiere");
+        return false;
+    }else if (Phone.value === " " || Phone.value ===  NULL) {
+        alert("Check Phone");
         return false;
     }else{return true;}
 }
-
-const username_login = document.getElementById("username_login");
-const password_login = document.getElementById("password_login");
-/*--Function validation login page---*/
-function validation_login() {
-    if (username_login.value == "" || username_login.value == null) {
-        
-        alert("Please fill in Username");
-        return false;
-    }else if (password_login.value == "" || email_contact.value == null) {
-        alert("Please fill in Password");
-        return false;
-    }else{return true;}
-}
-// function for validation
-(function () {
-    'use strict'
-  
-    // Fetch all the forms we want to apply custom Bootstrap validation styles to
-    var forms = document.querySelectorAll('.needs-validation')
-  
-    // Loop over them and prevent submission
-    Array.prototype.slice.call(forms)
-      .forEach(function (form) {
-        form.addEventListener('submit', function (event) {
-          if (!form.checkValidity()) {
-            event.preventDefault()
-            event.stopPropagation()
-          }
-  
-          form.classList.add('was-validated')
-        }, false)
-      })
-  })()

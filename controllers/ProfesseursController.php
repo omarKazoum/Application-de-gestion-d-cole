@@ -26,18 +26,8 @@ class ProfesseursController
     $Prof->Matiere = $_POST['Matiere'];
     $Prof->Phone = $_POST['Phone'];
     $errors = false;
-    if ($this->chekckInput($Prof->Matricule)) {
-      $errors .= '<li>Check Matricule </li>';
-    } else if ($this->chekckInput($Prof->Nom_complet)) {
-      $errors .= '<li>Check Nom complet </li>';
-    } else if ($this->chekckInput($Prof->Genre)) {
-      $errors .= '<li>Check Genre </li>';
-    } else if ($this->chekckInput($Prof->Class_id)) {
-      $errors .= '<li>Check Class id </li>';
-    } else if ($this->chekckInput($Prof->Matriere)) {
-      $errors .= '<li>Check Matriere </li>';
-    } else if ($this->chekckInput($Prof->Phone)) {
-      $errors .= '<li>Check Phone </li>';
+    if (isset($Prof->Matricule) || empty($Prof->Matricule) || isset($Prof->MatrNom_completicule) || empty($Prof->Nom_complet) || isset($Prof->Genre) || empty($Prof->Genre) || isset($Prof->Class_id) || empty($Prof->Class_id) || isset($Prof->Matiere) || empty($Prof->Matiere) || isset($Prof->Phone) || empty($Prof->Phone)) {
+      $errors .= '<li>Check Form </li>';
     }
     if (!$errors) {
       $Prof->save();
@@ -78,18 +68,8 @@ class ProfesseursController
     $prof->Matiere = $_POST['Matiere'];
     $prof->Phone = $_POST['Phone'];
     $errors = false;
-    if ($this->chekckInput($prof->Matricule)) {
-      $errors .= '<li>Check Matricule </li>';
-    } else if ($this->chekckInput($prof->Nom_complet)) {
-      $errors .= '<li>Check Nom complet </li>';
-    } else if ($this->chekckInput($prof->Genre)) {
-      $errors .= '<li>Check Genre </li>';
-    } else if ($this->chekckInput($prof->Class_id)) {
-      $errors .= '<li>Check Class id </li>';
-    } else if ($this->chekckInput($prof->Matriere)) {
-      $errors .= '<li>Check Matriere </li>';
-    } else if ($this->chekckInput($prof->Phone)) {
-      $errors .= '<li>Check Phone </li>';
+    if (isset($prof->Matricule) || empty($prof->Matricule) || isset($prof->MatrNom_complet) || empty($prof->Nom_complet) || isset($prof->Genre) || empty($prof->Genre) || isset($prof->Class_id) || empty($prof->Class_id) || isset($prof->Matiere) || empty($prof->Matiere) || isset($prof->Phone) || empty($prof->Phone)) {
+      $errors .= '<li>Check Form </li>';
     }
     if (!$errors) {
       $prof->save();
@@ -98,9 +78,5 @@ class ProfesseursController
 
       view('FormUpdateProfesseur', true, ['error' => $errors]);
     }
-  }
-  function chekckInput($value): bool
-  {
-    return isset($value) or $value != " " or $value != NULL;
   }
 }

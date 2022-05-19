@@ -32,18 +32,18 @@ Router::get('classes/edit/{id}', [new \controllers\ClassesController(), 'editFor
 Router::post('classes/edit', [new \controllers\ClassesController(), 'editSubmit'], 'classes');
 Router::get('classes/add', [new \controllers\ClassesController(), 'addForm'], 'classes');
 Router::post('classes/add', [new \controllers\ClassesController(), 'addSubmit'], 'classes');
-    Router::setAuthenticationRequired("classes");
+Router::setAuthenticationRequired("classes");
 //admin
 Router::get('admin/login', [new \controllers\AdminController(), 'initLogin'], 'auth');
 Router::post('admin/login', [new \controllers\AdminController(), 'verifyLogin'], 'auth');
 // parente
 
-Router::get('parents',[new ParentsController,'listParents'],'parents');
-Router::get('formaddparente',[new ParentsController,'addFormParent'],'parents');
-Router::post('formsaveparente',[new ParentsController,'addParentSave'],'parents');
-Router::get('parentdelete',[new ParentsController,'delete'],'parents');
-Router::get('parentupdate',[new ParentsController,'formEdit'],'parents');
-Router::post('parentsubmitupdate',[new ParentsController,'update'],'parents');
+Router::get('parents', [new ParentsController, 'listParents'], 'parents');
+Router::get('formaddparente', [new ParentsController, 'addFormParent'], 'parents');
+Router::post('formsaveparente', [new ParentsController, 'addParentSave'], 'parents');
+Router::get('parentdelete', [new ParentsController, 'delete'], 'parents');
+Router::get('parentupdate', [new ParentsController, 'formEdit'], 'parents');
+Router::post('parentsubmitupdate', [new ParentsController, 'update'], 'parents');
 Router::setAuthenticationRequired("parents");
 Router::get('admin/login', [new \controllers\AdminController(), 'initLogin'], 'auth');
 Router::post('admin/login', [new \controllers\AdminController(), 'verifyLogin'], 'auth');
@@ -55,6 +55,7 @@ Router::get('Professeurs/add', [new ProfesseursController(), 'AddProfesseurForm'
 Router::post('Professeurs/edit/{id}', [new ProfesseursController(), 'UpdateProfSave'], 'professeur');
 Router::get('Professeurs/edit/{id}', [new ProfesseursController(), 'UpdateProfesseur'], 'professeur');
 Router::get('Professeurs/delete/{id}', [new ProfesseursController(), 'DeleteProfesseur'], 'professeur');
+//Router::setAuthenticationRequired("professeur");
 //Etudiant
 Router::get('student', [new  \controllers\StudentController, 'studentList']);
 Router::get('formaddstudent', [new \controllers\StudentController, 'addStudentForm']);
@@ -62,4 +63,3 @@ Router::post('savestudents', [new \controllers\StudentController, 'SaveStudent']
 Router::get('studentdelete', [new \controllers\StudentController, 'delete']);
 Router::get('studentupdate', [new \controllers\StudentController, 'formEdit']);
 Router::post('studentupdatesubmit', [new \controllers\StudentController, 'update']);
-
