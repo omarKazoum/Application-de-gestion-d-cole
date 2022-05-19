@@ -65,18 +65,37 @@ class ParentsController
     }
 
     public function update(){
+    
         $p=Parente::getById($_POST['id']);
-
         $p->matricule=$_POST['matricule'];
         $p->nom_complet=$_POST['nom_complet'];
         $p->genre=$_POST['genre'];
         $p->job=$_POST['job'];
         $p->phone=$_POST['phone'];
         $p->adresse=$_POST['adresse'];
+        $error = false;
+        if ($p->matricule == "" || $p->matricule == NULL) {
+            $error .= '<span>Check Matricule </span>';
+        } else if ($p->nom_complet == "" || $p->nom_complet == NULL) {
+            $error .= '<span>Check Nom complet </span>';
+        } else if ($p->genre == "" || $p->genre == NULL) {
+            $error .= '<span>Check Genre </span>';
+        } else if ($p->job == "" || $p->job == NULL) {
+            $error .= '<span>Check Job </span>';
+        } else if ($p->adresse == "" || $p->adresse == NULL) {
+            $error .= '<span>Check Adresse </span>';
+        } else if ($p->phone == "" || $p->phone == NULL) {
+            $error .= '<span>Check Phone </span>';
+        }
+        if (!$error) {
+            $p->save();
+            redirect('parents?up=parent update successfully !');
+        }else
+            view('formupdateparent',true,['error'=>$error]);
 
-        $p->save();
+        
 
-        redirect('parents');
+        
     }
     
 

@@ -16,7 +16,7 @@
             <div class="mb-3 col">
                 <label for="exampleInputEmail1" class="form-label">Matricule</label>
                 <input type="text" name="matricule"  value="<?= $_POST['matricule'] ?? '' ?>" placeholder="Entrer votre matricule"  class="form-control" required>
-                <span class="invalid-feedback">*Please choose a matricule*</span>
+                <!-- <span class="invalid-feedback">*Please choose a matricule*</span> -->
             </div>
             <div class="mb-3 col">
                 <label for="exampleInputPassword1" class="form-label">Nom Complet</label>
@@ -36,7 +36,7 @@
         </div>
         <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">adresse</label>
-            <input type="text" name="adresse" value="<?= $_POST['adresse'] ?? '' ?>" class="form-control" placeholder="Entrer votre adresse" pattern="^[a-zA-Z0-9\s\,\''\-]*$" required>
+            <textarea name="adresse" class="form-control" placeholder="Entrer votre adresse" required><?= $_POST['adresse'] ?? '' ?></textarea>
             <span class="invalid-feedback">*Please choose a Adresse*</span>
         </div>
         <div class="mb-3">
@@ -51,7 +51,7 @@
     </form>
 </div>
 <script>
-    // Example starter JavaScript for disabling form submissions if there are invalid fields
+
 (function () {
   'use strict'
 
