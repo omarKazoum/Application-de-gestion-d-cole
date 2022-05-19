@@ -1,40 +1,68 @@
-<?php if(isset($msg)){?>
-    <div class="alert alert-danger">
-        <ul>
-        <?= $msg ?>
-        </ul>
-    </div>
+<h3 class="mt-2">Update Parent</h3>
+<hr>
+<?php
+    if (isset($error)) { ?>
+        <div class="alert alert-danger col-8 mx-auto">
+            <strong>
+                <?= $error ?>
+            </strong>
+        </div>
 <?php } ?>
+
 <div class="col-8 mx-auto">
-    <form method="POST" action="<?= getUrlFor('parentupdate')?>">
-        <input type="hidden" name="id" value="<?= $par->id?>">
+    <form method="POST" action="<?= getUrlFor('parentsubmitupdate')?>" class="needs-validation" novalidate>
+        <input type="hidden" name="id" value="<?= $par->id??$_POST['id']?>">
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Matricule</label>
-            <input type="text" name="matricule" value="<?= $par->matricule?>" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <input type="text" name="matricule" value="<?= $par->matricule??$_POST['matricule']??''?>" class="form-control" required>
+            <span class="invalid-feedback">*Please choose a matricule*</span>
         </div>
         <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">Nom Complet</label>
-            <input type="text" name="nom_complet" value="<?= $par->nom_complet?>" class="form-control" id="exampleInputPassword1">
+            <input type="text" name="nom_complet" value="<?= $par->nom_complet??$_POST['nom_complet']??''?>" class="form-control" required>
+            <span class="invalid-feedback">*Please choose a username.*</span>
         </div>
         <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">Genre</label>
-            <input type="text" name="genre" value="<?= $par->genre?>" class="form-control" id="exampleInputPassword1">
+            <input type="text" name="genre" value="<?= $par->genre??$_POST['genre']??''?>" class="form-control" pattern="^homme$|^femme$" required>
+            <span class="invalid-feedback">*Please choose a genre*</span>
         </div>
         <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">Job</label>
-            <input type="text" name="job" value="<?= $par->job?>" class="form-control" id="exampleInputPassword1">
+            <input type="text" name="job" value="<?= $par->job??$_POST['job']??''?>" class="form-control" required>
+            <span class="invalid-feedback">*Please choose a job*</span>
         </div>
         <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">adresse</label>
-            <input type="text" name="adresse" value="<?= $par->adresse ?>" class="form-control" id="exampleInputPassword1">
+            <textarea name="adresse" class="form-control" required><?= $par->adresse??$_POST['adresse']??''?></textarea>
+            <span class="invalid-feedback">*Please choose a Adresse*</span>
         </div>
         <div class="mb-3">
             <label class="form-check-label" for="exampleCheck1">Phone</label>
-            <input type="number" name="phone" value="<?= $par->phone?>" class="form-control" id="exampleCheck1">
+            <input type="number" name="phone" value="<?= $par->phone??$_POST['phone']??''?>" class="form-control" required>
+            <span class="invalid-feedback">*Please choose a phone*</span>
         </div>
-        <div class="d-grid">
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </div>
-            
+        <button type="submit" id="btn_addProf" class="btn">Submit</button>
     </form>
 </div>
+<script>
+    (function () {
+        'use strict'
+
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        var forms = document.querySelectorAll('.needs-validation')
+
+        // Loop over them and prevent submission
+        Array.prototype.slice.call(forms)
+            .forEach(function (form) {
+            form.addEventListener('submit', function (event) {
+                if (!form.checkValidity()) {
+                event.preventDefault()
+                event.stopPropagation()
+                }
+
+                form.classList.add('was-validated')
+            }, false)
+            })
+    })()
+</script>

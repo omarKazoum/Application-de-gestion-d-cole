@@ -1,5 +1,5 @@
 <div class="d-flex w-100%">
-  <h3 class="mt-2">Classes list</h3>
+  <h3 class="mt-2">Professeurs list</h3>
   <div class="me-0 mx-auto">
     <a href="<?= getUrlFor('Professeurs/add'); ?>" class="btn btn-primary" id="btn_addProf">Add Prof</a>
   </div>
@@ -34,8 +34,8 @@
       <td><?= $Prof->Matiere ?></td>
       <td><?= $Prof->Phone ?></td>
       <td>
-        <a href="<?= getUrlFor('Professeur/Edit') ?>" class="btn btn-success">Edit</a>
-        <a href="<?= getUrlFor('Professeur/Delete') ?>" class="btn btn-danger">Delete</a>
+        <a href="<?= getUrlFor('Professeurs/edit/' . $Prof->id) ?>" class="btn btn-success">Edit</a>
+        <a href="<?= getUrlFor('Professeurs/delete/' . $Prof->id) ?>" class="btn btn-danger">Delete</a>
       </td>
     </tr>
     <?php } ?>

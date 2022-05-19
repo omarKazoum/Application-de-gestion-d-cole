@@ -15,14 +15,11 @@ $color-white:#FFFFFF;
     justify-content: center;
     align-items: center;
 }
-
-
 *{
     @include null();
 }
 body{
     background-color: $color-background;
-
 }
 #LOGO_WEBSITE{
     width: 110px;
@@ -47,7 +44,7 @@ body{
 }
 #SIDE_BAR{
     @include diplay_flex();
-    min-height: 90%;
+    height: 90vh;
     border-radius: 10px !important;
     margin-bottom: 10px;
 }
@@ -64,7 +61,6 @@ body{
     padding-left: 0px !important;
     margin-bottom: 0px !important;
 }
-
 #SIDE_BAR ul li a i{
    font-size: 1.75rem;
 }
@@ -83,4 +79,35 @@ body{
 .ICON_POSITION{
     position: relative;
     top: 5px;
+}
+#btn_submit_AddProf{
+    background-color: $color-primary;
+    color: $color-black;
+    border: none;
+    box-shadow: inset -5px -5px 20px $color-primary,5px 5px 20px $color-primary;
+    font-size: 16px;
+}
+#btn_addProf{
+<<<<<<< Updated upstream
+    border: none;
+    background-color: $color-primary !important;
+    color: $color-white !important;
+    box-shadow: inset -5px -5px 20px $color-primary,5px 5px 20px $color-primary !important;
+    &:hover{
+        background-color: $color-primary !important;
+        color: $color-white !important;
+        box-shadow: none !important;
+    }
+=======
+    // text-decoration: none;
+    // background-color: $color-primary;
+    // color: $color-white;
+    // border: 2px solid $color-primary;
+    // font-size: 14px;
+    // border-radius: 5px;
+    // &:hover{
+        
+    //     color: $color-black;
+    // }
+>>>>>>> Stashed changes
 }
