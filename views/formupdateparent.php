@@ -11,7 +11,7 @@
 
 <div class="col-8 mx-auto">
     <form method="POST" action="<?= getUrlFor('parentsubmitupdate')?>" class="needs-validation" novalidate>
-        <input type="hidden" name="id" value="<?= $par->id?>">
+        <input type="hidden" name="id" value="<?= $par->id??$_POST['id']?>">
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Matricule</label>
             <input type="text" name="matricule" value="<?= $par->matricule??$_POST['matricule']??''?>" class="form-control" required>

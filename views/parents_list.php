@@ -18,36 +18,37 @@
           </div>';
   }
 ?>
-
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">Matricule</th>
-      <th scope="col">Nom copmlet</th>
-      <th scope="col">Genre</th>
-      <th scope="col">Job</th>
-      <th scope="col">Adresse</th>
-      <th scope="col">Phone</th>
-      <th colspan="2"></th>
-    </tr>
-  </thead>
-  <tbody>
-  <?php foreach($data as $p){?>
-    <tr>
-      <td><?= $p->matricule?></td>
-      <td><?= $p->nom_complet?></td>
-      <td><?= $p->genre?></td>
-      <td><?= $p->job?></td>
-      <td><?= $p->adresse?></td>
-      <td><?= $p->phone?></td>
-      <td>
-        <a href="<?= getUrlFor('parentdelete?id='.$p->id)?>" class="btn btn-danger btn-delete">delete</a>
-        <a href="<?= getUrlFor('parentupdate?id='.$p->id)?>" class="btn btn-success">edit</a>
-      </td>
-    </tr>
-    <?php }?>
-  </tbody>
-</table>
+<div class="overflow-auto">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Matricule</th>
+        <th scope="col"class="text-nowrap">Nom copmlet</th>
+        <th scope="col">Genre</th>
+        <th scope="col">Job</th>
+        <th scope="col">Adresse</th>
+        <th scope="col">Phone</th>
+        <th colspan="2"></th>
+      </tr>
+    </thead>
+    <tbody>
+    <?php foreach($data as $p){?>
+      <tr>
+        <td><?= $p->matricule?></td>
+        <td class="text-nowrap"><?= $p->nom_complet?></td>
+        <td><?= $p->genre?></td>
+        <td><?= $p->job?></td>
+        <td class="text-nowrap"><?= $p->adresse?></td>
+        <td><?= $p->phone?></td>
+        <td class="text-nowrap">
+          <a href="<?= getUrlFor('parentdelete?id='.$p->id)?>" class="btn btn-danger btn-delete">delete</a>
+          <a href="<?= getUrlFor('parentupdate?id='.$p->id)?>" class="btn btn-success">edit</a>
+        </td>
+      </tr>
+      <?php }?>
+    </tbody>
+  </table>
+</div>
 <script>
     
 </script>
