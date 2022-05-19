@@ -120,6 +120,8 @@ abstract class EasyBaseModel
      */
     public static function getById($id)
     {
+        if(empty($id))
+            throw new \Exception("searching id cannot be null or empty!");
         $data = self::queryBy(static::$idColumnName, $id);
         if ($data)
             return self::queryBy(static::$idColumnName, $id)[0];
@@ -133,7 +135,7 @@ abstract class EasyBaseModel
      * @param $tableName
      * @return mixed
      */
-    private static function queryAll()
+    private static function queryAll():array
     {
         self::$db_manager = DBManager::getInstance();
         $sql = "SELECT * FROM " . static::$tableName;;
@@ -144,19 +146,17 @@ abstract class EasyBaseModel
     /**
      * @param $columnName
      * @param $value
-     * @return mixed
+     * @return array
      */
-    public static function queryBy($columnName, $value)
+    public static function queryBy($columnName, $value):array
     {
         self::$db_manager = DBManager::getInstance();
         $sql = "SELECT * FROM " . static::$tableName . " WHERE $columnName=?;";
         $statement = self::$db_manager->getConnection()->prepare($sql);
         $statement->bind_param('s', $value);
         $statement->execute();
-        $entries = array_map('static::parseEntity', $statement->get_result()->fetch_all(MYSQLI_ASSOC));
-        if (!$entries)
-            return false;
-        return $entries;
+        return array_map('static::parseEntity', $statement->get_result()->fetch_all(MYSQLI_ASSOC));
+
     }
 
     protected static function parseEntity(array $data)
@@ -197,9 +197,7 @@ abstract class EasyBaseModel
         $sql .= static::$idColumnName . " LIKE '%" . $word . "%'";
         $statement = self::$db_manager->getConnection()->prepare($sql);
         $statement->execute();
-        $entries = array_map('static::parseEntity', $statement->get_result()->fetch_all(MYSQLI_ASSOC));
-        if (!$entries)
-            return [];
-        return $entries;
+       return array_map('static::parseEntity', $statement->get_result()->fetch_all(MYSQLI_ASSOC));
+
     }
 }
