@@ -32,6 +32,7 @@ Router::get('classes/edit/{id}', [new \controllers\ClassesController(), 'editFor
 Router::post('classes/edit', [new \controllers\ClassesController(), 'editSubmit'], 'classes');
 Router::get('classes/add', [new \controllers\ClassesController(), 'addForm'], 'classes');
 Router::post('classes/add', [new \controllers\ClassesController(), 'addSubmit'], 'classes');
+    Router::setAuthenticationRequired("classes");
 //admin
 Router::get('admin/login', [new \controllers\AdminController(), 'initLogin'], 'auth');
 Router::post('admin/login', [new \controllers\AdminController(), 'verifyLogin'], 'auth');
@@ -43,6 +44,7 @@ Router::post('formsaveparente',[new ParentsController,'addParentSave'],'parents'
 Router::get('parentdelete',[new ParentsController,'delete'],'parents');
 Router::get('parentupdate',[new ParentsController,'formEdit'],'parents');
 Router::post('parentsubmitupdate',[new ParentsController,'update'],'parents');
+Router::setAuthenticationRequired("parents");
 Router::get('admin/login', [new \controllers\AdminController(), 'initLogin'], 'auth');
 Router::post('admin/login', [new \controllers\AdminController(), 'verifyLogin'], 'auth');
 //professeurs
@@ -60,3 +62,4 @@ Router::post('savestudents', [new \controllers\StudentController, 'SaveStudent']
 Router::get('studentdelete', [new \controllers\StudentController, 'delete']);
 Router::get('studentupdate', [new \controllers\StudentController, 'formEdit']);
 Router::post('studentupdatesubmit', [new \controllers\StudentController, 'update']);
+
