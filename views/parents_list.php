@@ -10,6 +10,15 @@
   </div>
 <?php } ?>
 
+<?php
+  if (isset($_GET['up'])) {
+    $up=$_GET['up'];
+    echo '<div class="alert alert-success mt-2">
+            '.$up.'
+          </div>';
+  }
+?>
+
 <table class="table">
   <thead>
     <tr>
