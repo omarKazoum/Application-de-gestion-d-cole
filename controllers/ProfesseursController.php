@@ -26,18 +26,8 @@ class ProfesseursController
     $Prof->Matiere = $_POST['Matiere'];
     $Prof->Phone = $_POST['Phone'];
     $errors = false;
-    if ($Prof->Matricule == "" || $Prof->Matricule == NULL) {
-      $errors .= '<li>Check Matricule </li>';
-    } else if ($Prof->Nom_complet == "" || $Prof->Nom_complet == NULL) {
-      $errors .= '<li>Check Nom complet </li>';
-    } else if ($Prof->Genre == "" || $Prof->Genre == NULL) {
-      $errors .= '<li>Check Genre </li>';
-    } else if ($Prof->Class_id == "" || $Prof->Class_id == NULL) {
-      $errors .= '<li>Check Class id </li>';
-    } else if ($Prof->Matiere == "" || $Prof->Matiere == NULL) {
-      $errors .= '<li>Check Matriere </li>';
-    } else if ($Prof->Phone == "" || $Prof->Phone == NULL) {
-      $errors .= '<li>Check Phone </li>';
+    if (isset($Prof->Matricule) || empty($Prof->Matricule) || isset($Prof->MatrNom_completicule) || empty($Prof->Nom_complet) || isset($Prof->Genre) || empty($Prof->Genre) || isset($Prof->Class_id) || empty($Prof->Class_id) || isset($Prof->Matiere) || empty($Prof->Matiere) || isset($Prof->Phone) || empty($Prof->Phone)) {
+      $errors .= '<li>Check Form </li>';
     }
     if (!$errors) {
       $Prof->save();
@@ -78,18 +68,8 @@ class ProfesseursController
     $prof->Matiere = $_POST['Matiere'];
     $prof->Phone = $_POST['Phone'];
     $errors = false;
-    if ($prof->Matricule == "" || $prof->Matricule == NULL) {
-      $errors .= '<li>Check Matricule </li>';
-    } else if ($prof->Nom_complet == "" || $prof->Nom_complet == NULL) {
-      $errors .= '<li>Check Nom complet </li>';
-    } else if ($prof->Genre == "" || $prof->Genre == NULL) {
-      $errors .= '<li>Check Genre </li>';
-    } else if ($prof->Class_id == "" || $prof->Class_id == NULL) {
-      $errors .= '<li>Check Class id </li>';
-    } else if ($prof->Matiere == "" || $prof->Matiere == NULL) {
-      $errors .= '<li>Check Matriere </li>';
-    } else if ($prof->Phone == "" || $prof->Phone == NULL) {
-      $errors .= '<li>Check Phone </li>';
+    if (isset($prof->Matricule) || empty($prof->Matricule) || isset($prof->MatrNom_complet) || empty($prof->Nom_complet) || isset($prof->Genre) || empty($prof->Genre) || isset($prof->Class_id) || empty($prof->Class_id) || isset($prof->Matiere) || empty($prof->Matiere) || isset($prof->Phone) || empty($prof->Phone)) {
+      $errors .= '<li>Check Form </li>';
     }
     if (!$errors) {
       $prof->save();
