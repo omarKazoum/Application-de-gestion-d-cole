@@ -71,7 +71,7 @@
     </div>
 </div>
 <script>
-    let chartColors=['orange','green'];
+    let chartColors=['#FF8303','green'];
      /**
      * ceartes a bar chart with the give info
      * @param canvasId
@@ -86,7 +86,7 @@
                 labels:xValues,
                 datasets:[{
                     backgroundColor:colors,
-                    data:yValues
+                        data:yValues
                 }]
             },
             options: {
