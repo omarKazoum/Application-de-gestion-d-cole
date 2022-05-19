@@ -26,17 +26,17 @@ class ProfesseursController
     $Prof->Matiere = $_POST['Matiere'];
     $Prof->Phone = $_POST['Phone'];
     $errors = false;
-    if ($Prof->Matricule == "" || $Prof->Matricule == NULL) {
+    if ($this->chekckInput($Prof->Matricule)) {
       $errors .= '<li>Check Matricule </li>';
-    } else if ($Prof->Nom_complet == "" || $Prof->Nom_complet == NULL) {
+    } else if ($this->chekckInput($Prof->Nom_complet)) {
       $errors .= '<li>Check Nom complet </li>';
-    } else if ($Prof->Genre == "" || $Prof->Genre == NULL) {
+    } else if ($this->chekckInput($Prof->Genre)) {
       $errors .= '<li>Check Genre </li>';
-    } else if ($Prof->Class_id == "" || $Prof->Class_id == NULL) {
+    } else if ($this->chekckInput($Prof->Class_id)) {
       $errors .= '<li>Check Class id </li>';
-    } else if ($Prof->Matiere == "" || $Prof->Matiere == NULL) {
+    } else if ($this->chekckInput($Prof->Matriere)) {
       $errors .= '<li>Check Matriere </li>';
-    } else if ($Prof->Phone == "" || $Prof->Phone == NULL) {
+    } else if ($this->chekckInput($Prof->Phone)) {
       $errors .= '<li>Check Phone </li>';
     }
     if (!$errors) {
@@ -78,17 +78,17 @@ class ProfesseursController
     $prof->Matiere = $_POST['Matiere'];
     $prof->Phone = $_POST['Phone'];
     $errors = false;
-    if ($prof->Matricule == "" || $prof->Matricule == NULL) {
+    if ($this->chekckInput($prof->Matricule)) {
       $errors .= '<li>Check Matricule </li>';
-    } else if ($prof->Nom_complet == "" || $prof->Nom_complet == NULL) {
+    } else if ($this->chekckInput($prof->Nom_complet)) {
       $errors .= '<li>Check Nom complet </li>';
-    } else if ($prof->Genre == "" || $prof->Genre == NULL) {
+    } else if ($this->chekckInput($prof->Genre)) {
       $errors .= '<li>Check Genre </li>';
-    } else if ($prof->Class_id == "" || $prof->Class_id == NULL) {
+    } else if ($this->chekckInput($prof->Class_id)) {
       $errors .= '<li>Check Class id </li>';
-    } else if ($prof->Matiere == "" || $prof->Matiere == NULL) {
+    } else if ($this->chekckInput($prof->Matriere)) {
       $errors .= '<li>Check Matriere </li>';
-    } else if ($prof->Phone == "" || $prof->Phone == NULL) {
+    } else if ($this->chekckInput($prof->Phone)) {
       $errors .= '<li>Check Phone </li>';
     }
     if (!$errors) {
@@ -98,5 +98,9 @@ class ProfesseursController
 
       view('FormUpdateProfesseur', true, ['error' => $errors]);
     }
+  }
+  function chekckInput($value): bool
+  {
+    return isset($value) or $value != " " or $value != NULL;
   }
 }

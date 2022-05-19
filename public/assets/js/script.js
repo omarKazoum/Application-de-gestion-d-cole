@@ -36,21 +36,23 @@ function validation_login() {
         return false;
     }else{return true;}
 }
-
-const username_contact = document.getElementById("name");
-const email_contact = document.getElementById("email");
-const address_contact = document.getElementById("Address");
-/*--Function validation AddContact page---*/
-function ValidationContact(){
-    if (username_contact.value == "" || username_contact.value == null) {
-        
-        alert("Please fill in Username");
-        return false;
-    }else if (email_contact.value == "" || email_contact.value == null) {
-        alert("Please fill in Email");
-        return false;
-    }else if (address_contact.value == "" || address_contact.value == null) {
-        alert("Please fill in Address");
-        return false;
-    }else{return true;}
-}
+// function for validation
+(function () {
+    'use strict'
+  
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    var forms = document.querySelectorAll('.needs-validation')
+  
+    // Loop over them and prevent submission
+    Array.prototype.slice.call(forms)
+      .forEach(function (form) {
+        form.addEventListener('submit', function (event) {
+          if (!form.checkValidity()) {
+            event.preventDefault()
+            event.stopPropagation()
+          }
+  
+          form.classList.add('was-validated')
+        }, false)
+      })
+  })()
