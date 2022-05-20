@@ -23,6 +23,7 @@
             <span class="invalid-feedback">*Please choose a username.*</span>
         </div>
         <div class="mb-3">
+                
             <label for="exampleInputPassword1" class="form-label">Genre</label>
             <input type="text" name="genre" value="<?= $par->genre??$_POST['genre']??''?>" class="form-control" pattern="^homme$|^femme$" required>
             <span class="invalid-feedback">*Please choose a genre*</span>
@@ -45,24 +46,4 @@
         <button type="submit" id="btn_addProf" class="btn">Submit</button>
     </form>
 </div>
-<script>
-    (function () {
-        'use strict'
-
-        // Fetch all the forms we want to apply custom Bootstrap validation styles to
-        var forms = document.querySelectorAll('.needs-validation')
-
-        // Loop over them and prevent submission
-        Array.prototype.slice.call(forms)
-            .forEach(function (form) {
-            form.addEventListener('submit', function (event) {
-                if (!form.checkValidity()) {
-                event.preventDefault()
-                event.stopPropagation()
-                }
-
-                form.classList.add('was-validated')
-            }, false)
-            })
-    })()
-</script>
+<script src="<?= js('bootstrapvalidation.js') ?>"></script>
