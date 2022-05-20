@@ -1,7 +1,7 @@
 <div class="bg-white" id="SIDE_BAR">
   <ul>
-    <li>
-      <a href="#" class="btn" data-bs-toggle="tooltip" data-bs-placement="right" title="Apprenant">
+    <li class="<?= core\Router::isRequestFor('student') ? 'active' : '' ?>">
+      <a href="<?= getUrlFor('student') ?>" class="btn" data-bs-toggle="tooltip" data-bs-placement="right" title="student">
         <i class="bi bi-person-fill"></i>
       </a>
     </li>
