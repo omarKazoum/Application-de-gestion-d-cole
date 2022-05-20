@@ -1,5 +1,5 @@
 <?php
-$searchEndpointsLabels = ['admin', 'classes', 'parents', 'professeur', 'students'];
+$searchEndpointsLabels = ['admin', 'classes', 'parents', 'professeur', 'student'];
 $searchActionValue = false;
 foreach ($searchEndpointsLabels as $endpointLabel)
     if (\core\Router::isRequestFor($endpointLabel))
@@ -16,7 +16,7 @@ foreach ($searchEndpointsLabels as $endpointLabel)
             case 'professeur':
                 $searchActionValue = 'Professeurs';
                 break;
-            case 'students':
+            case 'student':
                 $searchActionValue = 'student';
                 break;
             default:
