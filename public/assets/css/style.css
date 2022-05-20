@@ -1,107 +1,17 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Poppins, Arial, Helvetica, sans-serif;
-}
+/* Error: expected "{".
+ *    ,
+ * 92 |     border: none;
+ *    |                 ^
+ *    '
+ *   public\assets\sass\style.scss 92:17  root stylesheet */
 
-body {
-  background-color: #F3F2EF;
+body::before {
+  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
+      "Droid Sans Mono", monospace, monospace;
+  white-space: pre;
+  display: block;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid black;
+  content: 'Error: expected "{".\a    \2577 \a 92 \2502      border: none;\d\a    \2502                  ^\a    \2575 \a   public\\assets\\sass\\style.scss 92:17  root stylesheet';
 }
-
-#LOGO_WEBSITE {
-  width: 110px;
-  height: 43px;
-}
-
-#INPUT_SEARCH {
-  border-radius: 30px 0px 0px 30px;
-  border: none;
-}
-
-#INPUT_SEARCH::placeholder {
-  padding-left: 20px;
-  color: #FF8303;
-}
-
-#BUTTON_SEARCH {
-  border: none;
-  box-shadow: 5px 5px 30px #C0C0C0;
-  padding: 5px 15px;
-  border-radius: 0px 30px 30px 0px;
-}
-
-#ICON_SEARCH {
-  color: #FF8303;
-}
-
-#SIDE_BAR {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 90vh;
-  border-radius: 10px !important;
-  margin-bottom: 10px;
-}
-
-#SIDE_BAR ul li {
-  margin-top: 10px;
-  margin-bottom: 25px;
-  list-style-type: none;
-}
-
-#SIDE_BAR ul li:last-child {
-  margin-bottom: 0px;
-  margin-top: 100px;
-}
-
-#SIDE_BAR ul {
-  padding-left: 0px !important;
-  margin-bottom: 0px !important;
-}
-
-#SIDE_BAR ul li a i {
-  font-size: 1.75rem;
-}
-
-#SIDE_BAR ul li a i span.material-symbols-outlined {
-  font-size: 2rem !important;
-}
-
-#SIDE_BAR ul li a.btn i {
-  border-radius: 10px;
-  padding-left: 5px;
-  color: #000000 !important;
-}
-
-#SIDE_BAR ul li.active a.btn i {
-  color: #FF8303 !important;
-  border-left: 3px #FF8303 solid !important;
-}
-
-.ICON_POSITION {
-  position: relative;
-  top: 5px;
-}
-
-#btn_submit_AddProf {
-  background-color: #FF8303;
-  color: #000000;
-  border: none;
-  box-shadow: inset -5px -5px 20px #FF8303, 5px 5px 20px #FF8303;
-  font-size: 16px;
-}
-
-#btn_addProf {
-  border: none;
-  background-color: #FF8303 !important;
-  color: #FFFFFF !important;
-  box-shadow: inset -5px -5px 20px #FF8303, 5px 5px 20px #FF8303 !important;
-}
-#btn_addProf:hover {
-  background-color: #FF8303 !important;
-  color: #FFFFFF !important;
-  box-shadow: none !important;
-}
-
-/*# sourceMappingURL=style.css.map */
