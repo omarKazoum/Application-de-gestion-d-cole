@@ -1,6 +1,5 @@
 <?php
 namespace utils;
-require_once $_SERVER['DOCUMENT_ROOT'] . "/autoloader.php";
 class SessionManager
 {
     private const  CONNECTED_USER_ID_KEY='connected_user_id';
