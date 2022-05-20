@@ -8,7 +8,12 @@ class ProfesseursController
 {
   public function ListProfesseur()
   {
-    $list_professeurs = Professeur::getAll();
+    $list_professeurs = NULL;
+    if (isset($_GET['word'])) {
+      $list_professeurs = Professeur::search($_GET['word']);
+    } else {
+      $list_professeurs = Professeur::getAll();
+    }
     view('ListProfesseurs', true, ['ListProf' => $list_professeurs]);
   }
   public function AddProfesseur()
@@ -19,12 +24,12 @@ class ProfesseursController
   {
     $Prof = new Professeur();
 
-    $Prof->Matricule = $_POST['Matricule'];
-    $Prof->Nom_complet = $_POST['Nom_complet'];
-    $Prof->Genre = $_POST['Genre'];
-    $Prof->Class_id  = $_POST['Class_id'];
-    $Prof->Matiere = $_POST['Matiere'];
-    $Prof->Phone = $_POST['Phone'];
+    $Prof->Matricule = self::Checkinput($_POST['Matricule']);
+    $Prof->Nom_complet = self::Checkinput($_POST['Nom_complet']);
+    $Prof->Genre = self::Checkinput($_POST['Genre']);
+    $Prof->Class_id  = self::Checkinput($_POST['Class_id']);
+    $Prof->Matiere = self::Checkinput($_POST['Matiere']);
+    $Prof->Phone = self::Checkinput($_POST['Phone']);
     $errors = false;
     if ($Prof->Matricule == "" || $Prof->Matricule == NULL) {
       $errors .= '<li>Check Matricule </li>';
@@ -78,7 +83,7 @@ class ProfesseursController
     $prof->Matiere = self::Checkinput($_POST['Matiere']);
     $prof->Phone = self::Checkinput($_POST['Phone']);
     $errors = false;
-    if (!$this->CheckInput($prof->Matricule) || $prof->Matricule == NULL) {
+    if ($prof->Matricule == "" || $prof->Matricule == NULL) {
       $errors .= '<li>Check Matricule </li>';
     } else if ($prof->Nom_complet == "" || $prof->Nom_complet == NULL) {
       $errors .= '<li>Check Nom complet </li>';
