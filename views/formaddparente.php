@@ -45,7 +45,7 @@
             <span class="invalid-feedback">*Please choose a phone*</span>
         </div>
         <div>
-            <button type="submit" id="btn_addProf" class="btn">Submit</button>
+            <button type="submit" id="btn_addProf" class="btn">Ajouter</button>
         </div>
             
     </form>
