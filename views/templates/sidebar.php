@@ -10,8 +10,8 @@
         <i class="bi bi-briefcase-fill"></i>
       </a>
     </li>
-    <li>
-      <a href="#" class="btn" data-bs-toggle="tooltip" data-bs-placement="right" title="Administrateur">
+    <li class="<?= core\Router::isRequestFor('admin') ? 'active' : '' ?>">
+      <a href="<?= getUrlFor('admin') ?>" class="btn" data-bs-toggle="tooltip" data-bs-placement="right" title="Administrateur">
         <i><span class="material-symbols-outlined ICON_POSITION">
             admin_panel_settings
           </span></i>

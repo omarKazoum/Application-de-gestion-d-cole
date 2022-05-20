@@ -15,10 +15,9 @@ class AdminController
         $email = $_POST['email'];
         $password = $_POST['password'];
         $bar = Admin::getBy('email', $email);
-        var_dump($bar);
-        if ($bar && password_verify($password, password_hash($bar[0]->passwordHash, PASSWORD_DEFAULT))){
+        if (!empty($bar) && password_verify($password, $bar[0]->passwordHash)){
             $_SESSION['admin_obs'] = $bar;
-            redirect("admin/crud");
+            redirect("admin");
         }
         view('login',false, array("err" => true));
     }
@@ -31,16 +30,16 @@ class AdminController
         $foo->nom = $_POST['nom'];
         $foo->prenom = $_POST['prenom'];
         $foo->email = $_POST['email'];
-        $foo->password = $_POST['password'];
+        $foo->password = password_hash($_POST['password'], PASSWORD_DEFAULT);
         $foo->role = $_POST['role'];
         $foo->add();
-        redirect("admin/crud");
+        redirect("admin");
     }
     public function delete(){
         $foo = new Admin();
         $foo->id = $_POST['admin-id'];
         $foo->delete();
-        redirect("admin/crud");
+        redirect("admin");
     }
     public function update(){
         $foo = new Admin();
@@ -51,6 +50,6 @@ class AdminController
         $foo->password = password_hash($_POST['password'], PASSWORD_DEFAULT);
         $foo->role = $_POST['role'];
         $foo->update();
-        redirect("admin/crud");
+        redirect("admin");
     }
 }
