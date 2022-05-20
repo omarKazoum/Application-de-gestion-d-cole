@@ -7,7 +7,7 @@ if (isset($error)) { ?>
 </div>
 
 <?php } ?>
-<form method="POST" action="<?= getUrlFor('Professeurs/add') ?>">
+<form method="POST" action="<?= getUrlFor('Professeurs/add') ?>" onsubmit="return validation()">
   <div class="form-group my-3">
     <label for="Matricule">Matricule</label>
     <input type="text" value="<?= $_POST['Matricule'] ?? '' ?>" name="Matricule" class="form-control" id="Matricule"
