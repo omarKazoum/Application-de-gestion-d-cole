@@ -1,6 +1,6 @@
 <?php
     $searchEndpointsLabels=['admin','classes','parents','professeur','students'];
-    $searchActionValue='';
+    $searchActionValue=false;
     foreach ($searchEndpointsLabels as $endpointLabel)
         if(\core\Router::isRequestFor($endpointLabel))
             switch ($endpointLabel){
@@ -20,7 +20,7 @@
                      $searchActionValue='student';
                             break;
                 default :
-                    $searchActionValue='eerr';
+                    $searchActionValue=false;
             }
 
 ?>
@@ -39,7 +39,7 @@
             <!----Content navbar--->
             <div class="collapse navbar-collapse" id="navmenu">
                 <!--Input search group -->
-                <form class="w- input-group d-flex justify-content-start justify-content-md-end"
+                <form class="w- input-group d-flex justify-content-start justify-content-md-end <?=!$searchActionValue?'d-none':''?>"
                       action="<?= getUrlFor($searchActionValue) ?>">
                         <input name="word" type="text" class="form-md shadow" placeholder="Search" aria-label="Search"
                         aria-describedby="basic-addon2" id="INPUT_SEARCH">
