@@ -4,8 +4,8 @@
 </div>
 <?php if (!$data) { ?>
 <div class="alert alert-danger">
-    no classes found! clcik <a href="<?= getUrlFor('student')?>" class="lick text-decoration-none">here</a> to add a
-    class
+    no student found! clcik <a href="<?= getUrlFor('student')?>" class="lick text-decoration-none">here</a> to add a
+    student
 </div>
 
 <?php } else{?>
