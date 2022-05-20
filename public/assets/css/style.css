@@ -1,19 +1,8 @@
-/* Error: expected "{".
- *    ,
- * 92 |     border: none;
- *    |                 ^
- *    '
- *   public\assets\sass\style.scss 92:17  root stylesheet */
-
-body::before {
-  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
-      "Droid Sans Mono", monospace, monospace;
-  white-space: pre;
-  display: block;
-  padding: 1em;
-  margin-bottom: 1em;
-  border-bottom: 2px solid black;
-  content: 'Error: expected "{".\a    \2577 \a 92 \2502      border: none;\d\a    \2502                  ^\a    \2575 \a   public\\assets\\sass\\style.scss 92:17  root stylesheet';
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Poppins, Arial, Helvetica, sans-serif;
 }
 
 body {
