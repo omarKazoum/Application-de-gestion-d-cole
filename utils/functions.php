@@ -34,12 +34,15 @@ function viewNoSidebar($viewName,...$args){
         $page_content = ob_get_clean();
         require_once '..' . DIRECTORY_SEPARATOR . "views" . DIRECTORY_SEPARATOR . 'templates/template_navbar_only.php';
 }
- function redirect($endpoint){
+ function redirect($endpoint = "/"){
     header('location:'.getUrlFor($endpoint));
     exit();
  }
 function getUrlFor($url_relative_to_root):string{
-    return "http://" . $_SERVER['SERVER_NAME'].':'.$_SERVER['SERVER_PORT'].'/'.$url_relative_to_root;
+    if ($url_relative_to_root[0] == "/")
+        return "http://" . $_SERVER['SERVER_NAME'].':'.$_SERVER['SERVER_PORT'].$url_relative_to_root;
+    else
+        return "http://" . $_SERVER['SERVER_NAME'].':'.$_SERVER['SERVER_PORT'].'/'.$url_relative_to_root;
 }
 function css($filename){
      return getUrlFor('assets/css/'.$filename);

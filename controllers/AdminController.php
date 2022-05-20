@@ -16,7 +16,7 @@ class AdminController
         $bar = Admin::getBy('email', $email);
         if (!empty($bar) && password_verify($password, $bar[0]->passwordHash)){
             SessionManager::getInstance()->login($bar[0]->id);
-            redirect("admin");
+            redirect("/admin");
         }
         view('login',false, array("err" => true));
     }
