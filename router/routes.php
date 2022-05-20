@@ -11,7 +11,8 @@ Router::get('error', function () {
     view('404', false);
 });
 Router::get('/', function () {
-    redirect('login');
+    //redirect('login');
+    viewNoSidebar('landing');
 });
 //for statistiques page
 Router::get('statistiques/', [new \controllers\StatistquesController(), 'view'], 'stats');
