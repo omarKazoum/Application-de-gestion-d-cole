@@ -3,6 +3,7 @@ require_once '../autoloader.php';
 
 use controllers\ParentsController;
 use controllers\ProfesseursController;
+use utils\SessionManager;
 use core\Router;
 
 
@@ -16,15 +17,16 @@ Router::get('/', function () {
 });
 //for statistiques page
 Router::get('statistiques/', [new \controllers\StatistquesController(), 'view'], 'stats');
-
+Router::setAuthenticationRequired('stats');
 //admin auth
 Router::get('login', [new \controllers\AdminController(), 'initLogin']);
 Router::post('login', [new \controllers\AdminController(), 'verifyLogin']);
 //admin crud
 Router::get('admin',[new \controllers\AdminController(),'initCrud'], 'admin');
-Router::post('admin/add',[new \controllers\AdminController(),'add']);
-Router::post('admin/delete',[new \controllers\AdminController(),'delete']);
-Router::post('admin/update',[new \controllers\AdminController(),'update']);
+Router::post('admin/add',[new \controllers\AdminController(),'add'], 'admin');
+Router::post('admin/delete',[new \controllers\AdminController(),'delete'], 'admin');
+Router::post('admin/update',[new \controllers\AdminController(),'update'], 'admin');
+Router::setAuthenticationRequired("admin");
 //Router::post('admin/crud/delete',[new \controllers\AdminController(),'delete']);
 //Router::post('admin/crud/patch',[new \controllers\AdminController(),'patch']);
 Router::get('classes', [new \controllers\ClassesController(), 'getAll'], 'classes');
@@ -56,7 +58,7 @@ Router::get('Professeurs/add', [new ProfesseursController(), 'AddProfesseurForm'
 Router::post('Professeurs/edit/{id}', [new ProfesseursController(), 'UpdateProfSave'], 'professeur');
 Router::get('Professeurs/edit/{id}', [new ProfesseursController(), 'UpdateProfesseur'], 'professeur');
 Router::get('Professeurs/delete/{id}', [new ProfesseursController(), 'DeleteProfesseur'], 'professeur');
-//Router::setAuthenticationRequired("professeur");
+Router::setAuthenticationRequired("professeur");
 //Etudiant
 Router::get('student', [new  \controllers\StudentController, 'studentList'],'student');
 Router::get('formaddstudent', [new \controllers\StudentController, 'addStudentForm'],'student');
