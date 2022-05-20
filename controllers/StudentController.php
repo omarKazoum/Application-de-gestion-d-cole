@@ -6,8 +6,12 @@ use models\Student;
 class StudentController{
 
     public function studentList(){
-        $data=student::getAll();
-        view('student_list',true,['data'=>$data]);
+        if (isset($_GET['word'])) {
+            view('student_list', true, ['data' => student::search($_GET['word'])]);
+        }else{
+            $data=student::getAll();
+            view('student_list',true,['data'=>$data]);
+        }
     }
   
     public function addStudentForm()
