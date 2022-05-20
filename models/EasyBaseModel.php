@@ -127,7 +127,7 @@ abstract class EasyBaseModel
             return self::queryBy(static::$idColumnName, $id)[0];
         return false;
     }
-    public static function getBy($columnName, $value)
+    public static function getBy($columnName, $value):array
     {
         return   self::queryBy($columnName, $value);
     }

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="c03ad0c4-8d67-44c8-aa29-36b013ebde0b" name="testing server" url="http://localhost:9980">
+        <fileTransfer mountedRoot="D:\Youcode\workshoops\Application de gestion d’école\public" accessType="MOUNT" port="0" />
+      </webServer>
+    </option>
+  </component>
+</project>

@@ -21,10 +21,10 @@ Router::get('statistiques/', [new \controllers\StatistquesController(), 'view'],
 Router::get('login', [new \controllers\AdminController(), 'initLogin']);
 Router::post('login', [new \controllers\AdminController(), 'verifyLogin']);
 //admin crud
-Router::get('admin', [new \controllers\AdminController(), 'initCrud']);
-Router::post('admin/add', [new \controllers\AdminController(), 'add']);
-Router::post('admin/delete', [new \controllers\AdminController(), 'delete']);
-Router::post('admin/update', [new \controllers\AdminController(), 'update']);
+Router::get('admin',[new \controllers\AdminController(),'initCrud'], 'admin');
+Router::post('admin/add',[new \controllers\AdminController(),'add']);
+Router::post('admin/delete',[new \controllers\AdminController(),'delete']);
+Router::post('admin/update',[new \controllers\AdminController(),'update']);
 //Router::post('admin/crud/delete',[new \controllers\AdminController(),'delete']);
 //Router::post('admin/crud/patch',[new \controllers\AdminController(),'patch']);
 Router::get('classes', [new \controllers\ClassesController(), 'getAll'], 'classes');
