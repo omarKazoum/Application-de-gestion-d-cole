@@ -10,29 +10,42 @@ class StatistquesController
 {
     function view(){
         //profs bar diagram
-        $profsCount=Professeur::getAll()?count(Professeur::getAll()):0;
+        $proffesseursList=Professeur::getAll();
+        $profsCount=count($proffesseursList);
         //classess bar diagram
-        $classesCount=SchoolClass::getAll()?count(SchoolClass::getAll()):0;
-        //TODO:: continue this
+        $classesList=SchoolClass::getAll();
+        $classesCount=count($classesList);
+        //students
+        $StudentsList=Student::getAll();
+
         //bars diagram
         $classStudentsCounts=array();
-        foreach (SchoolClass::getAll() as $c){
-            $studentsWithClassId=Student::getBy('id_class',$c->id);
-            $classStudentsCounts[]=[$c->name=>$studentsWithClassId?count($studentsWithClassId):0];
+        foreach ($classesList as $c){
+            $studentsWithClassId=count(Student::getBy('id_class',$c->id));
+            $classStudentsCounts[$c->name]=$studentsWithClassId;
         }
-        //$classStudentsCounts=['class1'=>12,'class2'=>22];
         $classStudentsJSArrayString='[';
         $classesNamesJSArrayString='[';
         foreach ($classStudentsCounts as $name => $count){
-            $classStudentsJSArrayString.="$count,";
-            $classesNamesJSArrayString.="'$name',";
+                    $classStudentsJSArrayString .= "$count,";
+                    $classesNamesJSArrayString .= "'$name',";
         }
         $classesNamesJSArrayString.=']';
         $classStudentsJSArrayString.=']';
         //students with type pie chart
-        $studentsFemale=90;
-        $studentsMale=21;
-        $studentsCount=9;
+        $studentsList=Student::getAll();
+        //make this count males only
+        $studentsFemale=0;
+        $studentsMale=0;
+        foreach ($studentsList as $s){
+            if($s->gender=='homme')
+                $studentsFemale++;
+            else
+                $studentsMale++;
+
+        }
+
+        $studentsCount=count($studentsList);
 
         view('statistiques',true,
             ['studentsCount'=>$studentsCount,

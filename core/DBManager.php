@@ -32,20 +32,24 @@ class DBManager
      * @return void
      */
     private function connectToDb(){
-        $this->db_connection = new mysqli(DB_HOST_NAME ,
-            DB_USER_NAME,
-            DB_PASSWORD,
-            DB_NAME
-        );
-        if($this->db_connection->connect_error)
-            die($this->db_connection->connect_error);
-    }
+        try {
+            $this->db_connection = new mysqli(DB_HOST_NAME,
+                DB_USER_NAME,
+                DB_PASSWORD,
+                DB_NAME
+            );
+        }catch (\Exception $e){
+            die("make sure mysql is running !");
+
+        }
+
+        }
 
     /**
      * close all connections when they are no longer needed
      */
     public function __destruct()
-    {
+    {if($this->db_connection!=null)
            mysqli_close($this->db_connection);
 
     }
