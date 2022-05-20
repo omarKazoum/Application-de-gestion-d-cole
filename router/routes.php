@@ -20,7 +20,7 @@ Router::get('statistiques/', [new \controllers\StatistquesController(), 'view'],
 Router::get('login',[new \controllers\AdminController(),'initLogin']);
 Router::post('login',[new \controllers\AdminController(),'verifyLogin']);
 //admin crud
-Router::get('admin',[new \controllers\AdminController(),'initCrud']);
+Router::get('admin',[new \controllers\AdminController(),'initCrud'], 'admin');
 Router::post('admin/add',[new \controllers\AdminController(),'add']);
 Router::post('admin/delete',[new \controllers\AdminController(),'delete']);
 Router::post('admin/update',[new \controllers\AdminController(),'update']);
@@ -60,3 +60,8 @@ Router::post('savestudents', [new \controllers\StudentController, 'SaveStudent']
 Router::get('studentdelete', [new \controllers\StudentController, 'delete']);
 Router::get('studentupdate', [new \controllers\StudentController, 'formEdit']);
 Router::post('studentupdatesubmit', [new \controllers\StudentController, 'update']);
+
+
+function test($foo, $bar = 0, $tar = 0){
+
+}
