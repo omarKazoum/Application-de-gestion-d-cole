@@ -60,8 +60,3 @@ Router::post('savestudents', [new \controllers\StudentController, 'SaveStudent']
 Router::get('studentdelete', [new \controllers\StudentController, 'delete']);
 Router::get('studentupdate', [new \controllers\StudentController, 'formEdit']);
 Router::post('studentupdatesubmit', [new \controllers\StudentController, 'update']);
-
-
-function test($foo, $bar = 0, $tar = 0){
-
-}
