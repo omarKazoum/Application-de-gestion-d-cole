@@ -1,5 +1,5 @@
 <div class="d-flex w-100%">
-  <h3 class="mt-2">Professeurs list</h3>
+  <h3 class="mt-2">Professeurs list <?= isset($_GET['word']) ? 'results of ' . $_GET['word'] : '' ?></h3>
   <div class="me-0 mx-auto">
     <a href="<?= getUrlFor('Professeurs/add'); ?>" class="btn btn-primary" id="btn_addProf">Add Prof</a>
   </div>

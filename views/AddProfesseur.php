@@ -25,7 +25,8 @@ if (isset($error)) { ?>
   </div>
   <div class="form-group my-3">
     <label for="Class_id ">Class id </label>
-    <input type="number" name="Class_id" class="form-control" id="Class_id " aria-describedby="textHelp">
+    <input type="number" value="<?= $_POST['Class_id'] ?? '' ?>" name="Class_id" class="form-control" id="Class_id "
+      aria-describedby="textHelp">
   </div>
   <div class="form-group my-3">
     <label for="Matiere">Matiere</label>
