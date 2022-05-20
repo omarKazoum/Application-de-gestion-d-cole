@@ -2,7 +2,7 @@
     <div class="form-group">
         <label for="matricule">matricule</label>
         <input type="text" name="matricule" class="form-control" id="matricule" aria-describedby="emailHelp" required >
-        <div class="invalid-feedback">this area is required.</div>
+        <div class="invalid-feedback ">this area is required.</div>
     </div>
     <div class="form-group">
         <label for="name">name</label>
