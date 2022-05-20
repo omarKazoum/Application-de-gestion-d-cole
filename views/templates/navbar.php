@@ -1,3 +1,29 @@
+<?php
+    $searchEndpointsLabels=['admin','classes','parents','professeur','students'];
+    $searchActionValue='';
+    foreach ($searchEndpointsLabels as $endpointLabel)
+        if(\core\Router::isRequestFor($endpointLabel))
+            switch ($endpointLabel){
+                case 'admin':
+                     $searchActionValue='admin';
+                    break;
+                case 'classes':
+                     $searchActionValue='classes';
+                            break;
+                case 'parents':
+                     $searchActionValue='parents';
+                            break;
+                case 'professeur':
+                     $searchActionValue='Professeurs';
+                            break;
+                case 'students':
+                     $searchActionValue='student';
+                            break;
+                default :
+                    $searchActionValue='eerr';
+            }
+
+?>
 <nav class="navbar navbar-expand-lg navbar-light bg-light shadow" id="NAVBAR_PAGE_NAVBAR">
         <div class="container">
             <a class="navbar-brand" id="LOGO" href="index.php">
@@ -14,7 +40,7 @@
             <div class="collapse navbar-collapse" id="navmenu">
                 <!--Input search group -->
                 <form class="w- input-group d-flex justify-content-start justify-content-md-end"
-                      action="<?= \core\Router::isRequestFor('classes')?getUrlFor('classes'):'#' ?>">
+                      action="<?= getUrlFor($searchActionValue) ?>">
                         <input name="word" type="text" class="form-md shadow" placeholder="Search" aria-label="Search"
                         aria-describedby="basic-addon2" id="INPUT_SEARCH">
                     <div class="input-group-append">

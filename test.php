@@ -1,4 +1,11 @@
 <?php
-$ar=[];
-$ar=array_map(function($el){return $el."scanned";},$ar);
-var_dump($ar);
+switch ("s"){
+    case "string":
+        echo "test";
+        break;
+    case 'another string':
+        echo "another string ";
+    break;
+    default:
+        echo "not found";
+}
