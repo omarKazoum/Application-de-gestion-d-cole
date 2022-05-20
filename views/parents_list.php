@@ -1,5 +1,5 @@
 <div class="d-flex justify-content-between mt-2">
-    <h3 class="">Parents list</h3>
+    <h3 class="">Parents list <?= isset($_GET['word'])?'results of '.$_GET['word']:'' ?></h3>
     <a href="<?= getUrlFor('formaddparente')?> " id="btn_addProf" class="btn">Add New Parent</a>
 </div>
 <hr>
@@ -19,7 +19,7 @@
   }
 ?>
 <div class="overflow-auto">
-  <table class="table">
+  <table class="table text-nowrap">
     <thead>
       <tr>
         <th scope="col">Matricule</th>
@@ -35,12 +35,12 @@
     <?php foreach($data as $p){?>
       <tr>
         <td><?= $p->matricule?></td>
-        <td class="text-nowrap"><?= $p->nom_complet?></td>
+        <td><?= $p->nom_complet?></td>
         <td><?= $p->genre?></td>
         <td><?= $p->job?></td>
-        <td class="text-nowrap"><?= $p->adresse?></td>
+        <td><?= $p->adresse?></td>
         <td><?= $p->phone?></td>
-        <td class="text-nowrap">
+        <td>
           <a href="<?= getUrlFor('parentdelete?id='.$p->id)?>" class="btn btn-danger btn-delete">delete</a>
           <a href="<?= getUrlFor('parentupdate?id='.$p->id)?>" class="btn btn-success">edit</a>
         </td>
