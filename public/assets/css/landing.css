@@ -1,0 +1,31 @@
+
+@media only screen and (max-width:500px)
+{
+    .reversecol{
+        flex-direction: column !important;
+    }
+    .reverserow{
+        flex-direction:row !important;
+    }
+    .fill{
+        width: 100% !important;
+    }
+    .center{
+       padding-top: 50px !important;
+    }
+    .space{
+        padding-bottom: 12px;
+    }
+    .height{
+       height: auto !important;
+    }
+    .heightdimin{
+        height: 500px !important;
+    }
+}
+@media only screen and (min-width:500px) and (max-width:900px){
+    .font{
+        font-size: 25px !important;
+        width: 70% !important;
+    }
+}
