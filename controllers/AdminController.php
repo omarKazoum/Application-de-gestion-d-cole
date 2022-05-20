@@ -24,7 +24,7 @@ class AdminController
     }
     public function initCrud(){
         $foo = Admin::getAll();
-        view('adminCrud',false, array("admins" => $foo));
+        view('adminCrud',true, array("admins" => $foo));
     }
     public function add(){
         $foo = new Admin();

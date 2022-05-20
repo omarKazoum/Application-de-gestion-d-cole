@@ -44,7 +44,7 @@ body{
 }
 #SIDE_BAR{
     @include diplay_flex();
-    min-height: 90%;
+    height: 90vh;
     border-radius: 10px !important;
     margin-bottom: 10px;
 }
@@ -88,6 +88,17 @@ body{
     font-size: 16px;
 }
 #btn_addProf{
+<<<<<<< Updated upstream
+    border: none;
+    background-color: $color-primary !important;
+    color: $color-white !important;
+    box-shadow: inset -5px -5px 20px $color-primary,5px 5px 20px $color-primary !important;
+    &:hover{
+        background-color: $color-primary !important;
+        color: $color-white !important;
+        box-shadow: none !important;
+    }
+=======
     // text-decoration: none;
     // background-color: $color-primary;
     // color: $color-white;
@@ -98,4 +109,5 @@ body{
         
     //     color: $color-black;
     // }
+>>>>>>> Stashed changes
 }
