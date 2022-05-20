@@ -71,14 +71,14 @@ class ProfesseursController
   public function UpdateProfSave($id)
   {
     $prof = Professeur::getById($id);
-    $prof->Matricule = $_POST['Matricule'];
-    $prof->Nom_complet = $_POST['Nom_complet'];
-    $prof->Genre = $_POST['Genre'];
-    $prof->Class_id  = $_POST['Class_id'];
-    $prof->Matiere = $_POST['Matiere'];
-    $prof->Phone = $_POST['Phone'];
+    $prof->Matricule = self::Checkinput($_POST['Matricule']);
+    $prof->Nom_complet = self::Checkinput($_POST['Nom_complet']);
+    $prof->Genre = self::Checkinput($_POST['Genre']);
+    $prof->Class_id  = self::Checkinput($_POST['Class_id']);
+    $prof->Matiere = self::Checkinput($_POST['Matiere']);
+    $prof->Phone = self::Checkinput($_POST['Phone']);
     $errors = false;
-    if ($prof->Matricule == "" || $prof->Matricule == NULL) {
+    if (!$this->CheckInput($prof->Matricule) || $prof->Matricule == NULL) {
       $errors .= '<li>Check Matricule </li>';
     } else if ($prof->Nom_complet == "" || $prof->Nom_complet == NULL) {
       $errors .= '<li>Check Nom complet </li>';
@@ -96,14 +96,15 @@ class ProfesseursController
       redirect('Professeurs?msg=proffessur Updated!');
     } else {
 
-      view('FormUpdateProfesseur', true, ['error' => $errors]);
+      view('FormUpdateProfesseur', true, ['error' => $errors, 'prof' => $prof]);
     }
   }
 
-  public static function CheckInput($data)
+  public static function Checkinput($data)
   {
-    if ($data == " " || $data == NULL) {
-      return false;
-    } else return true;
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
   }
 }
