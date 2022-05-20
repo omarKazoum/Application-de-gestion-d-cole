@@ -26,16 +26,16 @@ class ProfesseursController
     $Prof->Matiere = $_POST['Matiere'];
     $Prof->Phone = $_POST['Phone'];
     $errors = false;
-    if (isset($Prof->Matricule) || empty($Prof->Matricule) || isset($Prof->MatrNom_completicule) || empty($Prof->Nom_complet) || isset($Prof->Genre) || empty($Prof->Genre) || isset($Prof->Class_id) || empty($Prof->Class_id) || isset($Prof->Matiere) || empty($Prof->Matiere) || isset($Prof->Phone) || empty($Prof->Phone)) {
-      $errors .= '<li>Check Form </li>';
-    }
-    if (!$errors) {
-      $Prof->save();
-      redirect('Professeurs?msg=proffessur added!');
-    } else {
+    // if ($this->CheckInput($Prof->Matricule) || $this->CheckInput($Prof->Nom_complet) || $this->CheckInput($Prof->Genre) || $this->CheckInput($Prof->Class_id) || $this->CheckInput($Prof->Matiere) || $this->CheckInput($Prof->Phone)) {
+    //   $errors .= '<li>Check Form </li>' . $this->data;
+    // }
+    // if (!$errors) {
+    $Prof->save();
+    redirect('Professeurs?msg=proffessur added!');
+    // } else {
 
-      view('AddProfesseur', true, ['error' => $errors]);
-    }
+    view('AddProfesseur', true, ['error' => $errors]);
+    //}
   }
   public function AddProfesseurForm()
   {
@@ -68,15 +68,22 @@ class ProfesseursController
     $prof->Matiere = $_POST['Matiere'];
     $prof->Phone = $_POST['Phone'];
     $errors = false;
-    if (isset($prof->Matricule) || empty($prof->Matricule) || isset($prof->MatrNom_complet) || empty($prof->Nom_complet) || isset($prof->Genre) || empty($prof->Genre) || isset($prof->Class_id) || empty($prof->Class_id) || isset($prof->Matiere) || empty($prof->Matiere) || isset($prof->Phone) || empty($prof->Phone)) {
-      $errors .= '<li>Check Form </li>';
-    }
-    if (!$errors) {
-      $prof->save();
-      redirect('Professeurs?msg=proffessur Updated!');
-    } else {
+    // if ($this->CheckInput($prof->Matricule) || $this->CheckInput($prof->Nom_complet) || $this->CheckInput($prof->Genre) || $this->CheckInput($prof->Class_id) || $this->CheckInput($prof->Matiere) || $this->CheckInput($prof->Phone)) {
+    //   $errors .= '<li> Check </li>' . $this->data;
+    // }
+    // if (!$errors) {
+    $prof->save();
+    redirect('Professeurs?msg=proffessur Updated!');
+    // } else {
 
-      view('FormUpdateProfesseur', true, ['error' => $errors]);
-    }
+    view('FormUpdateProfesseur', true, ['error' => $errors]);
+    // }
+  }
+
+  public static function CheckInput($data)
+  {
+    if ($data == " " || $data == NULL) {
+      return false;
+    } else return true;
   }
 }
