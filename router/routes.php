@@ -67,3 +67,9 @@ Router::get('studentdelete', [new \controllers\StudentController, 'delete'],'stu
 Router::get('studentupdate', [new \controllers\StudentController, 'formEdit'],'student');
 Router::post('studentupdatesubmit', [new \controllers\StudentController, 'update'],'student');
 Router::setAuthenticationRequired("student");
+
+//logout
+Router::get('logout', function(){
+    SessionManager::getInstance()->logOut();
+    redirect("login");
+});
