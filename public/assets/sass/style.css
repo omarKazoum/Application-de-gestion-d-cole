@@ -1,4 +1,133 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: Poppins,Arial, Helvetica, sans-serif;
+}
+
 body {
   background-color: #F3F2EF;
+}
+
+#LOGO_WEBSITE {
+  width: 110px;
+  height: 43px;
+}
+
+#INPUT_SEARCH {
+  border-radius: 30px 0px 0px 30px;
+  border: none;
+}
+
+#INPUT_SEARCH::-webkit-input-placeholder {
+  padding-left: 20px;
+  color: #FF8303;
+}
+
+#INPUT_SEARCH:-ms-input-placeholder {
+  padding-left: 20px;
+  color: #FF8303;
+}
+
+#INPUT_SEARCH::-ms-input-placeholder {
+  padding-left: 20px;
+  color: #FF8303;
+}
+
+#INPUT_SEARCH::placeholder {
+  padding-left: 20px;
+  color: #FF8303;
+}
+
+#BUTTON_SEARCH {
+  border: none;
+  -webkit-box-shadow: 5px 5px 30px #C0C0C0;
+          box-shadow: 5px 5px 30px #C0C0C0;
+  padding: 5px 15px;
+  border-radius: 0px 30px 30px 0px;
+}
+
+#ICON_SEARCH {
+  color: #FF8303;
+}
+
+#SIDE_BAR {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  min-height: 90%;
+  border-radius: 10px !important;
+  margin-bottom: 10px;
+}
+
+#SIDE_BAR ul li {
+  margin-top: 10px;
+  margin-bottom: 25px;
+  list-style-type: none;
+}
+
+#SIDE_BAR ul li:last-child {
+  margin-bottom: 0px;
+  margin-top: 100px;
+}
+
+#SIDE_BAR ul {
+  padding-left: 0px !important;
+  margin-bottom: 0px !important;
+}
+
+#SIDE_BAR ul li a i {
+  font-size: 1.75rem;
+}
+
+#SIDE_BAR ul li a i span.material-symbols-outlined {
+  font-size: 2rem !important;
+}
+
+#SIDE_BAR ul li a.btn i {
+  border-radius: 10px;
+  padding-left: 5px;
+  color: #000000 !important;
+}
+
+#SIDE_BAR ul li.active a.btn i {
+  color: #FF8303 !important;
+  border-left: 3px #FF8303 solid !important;
+}
+
+.ICON_POSITION {
+  position: relative;
+  top: 5px;
+}
+
+#btn_submit_AddProf {
+  background-color: #FF8303;
+  color: #000000;
+  border: none;
+  -webkit-box-shadow: inset -5px -5px 20px #FF8303, 5px 5px 20px #FF8303;
+          box-shadow: inset -5px -5px 20px #FF8303, 5px 5px 20px #FF8303;
+  font-size: 16px;
+}
+
+#btn_addProf {
+  border: none;
+  background-color: #FF8303 !important;
+  color: #FFFFFF !important;
+  -webkit-box-shadow: inset -5px -5px 20px #FF8303, 5px 5px 20px #FF8303 !important;
+          box-shadow: inset -5px -5px 20px #FF8303, 5px 5px 20px #FF8303 !important;
+}
+
+#btn_addProf:hover {
+  background-color: #FF8303 !important;
+  color: #FFFFFF !important;
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
 }
 /*# sourceMappingURL=style.css.map */
