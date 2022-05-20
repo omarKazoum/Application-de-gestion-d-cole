@@ -2,13 +2,20 @@
 use \utils\Constants;
 use \utils\InputValidator;
 ?>
+<style>
+    .btn.btn-primary,.btn.btn-primary:hover{
+        background-color: #FF8303 !important;
+        border-color: #FF8303 !important;
+    }
+
+</style>
 <h3 class="mt-2">
     <?= isset($edit)?'Edit': 'Add class' ?>
 
 </h3>
 <link rel="stylesheet" href="<?= css('validator.css') ?>">
 <form action="<?= isset($edit)?getUrlFor('classes/edit'):getUrlFor('classes/add') ?>" method="post"
-      class="activate-validation"
+      class="activate-validation d-flex flex-column gap-4 w-75 mx-auto"
 >
     <input type="hidden"  name='<?= Constants::Classes_Col_Id?>' value="<?= isset($edit)? $editClass->id:''?>">
     <div class="form-group">

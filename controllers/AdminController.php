@@ -11,13 +11,12 @@ class AdminController
         view('login',false, array());
     }
     public function verifyLogin(){
-        session_start();
         $email = $_POST['email'];
         $password = $_POST['password'];
         $bar = Admin::getBy('email', $email);
         if (!empty($bar) && password_verify($password, $bar[0]->passwordHash)){
-            $_SESSION['admin_obs'] = $bar;
-            redirect("admin");
+            SessionManager::getInstance()->login($bar[0]->id);
+            redirect("/admin");
         }
         view('login',false, array("err" => true));
     }
