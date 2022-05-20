@@ -3,6 +3,7 @@ require_once '../autoloader.php';
 
 use controllers\ParentsController;
 use controllers\ProfesseursController;
+use utils\SessionManager;
 use core\Router;
 
 
@@ -22,9 +23,10 @@ Router::get('login', [new \controllers\AdminController(), 'initLogin']);
 Router::post('login', [new \controllers\AdminController(), 'verifyLogin']);
 //admin crud
 Router::get('admin',[new \controllers\AdminController(),'initCrud'], 'admin');
-Router::post('admin/add',[new \controllers\AdminController(),'add']);
-Router::post('admin/delete',[new \controllers\AdminController(),'delete']);
-Router::post('admin/update',[new \controllers\AdminController(),'update']);
+Router::post('admin/add',[new \controllers\AdminController(),'add'], 'admin');
+Router::post('admin/delete',[new \controllers\AdminController(),'delete'], 'admin');
+Router::post('admin/update',[new \controllers\AdminController(),'update'], 'admin');
+Router::setAuthenticationRequired("admin");
 //Router::post('admin/crud/delete',[new \controllers\AdminController(),'delete']);
 //Router::post('admin/crud/patch',[new \controllers\AdminController(),'patch']);
 Router::get('classes', [new \controllers\ClassesController(), 'getAll'], 'classes');
@@ -64,3 +66,9 @@ Router::post('savestudents', [new \controllers\StudentController, 'SaveStudent']
 Router::get('studentdelete', [new \controllers\StudentController, 'delete']);
 Router::get('studentupdate', [new \controllers\StudentController, 'formEdit']);
 Router::post('studentupdatesubmit', [new \controllers\StudentController, 'update']);
+
+//logout
+Router::get('logout', function(){
+    SessionManager::getInstance()->logOut();
+    redirect("login");
+});

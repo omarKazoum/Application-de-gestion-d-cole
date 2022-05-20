@@ -74,7 +74,7 @@ class Router{
                 if(!in_array(self::$currentRuquestLabel,self::$protctedPages) OR  SessionManager::getInstance()->isLoggedIn()){
                     call_user_func_array($uriConfig['callback'],self::$args);
                 }else
-                    redirect('/');
+                    redirect();
             }
         }
         if(!$foundRout){
