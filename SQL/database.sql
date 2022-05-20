@@ -30,7 +30,7 @@ CREATE TABLE `admins` (
   `password` text NOT NULL,
   `email` varchar(35) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -39,7 +39,7 @@ CREATE TABLE `admins` (
 
 LOCK TABLES `admins` WRITE;
 /*!40000 ALTER TABLE `admins` DISABLE KEYS */;
-INSERT INTO `admins` VALUES (1,'ali','chaayb',0,'$2y$10$duuxPE/7bGNbR8U2hKncyOJjwauB0i49pA/N5P./276vDIY9xNGEy','alichaayb@gmail.com');
+INSERT INTO `admins` VALUES (1,'ali','chaayb',0,'$2y$10$duuxPE/7bGNbR8U2hKncyOJjwauB0i49pA/N5P./276vDIY9xNGEy','alichaayb@gmail.com'),(2,'admin','admin',1,'$2y$10$W3uihT5RYPYjKBEFyvJd/O/LB3MAUUx7B25frIiIfzBl54t/6QWtq','admin@gmail.Com');
 /*!40000 ALTER TABLE `admins` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -55,7 +55,7 @@ CREATE TABLE `class` (
   `name` varchar(50) DEFAULT NULL,
   `description` text DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -64,7 +64,7 @@ CREATE TABLE `class` (
 
 LOCK TABLES `class` WRITE;
 /*!40000 ALTER TABLE `class` DISABLE KEYS */;
-INSERT INTO `class` VALUES (12,'youga','some description');
+INSERT INTO `class` VALUES (12,'youga','some description'),(13,'php','some description for php '),(14,'php','php class'),(15,'php ','php');
 /*!40000 ALTER TABLE `class` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -114,7 +114,7 @@ CREATE TABLE `professeurs` (
   PRIMARY KEY (`id`),
   KEY `Class_id` (`Class_id`),
   CONSTRAINT `professeurs_ibfk_1` FOREIGN KEY (`Class_id`) REFERENCES `class` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -123,6 +123,7 @@ CREATE TABLE `professeurs` (
 
 LOCK TABLES `professeurs` WRITE;
 /*!40000 ALTER TABLE `professeurs` DISABLE KEYS */;
+INSERT INTO `professeurs` VALUES (1,'zaz','az','az',12,'azza','az');
 /*!40000 ALTER TABLE `professeurs` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -145,7 +146,7 @@ CREATE TABLE `student` (
   `email` text NOT NULL,
   `parent_name` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -154,6 +155,7 @@ CREATE TABLE `student` (
 
 LOCK TABLES `student` WRITE;
 /*!40000 ALTER TABLE `student` DISABLE KEYS */;
+INSERT INTO `student` VALUES (1,'qsqs','sqsq','homme',12,1,'qsqsqs','2022-05-04','qsqs@s','qsqs'),(2,'ksdk','some name','femme',14,2,'some adresse','2022-05-11','some@email.com','some name'),(3,'sqd','student x','femme',12,1,'some adresse','2022-05-03','sqs@gmail.com','mohammed ali');
 /*!40000 ALTER TABLE `student` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -166,4 +168,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-05-18 10:14:46
+-- Dump completed on 2022-05-20 16:02:21

@@ -1,7 +1,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
 <h2>Statistiques</h2>
 <div class="row mb-1">
-    <div class="col-12 col-md-4">
+    <div class="col-12 col-md-6 col-lg-4">
         <div class="card">
             <div class="card-body">
                 <div class="card-title">
@@ -15,7 +15,7 @@
         </div>
 
     </div>
-    <div class="col-12 col-md-4">
+    <div class="col-12 col-md-6 col-lg-4">
         <div class="card">
             <div class="card-body">
                 <div class="card-title">
@@ -28,7 +28,7 @@
             </div>
         </div>
     </div>
-    <div class="col-12 col-md-4">
+    <div class="col-12 col-md-12  col-lg-4">
         <div class="card">
             <div class="card-body">
                 <div class="card-title">
@@ -79,7 +79,7 @@
      * @param yValues
      * @param colors
      */
-    const createChart=(canvasId,chartType,xValues,yValues,colors)=>{
+    const createChart=(canvasId,chartType,xValues,yValues,colors,showYLebels=true)=>{
         new Chart(canvasId,{
             type:chartType,
             data:{
@@ -93,7 +93,17 @@
                 legend:{display:false},
                 title:{
                     display:false,
-                }
+                },
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            callback: function(val) {
+                                return Number.isInteger(val) ? val : null;
+                            },
+                            display:showYLebels
+                        }
+                    }],
+                },
             }
         });
     }
@@ -102,7 +112,7 @@
     createChart('professeurs-canvas','bar',['professeurs'],[<?=$profsCount ?>],chartColors)
     createChart('classes-canvas','bar',['Classes'],[<?=$classesCount ?>],chartColors)
     createChart('students-canvas','bar',["étudiants"],[<?= $studentsCount?>],chartColors)
-    createChart('students-type-canvas','pie',['étudiants','étudiantes'],[<?=$studentsMale ?>,<?=$studentsFemale ?>],chartColors)
-    createChart('students-per-classe-canvas','doughnut',<?=$classesNames ?>,<?= $classStudentsCounts ?>,chartColors);
+    createChart('students-type-canvas','pie',['étudiants','étudiantes'],[<?=$studentsMale ?>,<?=$studentsFemale ?>],chartColors,false)
+    createChart('students-per-classe-canvas','doughnut',<?=$classesNames ?>,<?= $classStudentsCounts ?>,chartColors,false);
 
 </script>
