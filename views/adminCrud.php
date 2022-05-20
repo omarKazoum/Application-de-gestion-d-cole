@@ -291,7 +291,7 @@ table.table .avatar {
 <div id="addEmployeeModal" class="modal fade">
 	<div class="modal-dialog">
 		<div class="modal-content">
-			<form method="POST" action="crud/add">
+			<form method="POST" action="/admin/add">
 				<div class="modal-header">						
 					<h4 class="modal-title">Add Admin</h4>
 					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -330,7 +330,7 @@ table.table .avatar {
 <div id="editEmployeeModal" class="modal fade">
 	<div class="modal-dialog">
 		<div class="modal-content">
-		<form method="POST" action="crud/update">
+		<form method="POST" action="/admin/update">
 				<div class="modal-header">						
 					<h4 class="modal-title">Update Admin</h4>
 					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -370,7 +370,7 @@ table.table .avatar {
 <div id="deleteEmployeeModal" class="modal fade">
 	<div class="modal-dialog">
 		<div class="modal-content">
-			<form method="POST" action="crud/delete">
+			<form method="POST" action="/admin/delete">
 				<div class="modal-header">						
 					<h4 class="modal-title">Delete Admin</h4>
 					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
