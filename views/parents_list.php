@@ -40,9 +40,9 @@
         <td><?= $p->job?></td>
         <td><?= $p->adresse?></td>
         <td><?= $p->phone?></td>
-        <td>
+        <td class="d-flex justify-content-end">
           <a href="<?= getUrlFor('parentdelete?id='.$p->id)?>" class="btn btn-danger btn-delete">delete</a>
-          <a href="<?= getUrlFor('parentupdate?id='.$p->id)?>" class="btn btn-success">edit</a>
+          <a href="<?= getUrlFor('parentupdate?id='.$p->id)?>" class="btn btn-success ms-1">edit</a>
         </td>
       </tr>
       <?php }?>
