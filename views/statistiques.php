@@ -71,7 +71,7 @@
     </div>
 </div>
 <script>
-    let chartColors=['#FF8303','green'];
+    let chartColors=['#FF8303','green','#e91e63','#311b92'];
      /**
      * ceartes a bar chart with the give info
      * @param canvasId
@@ -112,7 +112,7 @@
     createChart('professeurs-canvas','bar',['professeurs'],[<?=$profsCount ?>],chartColors)
     createChart('classes-canvas','bar',['Classes'],[<?=$classesCount ?>],chartColors)
     createChart('students-canvas','bar',["étudiants"],[<?= $studentsCount?>],chartColors)
-    createChart('students-type-canvas','pie',['étudiants','étudiantes'],[<?=$studentsMale ?>,<?=$studentsFemale ?>],chartColors,false)
+    createChart('students-type-canvas','pie',['Male','Female'],[<?=$studentsMale ?>,<?=$studentsFemale ?>],chartColors,false)
     createChart('students-per-classe-canvas','doughnut',<?=$classesNames ?>,<?= $classStudentsCounts ?>,chartColors,false);
 
 </script>
