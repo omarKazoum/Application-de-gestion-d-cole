@@ -43,7 +43,7 @@
             <input type="number" name="phone" value="<?= $par->phone??$_POST['phone']??''?>" class="form-control" required>
             <span class="invalid-feedback">*Please choose a phone*</span>
         </div>
-        <button type="submit" id="btn_addProf" class="btn">Submit</button>
+        <button type="submit" id="btn_addProf" class="btn">Modifie</button>
     </form>
 </div>
 <script src="<?= js('bootstrapvalidation.js') ?>"></script>
