@@ -28,10 +28,13 @@ body{
 #INPUT_SEARCH{
     border-radius: 30px 0px 0px 30px;
     border: none;
-}
-#INPUT_SEARCH::placeholder{
-    padding-left: 20px;
-    color: $color-primary;
+    &::placeholder{
+        padding-left: 20px;
+        color: $color-primary;
+    }
+    &:focus{
+        margin-left: 10px;
+    }
 }
 #BUTTON_SEARCH{
     border: none;
@@ -88,26 +91,14 @@ body{
     font-size: 16px;
 }
 #btn_addProf{
-<<<<<<< Updated upstream
-    border: none;
-    background-color: $color-primary !important;
-    color: $color-white !important;
-    box-shadow: inset -5px -5px 20px $color-primary,5px 5px 20px $color-primary !important;
+    text-decoration: none;
+    background-color: $color-primary;
+    color: $color-white;
+    border: 2px solid $color-primary;
+    font-size: 14px;
+    border-radius: 5px;
     &:hover{
-        background-color: $color-primary !important;
-        color: $color-white !important;
-        box-shadow: none !important;
-    }
-=======
-    // text-decoration: none;
-    // background-color: $color-primary;
-    // color: $color-white;
-    // border: 2px solid $color-primary;
-    // font-size: 14px;
-    // border-radius: 5px;
-    // &:hover{
         
-    //     color: $color-black;
-    // }
->>>>>>> Stashed changes
+        color: $color-black;
+    }
 }
