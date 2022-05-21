@@ -13,7 +13,7 @@
 
     <form method="POST" action="<?= getUrlFor('formsaveparente')?>" class="needs-validation" novalidate>
         <div class="row">
-            <div class="mb-3 col">
+            <div class="mb-3 col-lg-6 col-md-6">
                 <label for="exampleInputEmail1" class="form-label">Matricule</label>
                 <input type="text" name="matricule"  value="<?= $_POST['matricule'] ?? '' ?>" placeholder="Entrer votre matricule" pattern="^\w{4,}$" class="form-control" required>
                 <span class="invalid-feedback">*Please choose a matricule*</span>
