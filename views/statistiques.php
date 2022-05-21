@@ -71,13 +71,15 @@
     </div>
 </div>
 <script>
+
     let chartColors=['#FF8303','green','#e91e63','#311b92'];
      /**
-     * ceartes a bar chart with the give info
+     * creates a bar chart with the given parameters
      * @param canvasId
      * @param xValues
      * @param yValues
      * @param colors
+     * @param showYLebels
      */
     const createChart=(canvasId,chartType,xValues,yValues,colors,showYLebels=true)=>{
         new Chart(canvasId,{
@@ -107,8 +109,7 @@
             }
         });
     }
-    const createPieChart=()=>{
-    }
+
     createChart('professeurs-canvas','bar',['professeurs'],[<?=$profsCount ?>],chartColors)
     createChart('classes-canvas','bar',['Classes'],[<?=$classesCount ?>],chartColors)
     createChart('students-canvas','bar',["étudiants"],[<?= $studentsCount?>],chartColors)
