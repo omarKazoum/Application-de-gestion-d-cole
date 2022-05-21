@@ -12,7 +12,6 @@ Router::get('error', function () {
     view('404', false);
 });
 Router::get('/', function () {
-    //redirect('login');
     viewNoSidebar('landing');
 });
 //for statistiques page
@@ -35,10 +34,7 @@ Router::get('classes/edit/{id}', [new \controllers\ClassesController(), 'editFor
 Router::post('classes/edit', [new \controllers\ClassesController(), 'editSubmit'], 'classes');
 Router::get('classes/add', [new \controllers\ClassesController(), 'addForm'], 'classes');
 Router::post('classes/add', [new \controllers\ClassesController(), 'addSubmit'], 'classes');
-//Router::setAuthenticationRequired("classes");
-//admin
-Router::get('admin/login', [new \controllers\AdminController(), 'initLogin'], 'auth');
-Router::post('admin/login', [new \controllers\AdminController(), 'verifyLogin'], 'auth');
+Router::setAuthenticationRequired("classes");
 // parente
 
 Router::get('parents', [new ParentsController, 'listParents'], 'parents');
@@ -48,8 +44,6 @@ Router::get('parentdelete', [new ParentsController, 'delete'], 'parents');
 Router::get('parentupdate', [new ParentsController, 'formEdit'], 'parents');
 Router::post('parentsubmitupdate', [new ParentsController, 'update'], 'parents');
 Router::setAuthenticationRequired("parents");
-Router::get('admin/login', [new \controllers\AdminController(), 'initLogin'], 'auth');
-Router::post('admin/login', [new \controllers\AdminController(), 'verifyLogin'], 'auth');
 //professeurs
 Router::get('Professeurs', [new ProfesseursController(), 'ListProfesseur'], 'professeur');
 Router::get('AddProfesseur', [new ProfesseursController(), 'AddProfesseur'], 'professeur');

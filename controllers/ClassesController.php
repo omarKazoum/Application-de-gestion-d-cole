@@ -11,18 +11,19 @@ class ClassesController
 {
     function getAll()
     {
-            if (isset($_GET['word'])) {
-                view('classes/list', true, ['classes' => SchoolClass::search($_GET['word']), 'isSearching' => true]);
-            } else {
-                view('classes/list', true, ['classes' => SchoolClass::getAll()]);
-            }
+        if (isset($_GET['word'])) {
+            view('classes/list', true, ['classes' => SchoolClass::search($_GET['word']), 'isSearching' => true]);
+        } else {
+            view('classes/list', true, ['classes' => SchoolClass::getAll()]);
+        }
     }
     function editForm($id)
-    {            $schollClass = SchoolClass::getById($id);
-                if (!$schollClass) {
-                    die('no such a class with id ' . $id);
-                }
-                view('classes/classForm', true, ['edit' => true, 'editClass' => $schollClass]);
+    {
+        $schollClass = SchoolClass::getById($id);
+        if (!$schollClass) {
+            die('no such a class with id ' . $id);
+        }
+        view('classes/classForm', true, ['edit' => true, 'editClass' => $schollClass]);
     }
     function editSubmit()
     {

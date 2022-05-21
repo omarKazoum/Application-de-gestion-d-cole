@@ -18,10 +18,12 @@ body {
   border-radius: 30px 0px 0px 30px;
   border: none;
 }
-
 #INPUT_SEARCH::placeholder {
   padding-left: 20px;
   color: #FF8303;
+}
+#INPUT_SEARCH:focus {
+  padding-left: 10px;
 }
 
 #BUTTON_SEARCH {
@@ -39,7 +41,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 90vh;
+  height: 90vh;
   border-radius: 10px !important;
   margin-bottom: 10px;
 }
@@ -93,15 +95,15 @@ body {
 }
 
 #btn_addProf {
-  border: none;
-  background-color: #FF8303 !important;
-  color: #FFFFFF !important;
-  box-shadow: inset -5px -5px 20px #FF8303, 5px 5px 20px #FF8303 !important;
+  text-decoration: none;
+  background-color: #FF8303;
+  color: #FFFFFF;
+  border: 2px solid #FF8303;
+  font-size: 14px;
+  border-radius: 5px;
 }
 #btn_addProf:hover {
-  background-color: #FF8303 !important;
-  color: #FFFFFF !important;
-  box-shadow: none !important;
+  color: #000000;
 }
 
 /*# sourceMappingURL=style.css.map */
