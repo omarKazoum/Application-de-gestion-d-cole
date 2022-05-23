@@ -1,6 +1,6 @@
 <div class="d-flex justify-content-between mt-2">
     <h3 class="">Student list <?= isset($_GET['word']) ? 'results of "' . $_GET['word'].'"' : '' ?></h3>
-    <a href="<?= getUrlFor('formaddstudent')?> " class="btn btn-primary">Add New Student</a>
+    <a href="<?= getUrlFor('formaddstudent')?> " class="btn" id="btn_addProf">Add New Student</a>
 </div>
 <?php if (!$data) { ?>
 <div class="alert alert-danger">
