@@ -41,7 +41,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 90vh;
+  min-height: 90vh;
   border-radius: 10px !important;
   margin-bottom: 10px;
 }
@@ -95,15 +95,15 @@ body {
 }
 
 #btn_addProf {
-  text-decoration: none;
-  background-color: #FF8303;
-  color: #FFFFFF;
-  border: 2px solid #FF8303;
-  font-size: 14px;
-  border-radius: 5px;
+  border: none;
+  background-color: #FF8303 !important;
+  color: #FFFFFF !important;
+  box-shadow: inset -5px -5px 20px #FF8303, 5px 5px 20px #FF8303 !important;
 }
 #btn_addProf:hover {
-  color: #000000;
+  background-color: #FF8303 !important;
+  color: #FFFFFF !important;
+  box-shadow: none !important;
 }
 
 /*# sourceMappingURL=style.css.map */
