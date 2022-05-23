@@ -27,7 +27,7 @@
       <?php require_once "navbar.php" ?>
       <!------Header------>
     </header>
-    <main class="row pt-2">
+    <main class="row pt-2 no-gutters" style="margin: 0 !important;">
       <!--Sidebar of all page-->
       <div class="col-2 col-lg-1">
         <?php require_once "sidebar.php" ?>
