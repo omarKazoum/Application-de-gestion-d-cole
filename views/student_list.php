@@ -9,7 +9,8 @@
 </div>
 
 <?php } else{?>
-<table class="table">
+<div class="overflow-auto">
+    <table class="table text-nowrap">
     <thead>
         <tr>
             <th scope="col">Matricule</th>
@@ -44,3 +45,4 @@
           }?>
     </tbody>
 </table>
+</div>
