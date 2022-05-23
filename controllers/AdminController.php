@@ -21,7 +21,11 @@ class AdminController
         view('login',false, array("err" => true));
     }
     public function initCrud(){
-        $foo = Admin::getAll();
+        if (isset($_GET['word'])){
+            $foo = Admin::search($_GET['word']);
+        } else {
+            $foo = Admin::getAll();
+        }
         view('adminCrud',true, array("admins" => $foo));
     }
     public function add(){
