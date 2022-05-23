@@ -47,12 +47,12 @@
         <input type="email" name="email" value="<?= $stud->email?>" class="form-control" id="email" aria-describedby="emailHelp" required>
         <div class="invalid-feedback">non correct email</div>
     </div>
-    <div class="form-group">
+    <div class="form-group mb-3">
         <label for="parentname">parent name</label>
         <input type="text" name="parent_name" value="<?= $stud->parent_name?>" class="form-control" id="parentname" aria-describedby="emailHelp" required >
         <div class="invalid-feedback">enter a parent name</div>
     </div>
 
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn" id="btn_addProf">Submit</button>
 </form>
 <script src="<?= js('bootstrapvalidation.js')?>"></script>

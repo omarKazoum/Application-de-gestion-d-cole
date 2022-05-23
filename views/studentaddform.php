@@ -39,12 +39,12 @@
         <input type="email" name="email" class="form-control" id="email" aria-describedby="emailHelp" required>
         <div class="invalid-feedback">this area is required</div>
     </div>
-    <div class="form-group">
+    <div class="form-group mb-3">
         <label for="parentname">parent name</label>
         <input type="text" name="parent_name" class="form-control" id="parentname" aria-describedby="emailHelp" required>
         <div class="invalid-feedback">this area is required</div>
     </div>
 
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn" id="btn_addProf">Submit</button>
 </form>
 <script src="<?= js('bootstrapvalidation.js')?>"></script>
